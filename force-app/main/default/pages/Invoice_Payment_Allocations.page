@@ -1,0 +1,51 @@
+<apex:page standardController="Contract_Payment_request__c"  sidebar="false" showheader="false" standardStylesheets="true"  >
+
+  <apex:pageBlock mode="edit" >
+    <apex:pageBlockSection >
+    <apex:form >
+        <apex:panelGrid columns="4"  cellspacing="2" cellpadding="2" width="1000">
+        
+            <apex:outputText style="font-weight:bold" value="Project ID & Award Description" id="Project_Award_ID"/>
+            <apex:outputText style="font-weight:bold" value="Activity ID" id="Activity_ID"/>        
+            <apex:outputText style="font-weight:bold" value="Amount Allocated" id="Amount_Allocated"/>
+            <apex:outputText style="font-weight:bold" value="Total % Allocated" id="Percent_Allocated"/>
+            
+            <apex:outputField value="{!Contract_Payment_request__c.Project_ID_1__r.Name}"/>
+            <apex:outputField value="{!Contract_Payment_request__c.Activity_1__c }"/>
+            <apex:outputField value="{!Contract_Payment_request__c.X1_Amount_Allocated__c }"/>
+            <apex:outputField value="{!Contract_Payment_request__c.RO_Total_Allocated_1__c }"/>
+
+            <apex:outputField value="{!Contract_Payment_request__c.Project_ID_2__r.Name}"/>
+            <apex:outputField value="{!Contract_Payment_request__c.Activity_2__c }"/>
+            <apex:outputField value="{!Contract_Payment_request__c.X2_Amount_Allocated__c }"/>
+            <apex:outputField value="{!Contract_Payment_request__c.RO_Total_Percent_Allocated_2__c }"/>
+
+                           
+            <apex:outputField value="{!Contract_Payment_request__c.Project_ID_3__r.Name}"/>
+            <apex:outputField value="{!Contract_Payment_request__c.Activity_3__c }"/>
+            <apex:outputField value="{!Contract_Payment_request__c.X3_Amount_Allocated__c }"/>
+            <apex:outputField value="{!Contract_Payment_request__c.RO_Total_Percent_Allocated_3__c }"/>
+
+            <apex:outputText style="font-weight:bold" value="" />   
+            <apex:outputText style="font-weight:bold" value="" />   
+            <apex:outputText style="font-weight:bold" value="" />   
+            <apex:outputText style="font-weight:bold" value="" />   
+                                    
+            <apex:outputText style="font-weight:bold" value="" />   
+            <apex:outputText style="font-weight:bold; text-decoration: underline" value="Totals:" />
+            <apex:outputText style="font-weight:bold; text-decoration: underline" value="{0,number,currency}">
+                <apex:param id="PA1" value="{!Contract_Payment_request__c.Total_Amount_Allocated_1_3__c }"/> 
+            </apex:outputText>
+            
+            <apex:outputText style="font-weight:bold; text-decoration: underline"  value="{0, number, 0}%">
+               <apex:param value="{!Contract_Payment_request__c.Total_Allocated_1_3__c}" />
+                 </apex:outputText>
+            
+
+        </apex:panelGrid>          
+         
+</apex:form>
+    </apex:pageBlockSection>
+             
+    </apex:pageBlock>
+</apex:page>

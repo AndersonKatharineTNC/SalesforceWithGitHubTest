@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Annual_Budget__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Should this be excluded from planning for the following fiscal year?</inlineHelpText>
+        <label>Exclude from Budget Planning?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the category that this Capital Improvement falls under. If it does not fit into any of the existing values, contact your Salesforce Administrator to discuss changing this list.</inlineHelpText>
+        <label>Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Trail</fullName>
+                    <default>false</default>
+                    <label>Trail</label>
+                </value>
+                <value>
+                    <fullName>Road and/or Parking Lot</fullName>
+                    <default>false</default>
+                    <label>Road and/or Parking Lot</label>
+                </value>
+                <value>
+                    <fullName>Bridge or Pier</fullName>
+                    <default>false</default>
+                    <label>Bridge or Pier</label>
+                </value>
+                <value>
+                    <fullName>Fence and/or Gate</fullName>
+                    <default>false</default>
+                    <label>Fence and/or Gate</label>
+                </value>
+                <value>
+                    <fullName>Irrigation System</fullName>
+                    <default>false</default>
+                    <label>Irrigation System</label>
+                </value>
+                <value>
+                    <fullName>Residence</fullName>
+                    <default>false</default>
+                    <label>Residence</label>
+                </value>
+                <value>
+                    <fullName>Other Building</fullName>
+                    <default>false</default>
+                    <label>Other Building</label>
+                </value>
+                <value>
+                    <fullName>Well Infrastructure</fullName>
+                    <default>false</default>
+                    <label>Well Infrastructure</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Condition__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The condition of the capital improvement when this record was most recently reviewed.</inlineHelpText>
+        <label>Condition</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Needs repair</fullName>
+                    <default>false</default>
+                    <label>Needs repair</label>
+                </value>
+                <value>
+                    <fullName>Operational</fullName>
+                    <default>false</default>
+                    <label>Operational</label>
+                </value>
+                <value>
+                    <fullName>Good condition</fullName>
+                    <default>false</default>
+                    <label>Good condition</label>
+                </value>
+                <value>
+                    <fullName>Non-operational</fullName>
+                    <default>false</default>
+                    <label>Non-operational</label>
+                </value>
+                <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                    <label>Unknown</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Cost_to_Repair__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Estimate of the cost to repair this improvement and restore it to &apos;Good Condition&apos;</inlineHelpText>
+        <label>Est Cost to Repair</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Additional notes about the Capital Improvement.</inlineHelpText>
+        <label>Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Est_Funds_Spent17__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>An estimate of the funds used to maintain this capital improvement in fiscal year 2017.</inlineHelpText>
+        <label>Est Funds Spent FY17</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Est_Funds_Spent_FY18__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>An estimate of the funds used to maintain this capital improvement in fiscal year 2018.</inlineHelpText>
+        <label>Est Funds Spent FY18</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Property_Interest__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>The specific property that this Capital Improvement is on.</inlineHelpText>
+        <label>Property Interest</label>
+        <referenceTo>Property_Interest__c</referenceTo>
+        <relationshipLabel>Capital Improvements</relationshipLabel>
+        <relationshipName>Capital_Improvements</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Property_Management_Unit__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The Property Management Unit that this Capital Improvement is in.</inlineHelpText>
+        <label>Property Management Unit</label>
+        <referenceTo>Property_Management__c</referenceTo>
+        <relationshipLabel>Capital Improvements</relationshipLabel>
+        <relationshipName>Capital_Improvements</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Capital Improvement</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Property_Management_Unit__c</columns>
+        <columns>Property_Interest__c</columns>
+        <columns>NAME</columns>
+        <columns>Category__c</columns>
+        <columns>Description__c</columns>
+        <columns>Condition__c</columns>
+        <columns>Cost_to_Repair__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Capital Improvement</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Capital Improvements</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>New_Capital_Improvement</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Capital Improvement</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/a3H/e?CF00N6C000000G3c9={!Property_Interest__c.Property_Interest_Group__c}&amp;CF00N6C000000G3c9_lkid={!Property_Interest__c.Property_Interest_GroupId__c}&amp;CF00N6C000000G3cE={!Property_Interest__c.Name}&amp;CF00N6C000000G3cE_lkid={!Property_Interest__c.Id}&amp;retURL=%2F{!Property_Interest__c.Id}</url>
+    </webLinks>
+</CustomObject>

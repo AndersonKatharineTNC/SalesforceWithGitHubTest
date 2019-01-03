@@ -1,0 +1,1 @@
+<apex:page standardController="Bird_Returns_Program_Period__c"><CADragNDrop:FinalComponent parenId="{!$CurrentPage.parameters.Id}" /></apex:page>

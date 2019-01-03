@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Alfalfa</fullName>
+        <default>false</default>
+        <label>Alfalfa</label>
+    </customValue>
+    <customValue>
+        <fullName>Clean, Restore Ditches</fullName>
+        <default>false</default>
+        <label>Clean, Restore Ditches</label>
+    </customValue>
+    <customValue>
+        <fullName>Control Seepage + Boils</fullName>
+        <default>false</default>
+        <label>Control Seepage + Boils</label>
+    </customValue>
+    <customValue>
+        <fullName>Control Vegetation</fullName>
+        <default>false</default>
+        <label>Control Vegetation</label>
+    </customValue>
+    <customValue>
+        <fullName>Corn</fullName>
+        <default>false</default>
+        <label>Corn</label>
+    </customValue>
+    <customValue>
+        <fullName>DWR Phase 1 – Environmental Doc + Permit App</fullName>
+        <default>false</default>
+        <label>DWR Phase 1 – Environmental Doc + Permit App</label>
+    </customValue>
+    <customValue>
+        <fullName>DWR Phase 1 – Planning and Design</fullName>
+        <default>false</default>
+        <label>DWR Phase 1 – Planning and Design</label>
+    </customValue>
+    <customValue>
+        <fullName>DWR Phase 1 – Project Mgmt Admin + Reporting</fullName>
+        <default>false</default>
+        <label>DWR Phase 1 – Project Mgmt Admin + Reporting</label>
+    </customValue>
+    <customValue>
+        <fullName>DWR Phase 1 – Stakeholder Outreach</fullName>
+        <default>false</default>
+        <label>DWR Phase 1 – Stakeholder Outreach</label>
+    </customValue>
+    <customValue>
+        <fullName>Elevator</fullName>
+        <default>false</default>
+        <label>Elevator</label>
+    </customValue>
+    <customValue>
+        <fullName>Environmental</fullName>
+        <default>false</default>
+        <label>Environmental</label>
+    </customValue>
+    <customValue>
+        <fullName>Exterm. Rodents + Repair Damage</fullName>
+        <default>false</default>
+        <label>Exterm. Rodents + Repair Damage</label>
+    </customValue>
+    <customValue>
+        <fullName>Housing/Building</fullName>
+        <default>false</default>
+        <label>Housing/Building</label>
+    </customValue>
+    <customValue>
+        <fullName>Levee Profiles + Cross Section</fullName>
+        <default>false</default>
+        <label>Levee Profiles + Cross Section</label>
+    </customValue>
+    <customValue>
+        <fullName>Mill Repair</fullName>
+        <default>false</default>
+        <label>Mill Repair</label>
+    </customValue>
+    <customValue>
+        <fullName>Non Crop</fullName>
+        <default>false</default>
+        <label>Non Crop</label>
+    </customValue>
+    <customValue>
+        <fullName>Office</fullName>
+        <default>false</default>
+        <label>Office</label>
+    </customValue>
+    <customValue>
+        <fullName>Overhead</fullName>
+        <default>false</default>
+        <label>Overhead</label>
+    </customValue>
+    <customValue>
+        <fullName>Pasture</fullName>
+        <default>false</default>
+        <label>Pasture</label>
+    </customValue>
+    <customValue>
+        <fullName>Plan for Flood Emergencies</fullName>
+        <default>false</default>
+        <label>Plan for Flood Emergencies</label>
+    </customValue>
+    <customValue>
+        <fullName>Professional Services</fullName>
+        <default>false</default>
+        <label>Professional Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Ranch Overhead</fullName>
+        <default>false</default>
+        <label>Ranch Overhead</label>
+    </customValue>
+    <customValue>
+        <fullName>RD 38 P.Install + Maintenance of Levee Gates</fullName>
+        <default>false</default>
+        <label>RD 38 P.Install + Maintenance of Levee Gates</label>
+    </customValue>
+    <customValue>
+        <fullName>RD 38 Special Projects 5 year plan</fullName>
+        <default>false</default>
+        <label>RD 38 Special Projects 5 year plan</label>
+    </customValue>
+    <customValue>
+        <fullName>Remove, Modify encroachments</fullName>
+        <default>false</default>
+        <label>Remove, Modify encroachments</label>
+    </customValue>
+    <customValue>
+        <fullName>Remove Drift dep, litter, debris</fullName>
+        <default>false</default>
+        <label>Remove Drift dep, litter, debris</label>
+    </customValue>
+    <customValue>
+        <fullName>Rep + Shape Patrol + Acc. Roads</fullName>
+        <default>false</default>
+        <label>Rep + Shape Patrol + Acc. Roads</label>
+    </customValue>
+    <customValue>
+        <fullName>Repair, Restore Waterside Slop</fullName>
+        <default>false</default>
+        <label>Repair, Restore Waterside Slop</label>
+    </customValue>
+    <customValue>
+        <fullName>Repair Minor Seepage, Erosion</fullName>
+        <default>false</default>
+        <label>Repair Minor Seepage, Erosion</label>
+    </customValue>
+    <customValue>
+        <fullName>Routine Inspection of Levees</fullName>
+        <default>false</default>
+        <label>Routine Inspection of Levees</label>
+    </customValue>
+    <customValue>
+        <fullName>Shape Levee Crown to Drain</fullName>
+        <default>false</default>
+        <label>Shape Levee Crown to Drain</label>
+    </customValue>
+    <customValue>
+        <fullName>Shasta Big Springs</fullName>
+        <default>false</default>
+        <label>Shasta Big Springs</label>
+    </customValue>
+    <customValue>
+        <fullName>Shop/Equipment</fullName>
+        <default>false</default>
+        <label>Shop/Equipment</label>
+    </customValue>
+    <customValue>
+        <fullName>Supervision</fullName>
+        <default>false</default>
+        <label>Supervision</label>
+    </customValue>
+    <customValue>
+        <fullName>TNC Cost</fullName>
+        <default>false</default>
+        <label>TNC Cost</label>
+    </customValue>
+    <customValue>
+        <fullName>Underwater Surveys</fullName>
+        <default>false</default>
+        <label>Underwater Surveys</label>
+    </customValue>
+    <customValue>
+        <fullName>Wheat/ Triticale</fullName>
+        <default>false</default>
+        <label>Wheat/ Triticale</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <description>Quickbooks classes for CF&amp;R</description>
+    <masterLabel>Quickbooks Class</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

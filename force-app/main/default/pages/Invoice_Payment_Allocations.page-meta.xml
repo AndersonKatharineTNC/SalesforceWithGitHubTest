@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>34.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Invoice payment allocations related to the Contract Invoice Payments page layouts to display Project ID and budget allocations.</description>
+    <label>Invoice Payment Allocations</label>
+</ApexPage>

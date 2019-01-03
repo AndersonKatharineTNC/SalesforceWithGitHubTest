@@ -1,0 +1,1 @@
+<apex:page standardController="Expense_Income__c"><CADragNDrop:FinalComponent parenId="{!$CurrentPage.parameters.Id}" /></apex:page>

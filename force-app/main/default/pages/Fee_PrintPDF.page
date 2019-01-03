@@ -1,0 +1,84 @@
+<apex:page standardController="Fee_Land_Inspection__c" renderAs="pdf">
+    <!--this object and related pages are no longer used as of 2014.-->
+    <apex:pageBlock title="{!$ObjectType.Fee_Land_Inspection__c.label} Report">
+        <apex:pageBlockButtons >
+        <apex:form >
+            <apex:commandButton action="{!save}" id="saveButton" value="Save" style="display:none"/>
+            <apex:commandButton action="{!edit}" id="editButton" value="Edit"/>
+            <apex:commandButton action="{!delete}" id="deleteButton" value="Delete"/>
+            <apex:commandButton action="{!cancel}" id="cancelButton" value="Cancel" style="display:none"/>
+            <apex:commandButton action="{!URLFOR($Action.Fee_Land_Inspection__c.Clone,Fee_Land_Inspection__c.id)}" id="cloneButton" value="Clone"/>
+            <apex:commandButton action="{!URLFOR($Action.Fee_Land_Inspection__c.Help,Fee_Land_Inspection__c.id)}" id="helpButton" value="Help"/>
+        </apex:form>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection showHeader="True" title="I. Information" columns="1">
+        </apex:pageBlockSection>
+        <apex:form >
+        <apex:pageBlockSection columns="1">
+           <apex:outputField value="{!Fee_Land_Inspection__c.Property_Management_Unit__c}"/>          
+            <apex:outputField value="{!Fee_Land_Inspection__c.Ecoregion__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.CLS_Tracts__c}"/>            
+            <apex:outputField value="{!Fee_Land_Inspection__c.Date_of_Last_Inspection__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Is_this_a_multi_tract_Management_Unit__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Changes_to_Management_Unit__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Description_of_Changes_to_Unit__c}"/>
+        <apex:pageBlockSectionItem />
+        </apex:pageBlockSection>
+        </apex:form>
+        <apex:pageBlockSection showHeader="true" title="II. Document and other Review" columns="1">            
+        </apex:pageBlockSection>
+        <apex:form >
+        <apex:pageBlockSection showHeader="true" title="A. Conservation Values and Threats" columns="1">
+            <apex:outputField value="{!Fee_Land_Inspection__c.Conservation_Values_and_Threats__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Conservation_Materials_Complete__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Incomplete_Conservation_Materials__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection showHeader="true" title="B. Third Party Rights" columns="1">
+            <apex:outputField value="{!Fee_Land_Inspection__c.Third_Party_Rights__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Are_3rd_Party_Rights_Materials_Complete__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Incomplete_Third_Party_Rights_Materials__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection showHeader="true" title="C. Other Restrictions" columns="1">
+            <apex:outputField value="{!Fee_Land_Inspection__c.Other_restrictions__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Are_Other_Restriction_Materials_Complete__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Incomplete_Other_Restrictions_Materials__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection showHeader="true" title="D. TNC Obligations/Engagements" columns="1">
+            <apex:outputField value="{!Fee_Land_Inspection__c.TNC_obligations__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Are_Obligation_Materials_Complete__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Incomplete_TNC_Obligation_Materials__c}"/>
+        </apex:pageBlockSection>
+        </apex:form>
+        <apex:pageBlockSection showHeader="true" title="III. On Site Visit" columns="1">             
+        </apex:pageBlockSection>
+            <apex:pageBlockSection >
+            <apex:outputField value="{!Fee_Land_Inspection__c.Inspection_Description__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Catastrophic_events__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Catastrophic_event_comments__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Restoration_activities__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Are_they_consistent_with_TNC_rights__c}"/>
+        </apex:pageBlockSection>
+        <apex:PageBlockSection columns="1">
+            <apex:outputField value="{!Fee_Land_Inspection__c.Legal_Status_Comments__c}"/>
+            </apex:pageBlockSection>
+        <apex:pageBlockSection showHeader="true" title="IV. Inspection Assessment" columns="1">
+            <apex:outputField value="{!Fee_Land_Inspection__c.Areas_or_Conditions_that_Need_Attention__c}"/>
+            <p><b>Certification Statement:</b>
+            <br><b>The person reporting on a fee land inspection CERTIFIES that conditions and activities observed or known to him/her on this property are consistent with the needs, plans and goals TNC has for this land, subject to any outstanding needs or issues identified above.</b></br></p>
+            <apex:form >
+            <apex:pageBlockSection columns="1">
+            
+            <apex:outputField value="{!Fee_Land_Inspection__c.Certification__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Date_of_Visit__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Certified_By__c}"/>
+            </apex:pageBlockSection>
+            </apex:form>
+            </apex:pageBlockSection>
+        <apex:form >
+
+        </apex:form>
+           </apex:pageBlock>
+      <apex:pageBlock >
+            <apex:relatedList list="NotesAndAttachments"/>
+      </apex:pageBlock>   
+</apex:page>

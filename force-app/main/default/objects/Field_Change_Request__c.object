@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object is used to store requests to the geodesign team regarding changes to the fields that will be participating in BirdReturns program. There are often changes made based on location, water depth, bird response etc. both during bidding and during the program period, and the geodesign team needs to update the GIS maps for those bids to show the fields that will actually be used.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Bid__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Bid record where this change should happen. If the contract record for this bid has already been created, please make the change to the &apos;Field(s) Selected&apos; field there.</inlineHelpText>
+        <label>Bid</label>
+        <referenceTo>Bid__c</referenceTo>
+        <relationshipLabel>Field Change Requests</relationshipLabel>
+        <relationshipName>Field_Change_Requests</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Change_Requested__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the change that you are requesting to the &apos;Field(s) Selected&apos; field and the GIS maps?</inlineHelpText>
+        <label>Change Requested</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>For GIS staff only - has this change been made to the GIS Maps and has the &apos;Field(s) Selected&apos; field been updated to reflect the change?</inlineHelpText>
+        <label>Completed?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Contract record where these requested changes should be made.</inlineHelpText>
+        <label>Contract</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Field Change Requests</relationshipLabel>
+        <relationshipName>Field_Change_Requests</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Reason__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Why are you requesting this change?</inlineHelpText>
+        <label>Reason</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <label>Field Change Request</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>FCR-{00000}</displayFormat>
+        <label>Field Change Request Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Field Change Requests</pluralLabel>
+    <recordTypes>
+        <fullName>Bid</fullName>
+        <active>true</active>
+        <label>Bid</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Contract</fullName>
+        <active>true</active>
+        <description>Request created from a contract record</description>
+        <label>Contract</label>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>New_Field_Change_Request_Bid</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Field Change Request</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/a3c/e?CF00Na000000B8oqp={!Bid__c.Name}&amp;CF00Na000000B8oqp_lkid={!Bid__c.Id}&amp;retURL=%2F{!Bid__c.Id}&amp;RecordType=012a0000001ZWCu&amp;ent=01Ia0000002iiBx</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Field_Change_Request_Contract</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Field Change Request</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/a3c/e?CF00Na000000B8oqu={!Contract.Contact_Name__c}
+&amp;CF00Na000000B8oqu_lkid={!Contract.Id}
+&amp;CF00Na000000B8oqp={!Contract.BirdReturns_Bid_Name__c}
+&amp;CF00Na000000B8oqp_lkid={!Contract.BirdReturns_Bid_NameId__c}
+&amp;retURL=%2F{!Contract.Id}&amp;RecordType=012a0000001ZWCz&amp;ent=01Ia0000002iiBx</url>
+    </webLinks>
+</CustomObject>

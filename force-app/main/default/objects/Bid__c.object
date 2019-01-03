@@ -1,0 +1,1645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Record that tracks bid information. Created for Migratory Bird Initiative team for their reverse auction work in 2013.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of Contracting Party. Must be an account with record type &quot;Accounts (Partners/Vendors)&quot;.</inlineHelpText>
+        <label>Account</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Value does not exist or does not match filter criteria. Do not select the contact&apos;s household account.</errorMessage>
+            <filterItems>
+                <field>Account.RecordType.Id</field>
+                <operation>equals</operation>
+                <value>012300000009Sp9</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.Type</field>
+                <operation>notEqual</operation>
+                <value>Account Representative</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Bids</relationshipLabel>
+        <relationshipName>Bids</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Acreage_Difference__c</fullName>
+        <externalId>false</externalId>
+        <formula>Acres__c  -  GIS_Acres__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Difference between bid acres and GIS acres.</inlineHelpText>
+        <label>Acreage Difference</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Acres_Percentage_Difference__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(GIS_Acres__c&gt;0,((Acres__c - GIS_Acres__c )/ GIS_Acres__c),1)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>% difference between Bid Acres and GIS Acres.</inlineHelpText>
+        <label>Acreage Difference %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Acres_Unenrolled_Field_s__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Unenrolled fields are used as control fields, to measure the efficacy of the program. Number of acres in available unenrolled fields as reported by the bidder.</inlineHelpText>
+        <label>Number of Acres in Unenrolled Field(s)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Acres__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText># Acres entered into the bid form by the bidder. Do not change. If # of acres changes when creating the contract, use the &apos;adjusted acres&apos; field on the contract record to reflect this change.</inlineHelpText>
+        <label>Bid Acres</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Adjusted_Acres__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Reduced acreage based on changes agreed upon before the field season. Copied to contract when it is created.</inlineHelpText>
+        <label>Adjusted Acres</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bid_APNs__c</fullName>
+        <description>Used for FY14 but requested to be removed for FY15. Not to be used or referenced.</description>
+        <externalId>false</externalId>
+        <label>XDeprecated: Bid APNs</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Bid_Auto_Number__c</fullName>
+        <description>Used in WFR formula to set the bid name. Auto-named because they are being created by an external system (form assembly).</description>
+        <displayFormat>{000}</displayFormat>
+        <externalId>false</externalId>
+        <label>Bid Auto-Number</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>Bid_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Migratory Bird contact record type. A contact can submit multiple bids on multiple properties he/she owns.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Primary contact for the bid. Can be the same person as the Contract Representative. A contact can submit multiple bids on multiple properties he/she owns.</inlineHelpText>
+        <label>Bid Contact</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.RecordType.Id</field>
+                <operation>equals</operation>
+                <value>012a00000018FX4</value>
+            </filterItems>
+            <infoMessage>Select the conservation contact that will submit the bid.</infoMessage>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Bids</relationshipLabel>
+        <relationshipName>Bids</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Bid_Mapped__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box once bid mapping is final.</inlineHelpText>
+        <label>Bid Mapped</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Bid_Notes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Generic internal notes on the bid. This info is copied to the contract record when it&apos;s created.</inlineHelpText>
+        <label>Bid Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Bid_Processed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Because bids are automatically created by Form Assembly, this field helps to identify bids that have not yet been reviewed by program staff, to help from letting them fall through the cracks.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This bid has been fully reviewed by Program Staff.</inlineHelpText>
+        <label>Bid Processed</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Bid_Stage__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Deprecating, no longer do multiple stages of bidding.</inlineHelpText>
+        <label>XDeprecated: Bid Stage</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Round 1 - Verified</fullName>
+                    <default>false</default>
+                    <label>Round 1 - Verified</label>
+                </value>
+                <value>
+                    <fullName>Round 1 - Notified</fullName>
+                    <default>false</default>
+                    <label>Round 1 - Notified</label>
+                </value>
+                <value>
+                    <fullName>Round 2 - Verified</fullName>
+                    <default>false</default>
+                    <label>Round 2 - Verified</label>
+                </value>
+                <value>
+                    <fullName>Round 2 - Notified</fullName>
+                    <default>false</default>
+                    <label>Round 2 - Notified</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Bid_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Deprecating and moving to Program Period...bids are always competitive or non-competitive on the program period level.</inlineHelpText>
+        <label>XDeprecated: Bid Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Competitive Bid</fullName>
+                    <default>false</default>
+                    <label>Competitive Bid</label>
+                </value>
+                <value>
+                    <fullName>Non-Competitive Bid</fullName>
+                    <default>false</default>
+                    <label>Non-Competitive Bid</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contract_Representative__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Individual authorized to execute a contract on behalf of the business or organization. If the Bid Contact is authorized, enter their name here as well.</inlineHelpText>
+        <label>Contract Representative</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.RecordType.Id</field>
+                <operation>equals</operation>
+                <value>012a00000018FX4</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Bids (Contract Representative)</relationshipLabel>
+        <relationshipName>Bids1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the contract record for this bid.</inlineHelpText>
+        <label>Contract</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Bids</relationshipLabel>
+        <relationshipName>Bids</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contracting_Party_Type__c</fullName>
+        <description>The Form Assembly bid form has this field. Identifies the type of account that is making the bid (individual, llc, etc.) Different from the Account Type field on the Account, so the info is stored here.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Individual, LLC, Corporation, etc.</inlineHelpText>
+        <label>Contracting Party Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Corporation</fullName>
+                    <default>false</default>
+                    <label>Corporation</label>
+                </value>
+                <value>
+                    <fullName>Partnership</fullName>
+                    <default>false</default>
+                    <label>Partnership</label>
+                </value>
+                <value>
+                    <fullName>LLC</fullName>
+                    <default>false</default>
+                    <label>LLC</label>
+                </value>
+                <value>
+                    <fullName>Individual</fullName>
+                    <default>false</default>
+                    <label>Individual</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contracting_Party__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contract_Representative__r.Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Business or organization entity that will enter into a contract with TNC. The entity is based off of the &quot;Account Name&quot; field associated with the Contract Representative Contact.</inlineHelpText>
+        <label>XDeprecated: Contracting Party</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Controls_Notes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Unenrolled fields are used as control fields, to measure the efficacy of the program.</inlineHelpText>
+        <label>Unenrolled Field(s) Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Controls__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Unenrolled fields are used as control fields, to measure the efficacy of the program. Indicates if the bidder has unenrolled fields available.</inlineHelpText>
+        <label>Unenrolled Field(s)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>County_Global__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>County/Counties that the account&apos;s farm is in.</inlineHelpText>
+        <label>County</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>County</valueSetName>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>County__c</fullName>
+        <description>Changed to Global Picklist; Deprecating.</description>
+        <externalId>false</externalId>
+        <label>XDeprecated: County</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Alameda</fullName>
+                    <default>false</default>
+                    <label>Alameda</label>
+                </value>
+                <value>
+                    <fullName>Alpine</fullName>
+                    <default>false</default>
+                    <label>Alpine</label>
+                </value>
+                <value>
+                    <fullName>Amador</fullName>
+                    <default>false</default>
+                    <label>Amador</label>
+                </value>
+                <value>
+                    <fullName>Butte</fullName>
+                    <default>false</default>
+                    <label>Butte</label>
+                </value>
+                <value>
+                    <fullName>Calaveras</fullName>
+                    <default>false</default>
+                    <label>Calaveras</label>
+                </value>
+                <value>
+                    <fullName>Colusa</fullName>
+                    <default>false</default>
+                    <label>Colusa</label>
+                </value>
+                <value>
+                    <fullName>Contra Costa</fullName>
+                    <default>false</default>
+                    <label>Contra Costa</label>
+                </value>
+                <value>
+                    <fullName>Del Norte</fullName>
+                    <default>false</default>
+                    <label>Del Norte</label>
+                </value>
+                <value>
+                    <fullName>El Dorado</fullName>
+                    <default>false</default>
+                    <label>El Dorado</label>
+                </value>
+                <value>
+                    <fullName>Fresno</fullName>
+                    <default>false</default>
+                    <label>Fresno</label>
+                </value>
+                <value>
+                    <fullName>Glenn</fullName>
+                    <default>false</default>
+                    <label>Glenn</label>
+                </value>
+                <value>
+                    <fullName>Humboldt</fullName>
+                    <default>false</default>
+                    <label>Humboldt</label>
+                </value>
+                <value>
+                    <fullName>Imperial</fullName>
+                    <default>false</default>
+                    <label>Imperial</label>
+                </value>
+                <value>
+                    <fullName>Inyo</fullName>
+                    <default>false</default>
+                    <label>Inyo</label>
+                </value>
+                <value>
+                    <fullName>Kern</fullName>
+                    <default>false</default>
+                    <label>Kern</label>
+                </value>
+                <value>
+                    <fullName>Kings</fullName>
+                    <default>false</default>
+                    <label>Kings</label>
+                </value>
+                <value>
+                    <fullName>Lake</fullName>
+                    <default>false</default>
+                    <label>Lake</label>
+                </value>
+                <value>
+                    <fullName>Lassen</fullName>
+                    <default>false</default>
+                    <label>Lassen</label>
+                </value>
+                <value>
+                    <fullName>Los Angeles</fullName>
+                    <default>false</default>
+                    <label>Los Angeles</label>
+                </value>
+                <value>
+                    <fullName>Madera</fullName>
+                    <default>false</default>
+                    <label>Madera</label>
+                </value>
+                <value>
+                    <fullName>Marin</fullName>
+                    <default>false</default>
+                    <label>Marin</label>
+                </value>
+                <value>
+                    <fullName>Mariposa</fullName>
+                    <default>false</default>
+                    <label>Mariposa</label>
+                </value>
+                <value>
+                    <fullName>Mendocino</fullName>
+                    <default>false</default>
+                    <label>Mendocino</label>
+                </value>
+                <value>
+                    <fullName>Merced</fullName>
+                    <default>false</default>
+                    <label>Merced</label>
+                </value>
+                <value>
+                    <fullName>Modoc</fullName>
+                    <default>false</default>
+                    <label>Modoc</label>
+                </value>
+                <value>
+                    <fullName>Mono</fullName>
+                    <default>false</default>
+                    <label>Mono</label>
+                </value>
+                <value>
+                    <fullName>Monterey</fullName>
+                    <default>false</default>
+                    <label>Monterey</label>
+                </value>
+                <value>
+                    <fullName>Napa</fullName>
+                    <default>false</default>
+                    <label>Napa</label>
+                </value>
+                <value>
+                    <fullName>Nevada</fullName>
+                    <default>false</default>
+                    <label>Nevada</label>
+                </value>
+                <value>
+                    <fullName>Orange</fullName>
+                    <default>false</default>
+                    <label>Orange</label>
+                </value>
+                <value>
+                    <fullName>Placer</fullName>
+                    <default>false</default>
+                    <label>Placer</label>
+                </value>
+                <value>
+                    <fullName>Plumas</fullName>
+                    <default>false</default>
+                    <label>Plumas</label>
+                </value>
+                <value>
+                    <fullName>Riverside</fullName>
+                    <default>false</default>
+                    <label>Riverside</label>
+                </value>
+                <value>
+                    <fullName>Sacramento</fullName>
+                    <default>false</default>
+                    <label>Sacramento</label>
+                </value>
+                <value>
+                    <fullName>San Benito</fullName>
+                    <default>false</default>
+                    <label>San Benito</label>
+                </value>
+                <value>
+                    <fullName>San Bernardino</fullName>
+                    <default>false</default>
+                    <label>San Bernardino</label>
+                </value>
+                <value>
+                    <fullName>San Diego</fullName>
+                    <default>false</default>
+                    <label>San Diego</label>
+                </value>
+                <value>
+                    <fullName>San Francisco</fullName>
+                    <default>false</default>
+                    <label>San Francisco</label>
+                </value>
+                <value>
+                    <fullName>San Joaquin</fullName>
+                    <default>false</default>
+                    <label>San Joaquin</label>
+                </value>
+                <value>
+                    <fullName>San Luis Obispo</fullName>
+                    <default>false</default>
+                    <label>San Luis Obispo</label>
+                </value>
+                <value>
+                    <fullName>San Mateo</fullName>
+                    <default>false</default>
+                    <label>San Mateo</label>
+                </value>
+                <value>
+                    <fullName>Santa Barbara</fullName>
+                    <default>false</default>
+                    <label>Santa Barbara</label>
+                </value>
+                <value>
+                    <fullName>Santa Clara</fullName>
+                    <default>false</default>
+                    <label>Santa Clara</label>
+                </value>
+                <value>
+                    <fullName>Santa Cruz</fullName>
+                    <default>false</default>
+                    <label>Santa Cruz</label>
+                </value>
+                <value>
+                    <fullName>Shasta</fullName>
+                    <default>false</default>
+                    <label>Shasta</label>
+                </value>
+                <value>
+                    <fullName>Sierra</fullName>
+                    <default>false</default>
+                    <label>Sierra</label>
+                </value>
+                <value>
+                    <fullName>Siskiyou</fullName>
+                    <default>false</default>
+                    <label>Siskiyou</label>
+                </value>
+                <value>
+                    <fullName>Solano</fullName>
+                    <default>false</default>
+                    <label>Solano</label>
+                </value>
+                <value>
+                    <fullName>Sonoma</fullName>
+                    <default>false</default>
+                    <label>Sonoma</label>
+                </value>
+                <value>
+                    <fullName>Stanislaus</fullName>
+                    <default>false</default>
+                    <label>Stanislaus</label>
+                </value>
+                <value>
+                    <fullName>Sutter</fullName>
+                    <default>false</default>
+                    <label>Sutter</label>
+                </value>
+                <value>
+                    <fullName>Tehama</fullName>
+                    <default>false</default>
+                    <label>Tehama</label>
+                </value>
+                <value>
+                    <fullName>Trinity</fullName>
+                    <default>false</default>
+                    <label>Trinity</label>
+                </value>
+                <value>
+                    <fullName>Tulare</fullName>
+                    <default>false</default>
+                    <label>Tulare</label>
+                </value>
+                <value>
+                    <fullName>Tuolumne</fullName>
+                    <default>false</default>
+                    <label>Tuolumne</label>
+                </value>
+                <value>
+                    <fullName>Ventura</fullName>
+                    <default>false</default>
+                    <label>Ventura</label>
+                </value>
+                <value>
+                    <fullName>Yolo</fullName>
+                    <default>false</default>
+                    <label>Yolo</label>
+                </value>
+                <value>
+                    <fullName>Yuba</fullName>
+                    <default>false</default>
+                    <label>Yuba</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Crop__c</fullName>
+        <description>Changed to global picklist; deprecating</description>
+        <externalId>false</externalId>
+        <label>XDeprecated: Crop</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Rice</fullName>
+                    <default>false</default>
+                    <label>Rice</label>
+                </value>
+                <value>
+                    <fullName>Duck Club</fullName>
+                    <default>false</default>
+                    <label>Duck Club</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Crop_text__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Text field. Crop as entered by bidder. Rice and Wild Rice are listed as options on the bid form, however, the bidder may enter any value into the &apos;other&apos; section if that is applicable.</inlineHelpText>
+        <label>Crop</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_Signed__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date bid form signed digitally and submitted via bid form on birdreturns.org</inlineHelpText>
+        <label>Date/Time Signed</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Description_of_Attachments__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Description of attachments submitted with bid (as described by bidder).</inlineHelpText>
+        <label>Description of Attachments</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Field_Preparation__c</fullName>
+        <description>Used for FY15. Replace Site preparation multiselect picklist field created in FY14.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Post-harvest straw management practices for the site described in the bid.</inlineHelpText>
+        <label>Field Preparation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Chisel</fullName>
+                    <default>false</default>
+                    <label>Chisel</label>
+                </value>
+                <value>
+                    <fullName>Chop</fullName>
+                    <default>false</default>
+                    <label>Chop</label>
+                </value>
+                <value>
+                    <fullName>Disc</fullName>
+                    <default>false</default>
+                    <label>Disc</label>
+                </value>
+                <value>
+                    <fullName>Flood</fullName>
+                    <default>false</default>
+                    <label>Flood</label>
+                </value>
+                <value>
+                    <fullName>Hay</fullName>
+                    <default>false</default>
+                    <label>Hay</label>
+                </value>
+                <value>
+                    <fullName>Roll</fullName>
+                    <default>false</default>
+                    <label>Roll</label>
+                </value>
+                <value>
+                    <fullName>Stomp</fullName>
+                    <default>false</default>
+                    <label>Stomp</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Field_s_Selected__c</fullName>
+        <description>Automatically filled in with the fields that were entered into the bid form by the bidder. Use this space to reflect any changes to the field(s) selected after the bid has been submitted but before the contract has been created.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Automatically filled in with the fields that were entered into the bid form by the bidder. Use this space to reflect any changes to the field(s) selected after the bid has been submitted but before the contract has been created.</inlineHelpText>
+        <label>Field(s) Selected</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Field_s_Submitted__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Nomenclature to use with the bidder when referring to the fields that they are bidding on. If changes are made to the fields that will be used in the program, please update those changes in the Field(s) Selected field.</inlineHelpText>
+        <label>Field(s) Submitted</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Fiscal_Year__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Fiscal year (July 1 -  June 30) the participant submitted the bid.</inlineHelpText>
+        <label>Fiscal Year</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>FY14</fullName>
+                    <default>false</default>
+                    <label>FY14</label>
+                </value>
+                <value>
+                    <fullName>FY15</fullName>
+                    <default>false</default>
+                    <label>FY15</label>
+                </value>
+                <value>
+                    <fullName>FY16</fullName>
+                    <default>false</default>
+                    <label>FY16</label>
+                </value>
+                <value>
+                    <fullName>FY17</fullName>
+                    <default>false</default>
+                    <label>FY17</label>
+                </value>
+                <value>
+                    <fullName>FY18</fullName>
+                    <default>false</default>
+                    <label>FY18</label>
+                </value>
+                <value>
+                    <fullName>FY19</fullName>
+                    <default>false</default>
+                    <label>FY19</label>
+                </value>
+                <value>
+                    <fullName>FY20</fullName>
+                    <default>false</default>
+                    <label>FY20</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>GIS_Acres__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of acres in the fields being bidded on according to GIS. May be different from the number of acres submitted by the bidder. If there is a significant difference (&gt;5%), contact the bidder to discuss.</inlineHelpText>
+        <label>GIS Acres</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Irrigation_District__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Irrigation district that the fields are in.</inlineHelpText>
+        <label>Irrigation District</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Okay_to_Extend__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates if the bidder is willing and able to extend their bid by an additional 2 weeks (only available for August B option).</inlineHelpText>
+        <label>Okay to Extend?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Other__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Old field. Deprecating.</inlineHelpText>
+        <label>XDeprecated: Other</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Preferred_BidContact__c</fullName>
+        <description>Used in FY14 but retired in FY15 by request. Not be used or referenced. Contact record has contact preference.</description>
+        <externalId>false</externalId>
+        <label>XDeprecated: Preferred Contact Method</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Phone</fullName>
+                    <default>false</default>
+                    <label>Phone</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Preferred_Bid__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Grower has indicated that this is the program option that they prefer to get if they can only get one.</inlineHelpText>
+        <label>Preferred Bid</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Production_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Does the grower produce conventional or organic crops?</inlineHelpText>
+        <label>Production Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Conventional</fullName>
+                    <default>false</default>
+                    <label>Conventional</label>
+                </value>
+                <value>
+                    <fullName>Organic</fullName>
+                    <default>false</default>
+                    <label>Organic</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Program_Option_Dates__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Actual date range of the program option selected for this bid as laid out on the online bid form.</inlineHelpText>
+        <label>Program Option Dates</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Program_Option__c</fullName>
+        <description>Indicates the duration of the bidder&apos;s enrollment with the program.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If several program options from the same bidder are accepted, select all applicable program options on a single bid and associate that bid number to the contract.</inlineHelpText>
+        <label>Program Option</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>2 Week - Spring</fullName>
+                    <default>false</default>
+                    <label>2 Week - Spring</label>
+                </value>
+                <value>
+                    <fullName>4 Week - Spring</fullName>
+                    <default>false</default>
+                    <label>4 Week - Spring</label>
+                </value>
+                <value>
+                    <fullName>6 Week - Spring</fullName>
+                    <default>false</default>
+                    <label>6 Week - Spring</label>
+                </value>
+                <value>
+                    <fullName>8 Week - Spring</fullName>
+                    <default>false</default>
+                    <label>8 Week - Spring</label>
+                </value>
+                <value>
+                    <fullName>10 Week - Spring</fullName>
+                    <default>false</default>
+                    <label>10 Week - Spring</label>
+                </value>
+                <value>
+                    <fullName>Aug B - Fall</fullName>
+                    <default>false</default>
+                    <label>Aug B - Fall</label>
+                </value>
+                <value>
+                    <fullName>Sep A - Fall</fullName>
+                    <default>false</default>
+                    <label>Sep A - Fall</label>
+                </value>
+                <value>
+                    <fullName>Sep B - Fall</fullName>
+                    <default>false</default>
+                    <label>Sep B - Fall</label>
+                </value>
+                <value>
+                    <fullName>Oct A - Fall</fullName>
+                    <default>false</default>
+                    <label>Oct A - Fall</label>
+                </value>
+                <value>
+                    <fullName>Oct B - Fall</fullName>
+                    <default>false</default>
+                    <label>Oct B - Fall</label>
+                </value>
+                <value>
+                    <fullName>4 Week - Mar A</fullName>
+                    <default>false</default>
+                    <label>4 Week - Mar A</label>
+                </value>
+                <value>
+                    <fullName>4 Week - Mar B</fullName>
+                    <default>false</default>
+                    <label>4 Week - Mar B</label>
+                </value>
+                <value>
+                    <fullName>6 Week - Mar A</fullName>
+                    <default>false</default>
+                    <label>6 Week - Mar A</label>
+                </value>
+                <value>
+                    <fullName>6 Week - Mar B</fullName>
+                    <default>false</default>
+                    <label>6 Week - Mar B</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Program_Period__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Program Period associated with this bid. Format: &quot;16-FR&quot; where 16 is the 2 digit year, F is for Fall (can also be S for Spring or W for Winter), and R is for the crop, in this case Rice. The program period record should be created before bidding begins.</inlineHelpText>
+        <label>Program Period</label>
+        <referenceTo>Bird_Returns_Program_Period__c</referenceTo>
+        <relationshipLabel>Bids</relationshipLabel>
+        <relationshipName>Bids</relationshipName>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Property_Location__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Location of property (including address and any additional information that will help program staff find it when out in the field).</inlineHelpText>
+        <label>Property Location</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Property_Name__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of property as provided by bidder on online bid form.</inlineHelpText>
+        <label>Property Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Property__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>No longer in use. Was a lookup to an object called &apos;Contact Property&apos;.</inlineHelpText>
+        <label>XDeprecated: Property</label>
+        <referenceTo>Contact_Property__c</referenceTo>
+        <relationshipLabel>Bids</relationshipLabel>
+        <relationshipName>Bids</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Round_1_Bid_Amount_Per_Acre__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Amount per acre ($). Based on the bidder&apos;s cost and labor for flooding the fields.</inlineHelpText>
+        <label>Bid Amount Per Acre</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Round_1_Bid_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>XDeprecated: Round 1 Bid Status</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Provisionally Accepted</fullName>
+                    <default>false</default>
+                    <label>Provisionally Accepted</label>
+                </value>
+                <value>
+                    <fullName>Provisionally Denied</fullName>
+                    <default>false</default>
+                    <label>Provisionally Denied</label>
+                </value>
+                <value>
+                    <fullName>Provisionally Denied in Excess</fullName>
+                    <default>false</default>
+                    <label>Provisionally Denied in Excess</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Round_2_Bid_Amount_per_Acre__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Used in FY14, but not in FY15. FY15 only has one round of bidding. This field will no longer be used or referenced.</description>
+        <externalId>false</externalId>
+        <label>XDeprecated: Round 2 Bid Amount per Acre</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Round_2_Bid_Status__c</fullName>
+        <description>Used in FY14, but not in FY15. FY15 only has one round of bidding. This field will no longer be used or referenced.</description>
+        <externalId>false</externalId>
+        <label>XDeprecated: Round 2 Bid Status</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accepted</fullName>
+                    <default>false</default>
+                    <label>Accepted</label>
+                </value>
+                <value>
+                    <fullName>Denied</fullName>
+                    <default>false</default>
+                    <label>Denied</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Signature__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Digital signature of bidder (submitted via bid form on birdreturns.org).</inlineHelpText>
+        <label>Signature</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Site_Preparation__c</fullName>
+        <description>Field used in FY14 program. FY15 program has different picklist type, and this field will no longer be used or referenced; see &quot;Field Preparation&quot; for FY15. Deprecating.</description>
+        <externalId>false</externalId>
+        <label>XDeprecated: Site Preparation</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Bale</fullName>
+                    <default>false</default>
+                    <label>Bale</label>
+                </value>
+                <value>
+                    <fullName>Burn</fullName>
+                    <default>false</default>
+                    <label>Burn</label>
+                </value>
+                <value>
+                    <fullName>Chisel</fullName>
+                    <default>false</default>
+                    <label>Chisel</label>
+                </value>
+                <value>
+                    <fullName>Chop</fullName>
+                    <default>false</default>
+                    <label>Chop</label>
+                </value>
+                <value>
+                    <fullName>Light Disc</fullName>
+                    <default>false</default>
+                    <label>Light Disc</label>
+                </value>
+                <value>
+                    <fullName>Heavy Disc</fullName>
+                    <default>false</default>
+                    <label>Heavy Disc</label>
+                </value>
+                <value>
+                    <fullName>Mow</fullName>
+                    <default>false</default>
+                    <label>Mow</label>
+                </value>
+                <value>
+                    <fullName>Stomp</fullName>
+                    <default>false</default>
+                    <label>Stomp</label>
+                </value>
+                <value>
+                    <fullName>Roll</fullName>
+                    <default>false</default>
+                    <label>Roll</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>8</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Status is only updated once the bid has been finalized. Tier 2 bidders are acceptable but will only be approved on a contingency basis.</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accepted</fullName>
+                    <default>false</default>
+                    <label>Accepted</label>
+                </value>
+                <value>
+                    <fullName>Tier 2</fullName>
+                    <default>false</default>
+                    <label>Tier 2</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Total_Bid__c</fullName>
+        <externalId>false</externalId>
+        <formula>Acres__c  * Round_1_Bid_Amount_Per_Acre__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Total bid is the bid amount per acre multiplied by the total number of acres.</inlineHelpText>
+        <label>Total Bid</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Verification_Notes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Old field, no longer in use. Deprecating.</inlineHelpText>
+        <label>XDeprecated: Verification Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Water_Source__c</fullName>
+        <description>New field for FY15.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Source of water to be used for this bid&apos;s fields.</inlineHelpText>
+        <label>Water Source</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Surface - district</fullName>
+                    <default>false</default>
+                    <label>Surface - district</label>
+                </value>
+                <value>
+                    <fullName>Surface - riparian</fullName>
+                    <default>false</default>
+                    <label>Surface - riparian</label>
+                </value>
+                <value>
+                    <fullName>Groundwater</fullName>
+                    <default>false</default>
+                    <label>Groundwater</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <label>Bid</label>
+    <listViews>
+        <fullName>Accepted_Bids_Spring_2017</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Bid_Contact__c</columns>
+        <columns>Program_Option__c</columns>
+        <columns>Acres__c</columns>
+        <columns>Round_1_Bid_Amount_Per_Acre__c</columns>
+        <columns>Total_Bid__c</columns>
+        <columns>Bid_Notes__c</columns>
+        <columns>Field_s_Submitted__c</columns>
+        <columns>County_Global__c</columns>
+        <columns>Controls__c</columns>
+        <columns>Controls_Notes__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Accepted</value>
+        </filters>
+        <filters>
+            <field>Program_Period__c</field>
+            <operation>equals</operation>
+            <value>18-FR</value>
+        </filters>
+        <label>Accepted Bids Fall 2018</label>
+        <sharedTo>
+            <group>Bird_Returns</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Bid_Contact__c</columns>
+        <columns>Contract_Representative__c</columns>
+        <columns>Acres__c</columns>
+        <columns>Round_1_Bid_Amount_Per_Acre__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>BirdReturns_New_Pre_Auction_Bids</fullName>
+        <columns>NAME</columns>
+        <columns>Bid_Contact__c</columns>
+        <columns>Contract_Representative__c</columns>
+        <columns>Account__c</columns>
+        <columns>Program_Option__c</columns>
+        <columns>Acres__c</columns>
+        <columns>Round_1_Bid_Amount_Per_Acre__c</columns>
+        <columns>Total_Bid__c</columns>
+        <columns>County_Global__c</columns>
+        <columns>Irrigation_District__c</columns>
+        <columns>Crop_text__c</columns>
+        <columns>Production_Type__c</columns>
+        <columns>Field_Preparation__c</columns>
+        <columns>Controls__c</columns>
+        <columns>Water_Source__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Program_Period__c</field>
+            <operation>equals</operation>
+            <value>17-SR</value>
+        </filters>
+        <label>BirdReturns New Pre-Auction Bids</label>
+    </listViews>
+    <listViews>
+        <fullName>Current_Program_Period</fullName>
+        <columns>NAME</columns>
+        <columns>Program_Option__c</columns>
+        <columns>Status__c</columns>
+        <columns>Bid_Processed__c</columns>
+        <columns>Bid_Mapped__c</columns>
+        <columns>Account__c</columns>
+        <columns>Bid_Contact__c</columns>
+        <columns>Contract_Representative__c</columns>
+        <columns>Acres__c</columns>
+        <columns>Round_1_Bid_Amount_Per_Acre__c</columns>
+        <columns>Program_Period__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Program_Period__c</field>
+            <operation>equals</operation>
+            <value>18-FR</value>
+        </filters>
+        <label>Current Program Period</label>
+        <sharedTo>
+            <group>Bird_Returns</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>GIS_Acres</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Field_s_Submitted__c</columns>
+        <columns>Field_s_Selected__c</columns>
+        <columns>Status__c</columns>
+        <columns>Bid_Notes__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Program_Period__c</field>
+            <operation>equals</operation>
+            <value>18-FR</value>
+        </filters>
+        <label>Current Program Period Status</label>
+        <sharedTo>
+            <group>Bird_Returns</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Unprocessed_Bids</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Bid_Contact__c</columns>
+        <columns>Contract_Representative__c</columns>
+        <columns>Acres__c</columns>
+        <columns>Round_1_Bid_Amount_Per_Acre__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Bid_Processed__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>Unprocessed Bids</label>
+    </listViews>
+    <nameField>
+        <label>Bid Name</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Bids</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Bid_Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contract_Representative__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Program_Option__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Total_Bid__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Bid_Contact__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Contract_Representative__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Program_Option__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Total_Bid__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Bid_Contact__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Contract_Representative__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Program_Option__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Total_Bid__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Account__c</searchFilterFields>
+        <searchFilterFields>Bid_Contact__c</searchFilterFields>
+        <searchFilterFields>Contract_Representative__c</searchFilterFields>
+        <searchFilterFields>Program_Option__c</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchFilterFields>Total_Bid__c</searchFilterFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Bid_Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contract_Representative__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Program_Option__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Total_Bid__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,1 @@
+<apex:page standardController="Annual_Inspection__c"><CADragNDrop:FinalComponent parenId="{!$CurrentPage.parameters.Id}" /></apex:page>

@@ -1,0 +1,1 @@
+<apex:page standardController="Conservation_Area__c"><CADragNDrop:FinalComponent parenId="{!$CurrentPage.parameters.Id}" /></apex:page>

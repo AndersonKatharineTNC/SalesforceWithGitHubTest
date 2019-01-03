@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Draft</fullName>
+        <default>false</default>
+        <label>Draft</label>
+    </customValue>
+    <customValue>
+        <fullName>In Compliance</fullName>
+        <default>false</default>
+        <label>In Compliance</label>
+    </customValue>
+    <customValue>
+        <fullName>In Review</fullName>
+        <default>false</default>
+        <label>In Review</label>
+    </customValue>
+    <customValue>
+        <fullName>In Violation</fullName>
+        <default>false</default>
+        <label>In Violation</label>
+    </customValue>
+    <customValue>
+        <fullName>New</fullName>
+        <default>false</default>
+        <label>New</label>
+    </customValue>
+    <customValue>
+        <fullName>Not Evaluated</fullName>
+        <default>false</default>
+        <label>Not Evaluated</label>
+    </customValue>
+    <customValue>
+        <fullName>Other or Historic</fullName>
+        <default>false</default>
+        <label>Other or Historic</label>
+    </customValue>
+    <description>Created for status on the Easement monitoring reports and for status at last monitoring on the interest.</description>
+    <masterLabel>Monitoring Status</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

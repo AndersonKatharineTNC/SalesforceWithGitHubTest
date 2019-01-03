@@ -1,0 +1,4 @@
+<apex:page standardController="Property_Management__c" >
+    <apex:iframe id="springFrame" 
+src="/apex/SpringCMEos__SpringCM_EOSGrid?id={!Property_Management__c.Id}&type=Property_Management__c" />
+</apex:page>

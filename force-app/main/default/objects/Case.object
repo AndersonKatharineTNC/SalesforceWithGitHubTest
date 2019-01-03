@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <businessProcesses>
+        <fullName>General Help</fullName>
+        <description>Instructional assistance, process help, general questions</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Escalated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <fields>
+        <fullName>Impacted_Objects__c</fullName>
+        <externalId>false</externalId>
+        <label>Impacted Objects/Applications</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accounts</fullName>
+                    <default>false</default>
+                    <label>Accounts</label>
+                </value>
+                <value>
+                    <fullName>Bird Returns</fullName>
+                    <default>false</default>
+                    <label>Bird Returns</label>
+                </value>
+                <value>
+                    <fullName>Box for Salesforce</fullName>
+                    <default>false</default>
+                    <label>Box for Salesforce</label>
+                </value>
+                <value>
+                    <fullName>Cases</fullName>
+                    <default>false</default>
+                    <label>Cases</label>
+                </value>
+                <value>
+                    <fullName>Chatter</fullName>
+                    <default>false</default>
+                    <label>Chatter</label>
+                </value>
+                <value>
+                    <fullName>Conservation Farms and Ranches</fullName>
+                    <default>false</default>
+                    <label>Conservation Farms and Ranches</label>
+                </value>
+                <value>
+                    <fullName>Contacts</fullName>
+                    <default>false</default>
+                    <label>Contacts</label>
+                </value>
+                <value>
+                    <fullName>Contracts</fullName>
+                    <default>false</default>
+                    <label>Contracts</label>
+                </value>
+                <value>
+                    <fullName>Deals</fullName>
+                    <default>false</default>
+                    <label>Deals</label>
+                </value>
+                <value>
+                    <fullName>Documents</fullName>
+                    <default>false</default>
+                    <label>Documents</label>
+                </value>
+                <value>
+                    <fullName>DocuSign</fullName>
+                    <default>false</default>
+                    <label>DocuSign</label>
+                </value>
+                <value>
+                    <fullName>Easement/DR Monitoring</fullName>
+                    <default>false</default>
+                    <label>Easement/DR Monitoring</label>
+                </value>
+                <value>
+                    <fullName>Income/Expense</fullName>
+                    <default>false</default>
+                    <label>Income/Expense</label>
+                </value>
+                <value>
+                    <fullName>NPSP</fullName>
+                    <default>false</default>
+                    <label>NPSP</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Pardot</fullName>
+                    <default>false</default>
+                    <label>Pardot</label>
+                </value>
+                <value>
+                    <fullName>Project IDs</fullName>
+                    <default>false</default>
+                    <label>Project IDs</label>
+                </value>
+                <value>
+                    <fullName>Property Management</fullName>
+                    <default>false</default>
+                    <label>Property Management</label>
+                </value>
+                <value>
+                    <fullName>Reports/Dashboards</fullName>
+                    <default>false</default>
+                    <label>Reports/Dashboards</label>
+                </value>
+                <value>
+                    <fullName>Soapbox Mailer</fullName>
+                    <default>false</default>
+                    <label>Soapbox Mailer</label>
+                </value>
+                <value>
+                    <fullName>Users</fullName>
+                    <default>false</default>
+                    <label>Users</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Requested_by_date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Put the date you would like the request to be fulfilled by.</inlineHelpText>
+        <label>Requested by date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Requester__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Person making request, if different from case creator (or owner).</description>
+        <externalId>false</externalId>
+        <label>Requested by if different from creator</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <recordTypes>
+        <fullName>General_Help</fullName>
+        <active>true</active>
+        <businessProcess>General Help</businessProcess>
+        <description>For other requests than the options listed. Other Requests (previously &quot;General Help&quot;) include data imports, data updates, deduplications, error/functionality troubleshooting, field/layout updates, trainings, project ID&apos;s, and other help.</description>
+        <label>Other Requests</label>
+        <picklistValues>
+            <picklist>Impacted_Objects__c</picklist>
+            <values>
+                <fullName>Accounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bird Returns</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Box for Salesforce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chatter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conservation Farms and Ranches</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contracts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DocuSign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Documents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Easement%2FDR Monitoring</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Income%2FExpense</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NPSP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pardot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Project IDs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reports%2FDashboards</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soapbox Mailer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Users</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Chatter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Face-to-face</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quick Action</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Answer provided</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Created project record for later implementation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Salesforce user response received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request appears to be duplicate entry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request redirected to correct department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Solution implemented</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training provided</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Approval Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Change Permissions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data Import</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data Update</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deactivate User</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delegated Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delegation Change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Error%2FFunctionality Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Field%2FLayout Update</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Help</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Password Reset</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Update Project IDs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+</CustomObject>

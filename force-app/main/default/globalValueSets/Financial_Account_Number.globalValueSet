@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>125000 Deposits - Utilities &amp; Other</fullName>
+        <default>false</default>
+        <label>125000 Deposits - Utilities &amp; Other</label>
+    </customValue>
+    <customValue>
+        <fullName>150500 Construction In Progress</fullName>
+        <default>false</default>
+        <label>150500 Construction In Progress</label>
+    </customValue>
+    <customValue>
+        <fullName>152000 Furniture, fixtures, plant &amp; equip</fullName>
+        <default>false</default>
+        <label>152000 Furniture, fixtures, plant &amp; equip</label>
+    </customValue>
+    <customValue>
+        <fullName>154000 TNC Vehicles</fullName>
+        <default>false</default>
+        <label>154000 TNC Vehicles</label>
+    </customValue>
+    <customValue>
+        <fullName>502700 Business Entertainment</fullName>
+        <default>false</default>
+        <label>502700 Business Entertainment</label>
+    </customValue>
+    <customValue>
+        <fullName>505000 Recruitment</fullName>
+        <default>false</default>
+        <label>505000 Recruitment</label>
+    </customValue>
+    <customValue>
+        <fullName>505600 Trainings and Meetings</fullName>
+        <default>false</default>
+        <label>505600 Trainings and Meetings</label>
+    </customValue>
+    <customValue>
+        <fullName>507300 Legal Services Fees</fullName>
+        <default>false</default>
+        <label>507300 Legal Services Fees</label>
+    </customValue>
+    <customValue>
+        <fullName>507600 Subawards, Grants-Non US Fed Govt Only</fullName>
+        <default>false</default>
+        <label>507600 Subawards, Grants-Non US Fed Govt Only</label>
+    </customValue>
+    <customValue>
+        <fullName>507700 Contract/Professional Fees</fullName>
+        <default>false</default>
+        <label>507700 Contract/Professional Fees</label>
+    </customValue>
+    <customValue>
+        <fullName>507800 Sub Recipient Expenses- US Fed Govt Only</fullName>
+        <default>false</default>
+        <label>507800 Sub Recipient Expenses- US Fed Govt Only</label>
+    </customValue>
+    <customValue>
+        <fullName>507900 Professional Fund Raising Fees</fullName>
+        <default>false</default>
+        <label>507900 Professional Fund Raising Fees</label>
+    </customValue>
+    <customValue>
+        <fullName>509300 Lobbying Contracts</fullName>
+        <default>false</default>
+        <label>509300 Lobbying Contracts</label>
+    </customValue>
+    <customValue>
+        <fullName>510100 Employee Travel</fullName>
+        <default>false</default>
+        <label>510100 Employee Travel</label>
+    </customValue>
+    <customValue>
+        <fullName>520100 Telecommunications</fullName>
+        <default>false</default>
+        <label>520100 Telecommunications</label>
+    </customValue>
+    <customValue>
+        <fullName>521500 Printing &amp; Photo</fullName>
+        <default>false</default>
+        <label>521500 Printing &amp; Photo</label>
+    </customValue>
+    <customValue>
+        <fullName>522500 Office and Other Equipment</fullName>
+        <default>false</default>
+        <label>522500 Office and Other Equipment</label>
+    </customValue>
+    <customValue>
+        <fullName>524100 Media Advertising</fullName>
+        <default>false</default>
+        <label>524100 Media Advertising</label>
+    </customValue>
+    <customValue>
+        <fullName>540500 Rent/Lease - Office Space</fullName>
+        <default>false</default>
+        <label>540500 Rent/Lease - Office Space</label>
+    </customValue>
+    <customValue>
+        <fullName>541100 Office Remodeling, Repairs, Utilities</fullName>
+        <default>false</default>
+        <label>541100 Office Remodeling, Repairs, Utilities</label>
+    </customValue>
+    <customValue>
+        <fullName>546000 Property Taxes</fullName>
+        <default>false</default>
+        <label>546000 Property Taxes</label>
+    </customValue>
+    <customValue>
+        <fullName>550100 Equipment Lease &amp; Maintenance</fullName>
+        <default>false</default>
+        <label>550100 Equipment Lease &amp; Maintenance</label>
+    </customValue>
+    <customValue>
+        <fullName>560100 Dues, Fees, Licenses</fullName>
+        <default>false</default>
+        <label>560100 Dues, Fees, Licenses</label>
+    </customValue>
+    <customValue>
+        <fullName>575000 Donations to Non-501(c)(3) Type Entities</fullName>
+        <default>false</default>
+        <label>575000 Donations to Non-501(c)(3) Type Entities</label>
+    </customValue>
+    <customValue>
+        <fullName>581000 Office &amp; Other Equipment $5,000 - $50,000</fullName>
+        <default>false</default>
+        <label>581000 Office &amp; Other Equipment $5,000 - $50,000</label>
+    </customValue>
+    <customValue>
+        <fullName>583000 Construction &amp; Restoration</fullName>
+        <default>false</default>
+        <label>583000 Construction &amp; Restoration</label>
+    </customValue>
+    <description>Financial Account numbers referenced in contract payments and income/expense posting.</description>
+    <masterLabel>Financial Account Number</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

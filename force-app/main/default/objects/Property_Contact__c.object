@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>Easement_Contacts</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Easement_Contacts</fullName>
+        <fields>Account__c</fields>
+        <fields>Contact_Category__c</fields>
+        <fields>Contact__c</fields>
+        <label>Easement Contacts</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Create 4/24/17 to test and see if this is a better to maintain property contact information.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Account_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Account__r.Type)</formula>
+        <inlineHelpText>Read-only field. To change this, please update the account record by clicking on the name of the account and updating the &apos;type&apos; field there.</inlineHelpText>
+        <label>Account Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the organizational affiliation of this contact.  Try different spellings and acronyms. If you cannot find it, create a new account. Click on Create New in left side bar and right click on Account.</inlineHelpText>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Property Contacts</relationshipLabel>
+        <relationshipName>Property_Interest_Contacts</relationshipName>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Is this an active contact?  If so, leave checked. If this is a prior owner, manager or other contact, please un-check the box.</inlineHelpText>
+        <label>Active?</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Category__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the role of the contact or select other and describe in the related description field.</inlineHelpText>
+        <label>Contact Category</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Owner</fullName>
+                    <default>false</default>
+                    <label>Owner</label>
+                </value>
+                <value>
+                    <fullName>Manager</fullName>
+                    <default>false</default>
+                    <label>Manager/Caretaker</label>
+                </value>
+                <value>
+                    <fullName>Funder</fullName>
+                    <default>false</default>
+                    <label>Funder</label>
+                </value>
+                <value>
+                    <fullName>Lessee</fullName>
+                    <default>false</default>
+                    <label>Lessee</label>
+                </value>
+                <value>
+                    <fullName>Easement Holder</fullName>
+                    <default>false</default>
+                    <label>Easement Holder</label>
+                </value>
+                <value>
+                    <fullName>Owner Representative</fullName>
+                    <default>false</default>
+                    <label>Owner Representative</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Ranger/Natural Resource Manager</fullName>
+                    <default>false</default>
+                    <label>Ranger/Natural Resource Manager</label>
+                </value>
+                <value>
+                    <fullName>External Reporting Contact</fullName>
+                    <default>false</default>
+                    <label>External Reporting Contact</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the name of the contact person. You may need to create a new contact if you created a new account. Please make sure to fill this in even if the name of the account is the same as the name of the contact or the email address will not show up.</inlineHelpText>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Property Contacts</relationshipLabel>
+        <relationshipName>Property_Interest_Contacts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Describe_Contact_Role__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If selecting &quot;Other&quot; for the contact category, please describe here OR if you wish to provide more detail about this contact&apos;s role related to the property.</inlineHelpText>
+        <label>Describe Contact Role</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Full_Contact_Info__c</fullName>
+        <description>Formula field that pulls in all of the property contact info - for rolling up to the Property Interest record.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Contact_Category__c)&amp;&quot;: &quot;&amp;IF(NOT(ISBLANK(Contact__c)),Contact__r.FirstName&amp;&quot; &quot;&amp;Contact__r.LastName, &quot;&quot;)&amp;
+IF(ISBLANK(Contact__c), Account__r.Name, IF(Account__r.Name = Contact__r.FirstName &amp; &quot; &quot;&amp;Contact__r.LastName, &quot;&quot;, &quot;, &quot;&amp;Account__r.Name))&amp;
+IF(On_Site_Contact__c=TRUE, &quot;, &quot;&amp;&quot;On-Site Contact? Yes&quot;, &quot;&quot;)&amp;
+IF(AND(Account__r.Phone &lt;&gt; &quot;&quot;, Account__r.Phone &lt;&gt; Contact__r.Phone),  &quot;, &quot;&amp;&quot;Account Phone: &quot;&amp; Account__r.Phone, &quot;&quot;)&amp;
+IF(Contact__r.Phone = &quot;&quot;, &quot;&quot;, &quot;, &quot;&amp;&quot;Contact Phone: &quot;&amp; Contact__r.Phone)&amp;
+IF(Contact__r.Email = &quot;&quot;, &quot;&quot;, &quot;, &quot;&amp;&quot;Email: &quot;&amp; Contact__r.Email)</formula>
+        <label>Full Contact Info</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>My_Easement_Contacts__c</fullName>
+        <description>For view selection by current user checks monitor assigned field</description>
+        <externalId>false</externalId>
+        <formula>$User.Id = Property_Interest__r.Monitor_Assigned__r.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>My Easement Contacts</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>On_Site_Contact__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if this contact is on-site.</inlineHelpText>
+        <label>On Site Contact</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Property_Interest_Group__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Property Interest Group or Property Management Unit that this contact is associated with.</inlineHelpText>
+        <label>Property Interest Group</label>
+        <referenceTo>Property_Management__c</referenceTo>
+        <relationshipLabel>Property Contacts</relationshipLabel>
+        <relationshipName>Property_Contacts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Property_Interest__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Interest to which this contact is related.</inlineHelpText>
+        <label>Property Interest</label>
+        <referenceTo>Property_Interest__c</referenceTo>
+        <relationshipLabel>Property Contacts</relationshipLabel>
+        <relationshipName>Property_Interest_Contacts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Subdivision__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If this contact is associated with a specific subdivision, put the name(Number) of the Subdivision here.</inlineHelpText>
+        <label>Subdivision</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>This subdivision does not exist in this property interest. Please double check the subdivision name and number.</errorMessage>
+            <filterItems>
+                <field>$Source.Property_Interest__c</field>
+                <operation>equals</operation>
+                <valueField>Subdivision__c.Property_Interest__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Subdivision__c</referenceTo>
+        <relationshipLabel>Property Contacts</relationshipLabel>
+        <relationshipName>Property_Contacts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Property Contact</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Property_Interest__c</columns>
+        <columns>Account__c</columns>
+        <columns>Contact__c</columns>
+        <columns>Contact_Category__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <sharedTo>
+            <group>California_Program</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_Easement_Contacts</fullName>
+        <columns>NAME</columns>
+        <columns>Property_Interest__c</columns>
+        <columns>Account__c</columns>
+        <columns>Contact__c</columns>
+        <columns>Contact_Category__c</columns>
+        <columns>On_Site_Contact__c</columns>
+        <columns>Subdivision__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>My_Easement_Contacts__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>My Easement Contacts</label>
+        <sharedTo>
+            <group>California_Program</group>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>PIC-{00}</displayFormat>
+        <label>Property Contact Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Property Contacts</pluralLabel>
+    <searchLayouts>
+        <lookupPhoneDialogsAdditionalFields>Property_Interest__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Contact__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Contact_Category__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Property_Interest__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contact_Category__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Subdivision_req_if_No_Subdivisions_gtr_1</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Property_Interest__r.Subdivisions_Monitored_Separately__c, ISBLANK(Subdivision__c))</errorConditionFormula>
+        <errorDisplayField>Subdivision__c</errorDisplayField>
+        <errorMessage>Subdivision cannot be blank if the subdivisions are monitored separately.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

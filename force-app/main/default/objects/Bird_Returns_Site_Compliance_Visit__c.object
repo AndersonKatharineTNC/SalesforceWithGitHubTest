@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Bird_Returns_SCV_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Bird_Returns_SCV_Compact_Layout</fullName>
+        <fields>Bid_Number__c</fields>
+        <fields>Stakes_Reported__c</fields>
+        <label>Bird Returns SCV Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Records overall site data for compliance site visits in the Bird Returns program.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Bid_Contact_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Bid_ID__r.Bid_Contact_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Pulls in the name of the primary contact for the bid.</inlineHelpText>
+        <label>Bid Contact Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bid_Contact_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>Bid_ID__r.Bid_Contact_Phone__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Pulls in the phone number for the primary contact for the bid.</inlineHelpText>
+        <label>Bid Contact Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bid_ID__c</fullName>
+        <description>The Contract that this Site Compliance Visit is for.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the contract associated with this site compliance visit.</inlineHelpText>
+        <label>Contract</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Site Compliance VIsits</relationshipLabel>
+        <relationshipName>Site_Compliance_VIsits</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Bid_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Bid_ID__r.BirdReturns_Bid_Name__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Automatically pulls in the bid number from the contract.</inlineHelpText>
+        <label>Bid Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Calc_Total_Percent_Out_of_Compliance__c</fullName>
+        <description>Calculated value.  No longer in use. Deprecating.</description>
+        <externalId>false</externalId>
+        <formula>Percent_Out_of_Compliance_Site__c + Percent_Out_of_Compliance_Stakes__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Calculated value.</inlineHelpText>
+        <label>XDeprecated: Total % Out of Compliance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Definition_of_Compliance__c</fullName>
+        <externalId>false</externalId>
+        <formula>Bid_ID__r.Program_Period__r.Definition_of_Compliance__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Deprecating, as we&apos;re removing it from the program period (redundant field).</inlineHelpText>
+        <label>XDeprecated: Definition of Compliance</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Est_percent_in_Compliance__c</fullName>
+        <description>The estimated % of the contracted acreage that is flooded to compliance.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The estimated % of the contracted acreage that is flooded to compliance.</inlineHelpText>
+        <label>Est % in Compliance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Field_Tech_Notes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Any additional observations or notes for the program staff about this site visit.</inlineHelpText>
+        <label>Field Tech Notes</label>
+        <length>36000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Incomplete__c</fullName>
+        <description>Indicates if the site visit is not complete based on stakes reported vs. number of active stakes on the contract. Deprecating. Using the &apos;Report Extent&apos; field instead.</description>
+        <externalId>false</externalId>
+        <formula>IF( Total_Stakes__c &lt;  Total_Contract_Stakes__c , true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Indicates if the site visit is not complete based on stakes reported vs. number of active stakes on the contract.</inlineHelpText>
+        <label>XDeprecated: Incomplete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Manual_Override_Justification__c</fullName>
+        <description>Not in use anymore; override on contract level only.</description>
+        <externalId>false</externalId>
+        <label>XDeprecatedManual Override Justification</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Manual_Override_in_Compliance__c</fullName>
+        <description>Use this field to manually override the estimated % in compliance for this visit. This override number is what will be calculated up to the Contract level and should be used only in very extenuating circumstances. Not used anyomore; only override on contract level.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to manually override the estimated % in compliance for this visit. This override number is what will be calculated up to the Contract level and should be used only in very extenuating circumstances.</inlineHelpText>
+        <label>Xdeprecated: Manual Override % in Comp</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Map_Link_1__c</fullName>
+        <description>Stored in Dropbox.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Link to map uploaded by Field Tech. They may upload up to 4 images.</inlineHelpText>
+        <label>Map Link 1</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Map_Link_2__c</fullName>
+        <description>Stored in Dropbox.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Link to map uploaded by Field Tech. They may upload up to 4 images.</inlineHelpText>
+        <label>Map Link 2</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Map_Link_3__c</fullName>
+        <description>Stored in Dropbox.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Link to map uploaded by Field Tech. They may upload up to 4 images.</inlineHelpText>
+        <label>Map Link 3</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Map_Link_4__c</fullName>
+        <description>Stored in Dropbox.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Link to map uploaded by Field Tech. They may upload up to 4 images.</inlineHelpText>
+        <label>Map Link 4</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Name_of_Reporter__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Full name of the person submitting the site compliance visit report.</inlineHelpText>
+        <label>Reporter Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Percent_Out_of_Compliance_Site__c</fullName>
+        <description>The number of percentage points below the compliance threshold that a field is overall. Not in use. Deprecating.</description>
+        <externalId>false</externalId>
+        <formula>if(isblank(Est_percent_in_Compliance__c),
+    0,
+    if(Est_percent_in_Compliance__c&gt;Bid_ID__r.Program_Period__r.Minimum_Flooded_for_Compliance__c, 
+        0, 
+        Bid_ID__r.Program_Period__r.Minimum_Flooded_for_Compliance__c-Est_percent_in_Compliance__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The number of percentage points below the compliance threshold that a field is overall.</inlineHelpText>
+        <label>XDeprecated: % Out of Compliance (Site)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Percent_Out_of_Compliance_Stakes__c</fullName>
+        <description>Not in use. Deprecating.</description>
+        <externalId>false</externalId>
+        <formula>if(isblank(Percent_of_Stakes_in_Compliance__c),
+    0,
+    if(Percent_of_Stakes_in_Compliance__c&gt;Bid_ID__r.Program_Period__r.Minimum_Stakes_in_Compliance__c, 
+        0, 
+        Bid_ID__r.Program_Period__r.Minimum_Stakes_in_Compliance__c-Percent_of_Stakes_in_Compliance__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>% of the stakes that are out of compliance.</inlineHelpText>
+        <label>XDeprecated:% Out of Compliance (Stakes)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Percent_of_Stakes_in_Compliance__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(Total_Stakes__c&gt;0,(Total_Stakes_in_Compliance__c / Total_Stakes__c),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Percentage of stakes that are in compliance.</inlineHelpText>
+        <label>Stks % in Compliance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Report_Extent__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates if the SCV is a full or partial report (if the compliance monitoring was done by more than one field tech, both reports will be &apos;partial&apos;). If the report was completed by a single field tech over consecutive days, it will be &apos;full&apos;.</inlineHelpText>
+        <label>Report Extent</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Full</fullName>
+                    <default>true</default>
+                    <label>Full</label>
+                </value>
+                <value>
+                    <fullName>Partial</fullName>
+                    <default>false</default>
+                    <label>Partial</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Reporter_Type__c</fullName>
+        <description>Used to filter the roll-up summaries that calculate final compliance numbers.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates if the reporter is a field tech (who submitted a report via iForm) or a self reporter who submitted a report at http://birdreturns.org/report-water-depth/.</inlineHelpText>
+        <label>Reporter Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Self-reporter</fullName>
+                    <default>false</default>
+                    <label>Self-reporter</label>
+                </value>
+                <value>
+                    <fullName>Field Tech reporter</fullName>
+                    <default>true</default>
+                    <label>Field Tech reporter</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Response__c</fullName>
+        <description>Field Techs are the only ones that update this field.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Excellent (large numbers of birds present)
+Good (reasonable numbers of birds present)
+Fair (a few birds present)
+Poor (very few birds present)
+Very Poor (no birds present)</inlineHelpText>
+        <label>Estimate Shorebird Response</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Excellent</fullName>
+                    <default>false</default>
+                    <label>Excellent</label>
+                </value>
+                <value>
+                    <fullName>Good</fullName>
+                    <default>false</default>
+                    <label>Good</label>
+                </value>
+                <value>
+                    <fullName>Fair</fullName>
+                    <default>false</default>
+                    <label>Fair</label>
+                </value>
+                <value>
+                    <fullName>Poor</fullName>
+                    <default>false</default>
+                    <label>Poor</label>
+                </value>
+                <value>
+                    <fullName>Very Poor</fullName>
+                    <default>false</default>
+                    <label>Very Poor</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Stakes_Reported__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(Total_Stakes__c) &amp; &quot;/&quot; &amp; text(Bid_ID__r.Total_Active_Stakes__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Calculates the number of stakes reported vs. the total number of stakes on the contract.</inlineHelpText>
+        <label>Stakes Reported</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Contract_Stakes__c</fullName>
+        <externalId>false</externalId>
+        <formula>Bid_ID__r.Total_Active_Stakes__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Contract Stakes</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_In_Compliance_for_Calc__c</fullName>
+        <description>Est % in compliance or Manual Override % in Compliance if it exists.</description>
+        <externalId>false</externalId>
+        <formula>Total_Stakes__c  *  Est_percent_in_Compliance__c</formula>
+        <inlineHelpText>Formula field to calculate the % in compliance from estimated % in compliance OR from the manual override if it is used. This field is referred to in the Workflow rule that calculates total % in compliance for the contract financials.</inlineHelpText>
+        <label>Total % In Compliance for Calc</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Total_Percent_In_Compliance__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Inverse of Total % Out of Compliance (Manual Override if populated; Calculated if not). Populated by Workflow Rule so it can be rolled up to the Contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Inverse of Total % Out of Compliance (Manual Override if populated; Calculated if not). Populated by Workflow Rule so it can be rolled up to the Contract.</inlineHelpText>
+        <label>Total % In Compliance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Total_Stakes__c</fullName>
+        <description>Total number of stake visits. (Used to calculate % of stakes in compliance.)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total number of stake visits. (Used to calculate % of stakes in compliance.)</inlineHelpText>
+        <label>Total Stakes</label>
+        <summaryForeignKey>Bird_Returns_Stake_Compliance_Visit__c.Site_Compliance_Visit__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Stakes_in_Compliance__c</fullName>
+        <description>Total number of stakes in compliance on this visit</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total number of stakes in compliance on this visit</inlineHelpText>
+        <label>Total Stakes in Compliance</label>
+        <summaryFilterItems>
+            <field>Bird_Returns_Stake_Compliance_Visit__c.In_Compliance__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Bird_Returns_Stake_Compliance_Visit__c.Site_Compliance_Visit__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Visit_Date__c</fullName>
+        <defaultValue>TODAY()</defaultValue>
+        <externalId>false</externalId>
+        <label>Visit Date</label>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>iForm_User__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Unique identifier for the iForm user who submitted this site visit report (and it&apos;s associated stake depth reports).</inlineHelpText>
+        <label>iForm User</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Site Compliance Visit</label>
+    <listViews>
+        <fullName>All_Site_Visits</fullName>
+        <columns>Bid_Number__c</columns>
+        <columns>NAME</columns>
+        <columns>Visit_Date__c</columns>
+        <columns>iForm_User__c</columns>
+        <columns>Total_Percent_In_Compliance__c</columns>
+        <columns>Field_Tech_Notes__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Current Site Visits</label>
+    </listViews>
+    <listViews>
+        <fullName>SCVs</fullName>
+        <columns>Bid_Number__c</columns>
+        <columns>NAME</columns>
+        <columns>Visit_Date__c</columns>
+        <columns>Report_Extent__c</columns>
+        <columns>Est_percent_in_Compliance__c</columns>
+        <columns>Field_Tech_Notes__c</columns>
+        <columns>Name_of_Reporter__c</columns>
+        <columns>Map_Link_1__c</columns>
+        <columns>Map_Link_2__c</columns>
+        <columns>Map_Link_3__c</columns>
+        <columns>Map_Link_4__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Bid_Number__c</field>
+            <operation>contains</operation>
+            <value>18-F</value>
+        </filters>
+        <label>SCVs</label>
+    </listViews>
+    <nameField>
+        <displayFormat>SCV-{000000}</displayFormat>
+        <label>Visit Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Site Compliance Visits</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Bid_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Name_of_Reporter__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Visit_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Report_Extent__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Stakes_Reported__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Est_percent_in_Compliance__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Percent_of_Stakes_in_Compliance__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Field_Tech_Notes__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Bid_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Name_of_Reporter__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Visit_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Report_Extent__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Stakes_Reported__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Est_percent_in_Compliance__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Percent_of_Stakes_in_Compliance__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Field_Tech_Notes__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Bid_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Name_of_Reporter__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Visit_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Report_Extent__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Stakes_Reported__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Est_percent_in_Compliance__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Percent_of_Stakes_in_Compliance__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Field_Tech_Notes__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

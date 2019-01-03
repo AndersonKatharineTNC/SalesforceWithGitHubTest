@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Conservation Areas - replaces the Conservation Area Record Type that was included in the Accounts object.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Acres_Engaged_in_Conservation__c</fullName>
+        <externalId>false</externalId>
+        <label>Acres Engaged in Conservation</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Acres__c</fullName>
+        <description>Number of acres within the conservation area</description>
+        <externalId>false</externalId>
+        <label>Acres</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Area_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Area Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Climate_Change_Stress_Index__c</fullName>
+        <externalId>false</externalId>
+        <label>Climate Change Stress Index</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>County_Global__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>County/Counties where conservation lies.</inlineHelpText>
+        <label>County</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>County</valueSetName>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>County__c</fullName>
+        <description>County/Counties where conservation lies.</description>
+        <externalId>false</externalId>
+        <label>XDeprecated: County</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Alameda</fullName>
+                    <default>false</default>
+                    <label>Alameda</label>
+                </value>
+                <value>
+                    <fullName>Alpine</fullName>
+                    <default>false</default>
+                    <label>Alpine</label>
+                </value>
+                <value>
+                    <fullName>Amador</fullName>
+                    <default>false</default>
+                    <label>Amador</label>
+                </value>
+                <value>
+                    <fullName>Butte</fullName>
+                    <default>false</default>
+                    <label>Butte</label>
+                </value>
+                <value>
+                    <fullName>Calaveras</fullName>
+                    <default>false</default>
+                    <label>Calaveras</label>
+                </value>
+                <value>
+                    <fullName>Colusa</fullName>
+                    <default>false</default>
+                    <label>Colusa</label>
+                </value>
+                <value>
+                    <fullName>Contra Costa</fullName>
+                    <default>false</default>
+                    <label>Contra Costa</label>
+                </value>
+                <value>
+                    <fullName>Del Norte</fullName>
+                    <default>false</default>
+                    <label>Del Norte</label>
+                </value>
+                <value>
+                    <fullName>El Dororado</fullName>
+                    <default>false</default>
+                    <label>El Dororado</label>
+                </value>
+                <value>
+                    <fullName>Fresno</fullName>
+                    <default>false</default>
+                    <label>Fresno</label>
+                </value>
+                <value>
+                    <fullName>Glenn</fullName>
+                    <default>false</default>
+                    <label>Glenn</label>
+                </value>
+                <value>
+                    <fullName>Humboldt</fullName>
+                    <default>false</default>
+                    <label>Humboldt</label>
+                </value>
+                <value>
+                    <fullName>Humboldt/Mendocino</fullName>
+                    <default>false</default>
+                    <label>Humboldt/Mendocino</label>
+                </value>
+                <value>
+                    <fullName>Imperial</fullName>
+                    <default>false</default>
+                    <label>Imperial</label>
+                </value>
+                <value>
+                    <fullName>Inyo</fullName>
+                    <default>false</default>
+                    <label>Inyo</label>
+                </value>
+                <value>
+                    <fullName>Kern</fullName>
+                    <default>false</default>
+                    <label>Kern</label>
+                </value>
+                <value>
+                    <fullName>Kings</fullName>
+                    <default>false</default>
+                    <label>Kings</label>
+                </value>
+                <value>
+                    <fullName>Lake</fullName>
+                    <default>false</default>
+                    <label>Lake</label>
+                </value>
+                <value>
+                    <fullName>Lassen</fullName>
+                    <default>false</default>
+                    <label>Lassen</label>
+                </value>
+                <value>
+                    <fullName>Los Angeles</fullName>
+                    <default>false</default>
+                    <label>Los Angeles</label>
+                </value>
+                <value>
+                    <fullName>Madera</fullName>
+                    <default>false</default>
+                    <label>Madera</label>
+                </value>
+                <value>
+                    <fullName>Marin</fullName>
+                    <default>false</default>
+                    <label>Marin</label>
+                </value>
+                <value>
+                    <fullName>Mariposa</fullName>
+                    <default>false</default>
+                    <label>Mariposa</label>
+                </value>
+                <value>
+                    <fullName>Mendocino</fullName>
+                    <default>false</default>
+                    <label>Mendocino</label>
+                </value>
+                <value>
+                    <fullName>Merced</fullName>
+                    <default>false</default>
+                    <label>Merced</label>
+                </value>
+                <value>
+                    <fullName>Modoc</fullName>
+                    <default>false</default>
+                    <label>Modoc</label>
+                </value>
+                <value>
+                    <fullName>Mono</fullName>
+                    <default>false</default>
+                    <label>Mono</label>
+                </value>
+                <value>
+                    <fullName>Monterey</fullName>
+                    <default>false</default>
+                    <label>Monterey</label>
+                </value>
+                <value>
+                    <fullName>Napa</fullName>
+                    <default>false</default>
+                    <label>Napa</label>
+                </value>
+                <value>
+                    <fullName>Nevada</fullName>
+                    <default>false</default>
+                    <label>Nevada</label>
+                </value>
+                <value>
+                    <fullName>Orange</fullName>
+                    <default>false</default>
+                    <label>Orange</label>
+                </value>
+                <value>
+                    <fullName>Placer</fullName>
+                    <default>false</default>
+                    <label>Placer</label>
+                </value>
+                <value>
+                    <fullName>Plumas</fullName>
+                    <default>false</default>
+                    <label>Plumas</label>
+                </value>
+                <value>
+                    <fullName>Riverside</fullName>
+                    <default>false</default>
+                    <label>Riverside</label>
+                </value>
+                <value>
+                    <fullName>Sacramento</fullName>
+                    <default>false</default>
+                    <label>Sacramento</label>
+                </value>
+                <value>
+                    <fullName>San Benito</fullName>
+                    <default>false</default>
+                    <label>San Benito</label>
+                </value>
+                <value>
+                    <fullName>San Bernadino</fullName>
+                    <default>false</default>
+                    <label>San Bernadino</label>
+                </value>
+                <value>
+                    <fullName>San Diego</fullName>
+                    <default>false</default>
+                    <label>San Diego</label>
+                </value>
+                <value>
+                    <fullName>San Francisco</fullName>
+                    <default>false</default>
+                    <label>San Francisco</label>
+                </value>
+                <value>
+                    <fullName>San Joaquin</fullName>
+                    <default>false</default>
+                    <label>San Joaquin</label>
+                </value>
+                <value>
+                    <fullName>San Luis Obispo</fullName>
+                    <default>false</default>
+                    <label>San Luis Obispo</label>
+                </value>
+                <value>
+                    <fullName>San Mateo</fullName>
+                    <default>false</default>
+                    <label>San Mateo</label>
+                </value>
+                <value>
+                    <fullName>Santa Barbara</fullName>
+                    <default>false</default>
+                    <label>Santa Barbara</label>
+                </value>
+                <value>
+                    <fullName>Santa Clara</fullName>
+                    <default>false</default>
+                    <label>Santa Clara</label>
+                </value>
+                <value>
+                    <fullName>Santa Cruz</fullName>
+                    <default>false</default>
+                    <label>Santa Cruz</label>
+                </value>
+                <value>
+                    <fullName>Shasta</fullName>
+                    <default>false</default>
+                    <label>Shasta</label>
+                </value>
+                <value>
+                    <fullName>Sierra</fullName>
+                    <default>false</default>
+                    <label>Sierra</label>
+                </value>
+                <value>
+                    <fullName>Siskiyou</fullName>
+                    <default>false</default>
+                    <label>Siskiyou</label>
+                </value>
+                <value>
+                    <fullName>Solano</fullName>
+                    <default>false</default>
+                    <label>Solano</label>
+                </value>
+                <value>
+                    <fullName>Sonoma</fullName>
+                    <default>false</default>
+                    <label>Sonoma</label>
+                </value>
+                <value>
+                    <fullName>Sonoma/Napa</fullName>
+                    <default>false</default>
+                    <label>Sonoma/Napa</label>
+                </value>
+                <value>
+                    <fullName>Stanislaus</fullName>
+                    <default>false</default>
+                    <label>Stanislaus</label>
+                </value>
+                <value>
+                    <fullName>Sutter</fullName>
+                    <default>false</default>
+                    <label>Sutter</label>
+                </value>
+                <value>
+                    <fullName>Tehama</fullName>
+                    <default>false</default>
+                    <label>Tehama</label>
+                </value>
+                <value>
+                    <fullName>Trinity</fullName>
+                    <default>false</default>
+                    <label>Trinity</label>
+                </value>
+                <value>
+                    <fullName>Tulare</fullName>
+                    <default>false</default>
+                    <label>Tulare</label>
+                </value>
+                <value>
+                    <fullName>Tuolumne</fullName>
+                    <default>false</default>
+                    <label>Tuolumne</label>
+                </value>
+                <value>
+                    <fullName>Venture</fullName>
+                    <default>false</default>
+                    <label>Venture</label>
+                </value>
+                <value>
+                    <fullName>Yolo</fullName>
+                    <default>false</default>
+                    <label>Yolo</label>
+                </value>
+                <value>
+                    <fullName>Yuba</fullName>
+                    <default>false</default>
+                    <label>Yuba</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Eco__c</fullName>
+        <externalId>false</externalId>
+        <label>Ecoregion</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CA Central Coast</fullName>
+                    <default>false</default>
+                    <label>CA Central Coast</label>
+                </value>
+                <value>
+                    <fullName>CA Columbia Plateau</fullName>
+                    <default>false</default>
+                    <label>CA Columbia Plateau</label>
+                </value>
+                <value>
+                    <fullName>CA Great Basin</fullName>
+                    <default>false</default>
+                    <label>CA Great Basin</label>
+                </value>
+                <value>
+                    <fullName>CA Klamath Mountains</fullName>
+                    <default>false</default>
+                    <label>CA Klamath Mountains</label>
+                </value>
+                <value>
+                    <fullName>CA East Cascades-Modoc</fullName>
+                    <default>false</default>
+                    <label>CA East Cascades-Modoc</label>
+                </value>
+                <value>
+                    <fullName>CA Mojave Desert</fullName>
+                    <default>false</default>
+                    <label>CA Mojave Desert</label>
+                </value>
+                <value>
+                    <fullName>CA North Coast</fullName>
+                    <default>false</default>
+                    <label>CA North Coast</label>
+                </value>
+                <value>
+                    <fullName>CA Northern Current</fullName>
+                    <default>false</default>
+                    <label>CA Northern Current</label>
+                </value>
+                <value>
+                    <fullName>CA Sierra Nevada</fullName>
+                    <default>false</default>
+                    <label>CA Sierra Nevada</label>
+                </value>
+                <value>
+                    <fullName>CA Sonoran Desert</fullName>
+                    <default>false</default>
+                    <label>CA Sonoran Desert</label>
+                </value>
+                <value>
+                    <fullName>CA South Coast</fullName>
+                    <default>false</default>
+                    <label>CA South Coast</label>
+                </value>
+                <value>
+                    <fullName>CA Southern Current</fullName>
+                    <default>false</default>
+                    <label>CA Southern Current</label>
+                </value>
+                <value>
+                    <fullName>CA West Cascades</fullName>
+                    <default>false</default>
+                    <label>CA West Cascades</label>
+                </value>
+                <value>
+                    <fullName>Asia Pacific</fullName>
+                    <default>false</default>
+                    <label>Asia Pacific</label>
+                </value>
+                <value>
+                    <fullName>CA Great Central Valley</fullName>
+                    <default>false</default>
+                    <label>CA Great Central Valley</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <externalId>false</externalId>
+        <label>State</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CA</fullName>
+                    <default>true</default>
+                    <label>CA</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>TNC_Level_of_Engagement__c</fullName>
+        <externalId>false</externalId>
+        <label>TNC Level of Engagement</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>TNC Platform</fullName>
+                    <default>false</default>
+                    <label>TNC Platform</label>
+                </value>
+                <value>
+                    <fullName>TNC Selective</fullName>
+                    <default>false</default>
+                    <label>TNC Selective</label>
+                </value>
+                <value>
+                    <fullName>Partner Support</fullName>
+                    <default>false</default>
+                    <label>Partner Support</label>
+                </value>
+                <value>
+                    <fullName>Partner Lead</fullName>
+                    <default>false</default>
+                    <label>Partner Lead</label>
+                </value>
+                <value>
+                    <fullName>TNC Scoping</fullName>
+                    <default>false</default>
+                    <label>TNC Scoping</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Conservation Area</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Acres__c</columns>
+        <columns>Eco__c</columns>
+        <columns>County_Global__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Conservation Area Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Conservation Areas</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

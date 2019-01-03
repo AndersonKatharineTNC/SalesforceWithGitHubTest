@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Photo_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Photo_Layout</fullName>
+        <fields>File_Name__c</fields>
+        <fields>Photo_Thumbnail__c</fields>
+        <fields>Date_Taken__c</fields>
+        <label>Photo Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Annual_Inspection__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Link to the Monitoring Report that this photo is related to.</inlineHelpText>
+        <label>Annual Inspection</label>
+        <referenceTo>Annual_Inspection__c</referenceTo>
+        <relationshipLabel>Photos</relationshipLabel>
+        <relationshipName>Photos</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Attachment_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Attachment ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Attachment_URL__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Attachment_ID__c!=null,HYPERLINK(&quot;/&quot;&amp;Attachment_ID__c, &quot;View Attachment&quot; , &quot;target=_blank&quot;),&quot;&quot;)</formula>
+        <label>Attachment URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_Taken_Collector__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The date that the picture was taken if added to Salesforce via Collector (rather than added manually).</inlineHelpText>
+        <label>Date Taken (Collector)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Taken_Manual__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The date that the picture was taken (if the picture was added to Salesforce manually rather than via Collector).</inlineHelpText>
+        <label>Date Taken (Manual)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Taken__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(BLANKVALUE(Date_Taken_Manual__c, Date_Taken_Collector__c)),DATEVALUE(CreatedDate), BLANKVALUE(Date_Taken_Manual__c, Date_Taken_Collector__c))</formula>
+        <inlineHelpText>Read-only field. Shows the date that the picture was taken, whether it is filled in automatically via collector or manually.</inlineHelpText>
+        <label>Date Taken</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe the features in this photo, and any violations depicted.</inlineHelpText>
+        <label>Description</label>
+        <length>2000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Editable_File_Name__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>File Name of Photograph.</inlineHelpText>
+        <label>File Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>File_Name_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot;&amp;Id, Editable_File_Name__c)</formula>
+        <inlineHelpText>Name of photo as assigned by photographer. This name is not unique.</inlineHelpText>
+        <label>File Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>File_Name__c</fullName>
+        <description>In case the attachment gets deleted, adding in the file name so that we have a record of what file was attached to this photo.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Original photo file name. Filled in automatically.</inlineHelpText>
+        <label>Original File Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>File_Name_truncated__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot;&amp;Id, LEFT(Editable_File_Name__c, 15)+IF(LEN(Editable_File_Name__c)&gt;15,&quot;...&quot;,&quot;&quot;))</formula>
+        <inlineHelpText>Truncated name of file for search results</inlineHelpText>
+        <label>File Name (truncated)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>File_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Right(File_Name__c,LEN(File_Name__c)-FIND(&quot;.&quot;,File_Name__c))</formula>
+        <inlineHelpText>Read-only field. Automatically fills in with the file type based on the file name.</inlineHelpText>
+        <label>File Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Global_ID__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>true</externalId>
+        <inlineHelpText>Used for inserting photos from Collector.</inlineHelpText>
+        <label>Global ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Location_Photo_Taken__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Location and direction that the photo was taken in.</inlineHelpText>
+        <label>Location Photo Taken</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Monitoring_Report__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot;&amp;Annual_Inspection__c, Annual_Inspection__r.Report_Name__c)</formula>
+        <inlineHelpText>Click here to go back to the monitoring report that this photo is related to.</inlineHelpText>
+        <label>Monitoring Report</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Monitoring_Year__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(YEAR(Annual_Inspection__r.Inspection_Date__c))</formula>
+        <inlineHelpText>Automatically fills in with the year from the annual inspection record. If the year shown here is incorrect, please check to make sure that the annual inspection record is correct.</inlineHelpText>
+        <label>Monitoring Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>My_Photos__c</fullName>
+        <externalId>false</externalId>
+        <formula>$User.Id = Property_Interest__r.Monitor_Assigned__r.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>My Photos</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Photo_Location_ID__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Location ID from ArcGIS</inlineHelpText>
+        <label>Photo Location ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Photo_Thumbnail__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Attachment_ID__c!=null,HYPERLINK(&quot;/&quot;&amp;Id, IMAGE(&quot;/servlet/servlet.FileDownload?file=&quot;&amp;Attachment_ID__c, &quot;Name&quot;,100,-100),&quot;_blank&quot;), &quot;&quot;)</formula>
+        <label>Photo Thumbnail</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Photo_URL__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Attachment_ID__c!=null,HYPERLINK(&quot;/servlet/servlet.FileDownload?file=&quot;&amp;Attachment_ID__c,&quot;View Photo&quot;,&quot;target=_blank&quot;),&quot;&quot;)</formula>
+        <label>Photo URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Photo__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Attachment_ID__c!=null,HYPERLINK(&quot;/&quot;&amp;Id,  IMAGE(&quot;/servlet/servlet.FileDownload?file=&quot;&amp;Attachment_ID__c, &quot;Name&quot;,500,-100),&quot;_blank&quot;), &quot;&quot;)</formula>
+        <inlineHelpText>The photo image.</inlineHelpText>
+        <label>Photo</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Photo_for_PDF__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Attachment_ID__c!=null,HYPERLINK(&quot;/servlet/servlet.FileDownload?file=&quot;&amp;Attachment_ID__c, IMAGE(&quot;/servlet/servlet.FileDownload?file=&quot;&amp;Attachment_ID__c, &quot;Name&quot;,400,-100),&quot;_blank&quot;), &quot;&quot;)</formula>
+        <inlineHelpText>This photo formula is the correct size for printing to PDF.</inlineHelpText>
+        <label>Photo for PDF</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Photographer__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The full name of the person who actually took the photo.</inlineHelpText>
+        <label>Photographer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Property_Interest__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Property Interest</label>
+        <referenceTo>Property_Interest__c</referenceTo>
+        <relationshipLabel>Photos</relationshipLabel>
+        <relationshipName>Photos</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Property_Management__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Property Management</label>
+        <referenceTo>Property_Management__c</referenceTo>
+        <relationshipLabel>Photos</relationshipLabel>
+        <relationshipName>Photos</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Search_Fields__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Populated with data from fields that aren&apos;t searchable so that the record will show up in global search (i.e. Property Management Unit Name, Property Interest Name, Monitoring Year, etc.)</inlineHelpText>
+        <label>Search Fields</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Subdivision__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If this monitoring photo is for a specific subdivision, put that subdivision name or number here.</inlineHelpText>
+        <label>Subdivision</label>
+        <referenceTo>Subdivision__c</referenceTo>
+        <relationshipLabel>Photos</relationshipLabel>
+        <relationshipName>Photos</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>X18_Digit_Photo_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Id)</formula>
+        <inlineHelpText>For reports (sorting and vlookups in excel don&apos;t work with the 15 digit version)</inlineHelpText>
+        <label>18-Digit Photo ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Photo</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>File_Name_Link__c</columns>
+        <columns>Date_Taken__c</columns>
+        <columns>Photo_Thumbnail__c</columns>
+        <columns>Monitoring_Report__c</columns>
+        <columns>Description__c</columns>
+        <columns>Location_Photo_Taken__c</columns>
+        <columns>Photographer__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Last_year_Photos</fullName>
+        <columns>File_Name_Link__c</columns>
+        <columns>Date_Taken__c</columns>
+        <columns>Property_Interest__c</columns>
+        <columns>Photo_Thumbnail__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>My_Photos__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Date_Taken__c</field>
+            <operation>lessThan</operation>
+            <value>THIS_YEAR</value>
+        </filters>
+        <filters>
+            <field>Date_Taken__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>LAST_YEAR</value>
+        </filters>
+        <label>My Last Year Photos</label>
+        <sharedTo>
+            <group>California_Program</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_Photos</fullName>
+        <columns>File_Name_Link__c</columns>
+        <columns>Date_Taken__c</columns>
+        <columns>Property_Interest__c</columns>
+        <columns>Photo_Thumbnail__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>My_Photos__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>My Photos</label>
+        <sharedTo>
+            <group>California_Program</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_This_year_Photos</fullName>
+        <columns>File_Name_Link__c</columns>
+        <columns>Date_Taken__c</columns>
+        <columns>Property_Interest__c</columns>
+        <columns>Photo_Thumbnail__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>My_Photos__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Date_Taken__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>THIS_YEAR</value>
+        </filters>
+        <label>My This Year Photos</label>
+        <sharedTo>
+            <group>California_Program</group>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>IMG-{00000}</displayFormat>
+        <label>Photo Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Photos</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>File_Name_truncated__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Date_Taken__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Photo_Thumbnail__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Location_Photo_Taken__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Photographer__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Monitoring_Year__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Monitoring_Report__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Property_Interest__c</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <listViewButtons>Delete_Photo_s</listViewButtons>
+        <lookupDialogsAdditionalFields>File_Name_Link__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Date_Taken__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Photo_Thumbnail__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Description__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Location_Photo_Taken__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Photographer__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Monitoring_Year__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Monitoring_Report__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Property_Interest__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>File_Name_Link__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Date_Taken__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Photo_Thumbnail__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Description__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Location_Photo_Taken__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Photographer__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Monitoring_Year__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Monitoring_Report__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Property_Interest__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>File_Name_Link__c</searchFilterFields>
+        <searchFilterFields>Property_Interest__c</searchFilterFields>
+        <searchFilterFields>Monitoring_Report__c</searchFilterFields>
+        <searchFilterFields>Subdivision__c</searchFilterFields>
+        <searchFilterFields>Photographer__c</searchFilterFields>
+        <searchFilterFields>Monitoring_Year__c</searchFilterFields>
+        <searchFilterFields>File_Type__c</searchFilterFields>
+        <searchFilterFields>Date_Taken__c</searchFilterFields>
+        <searchResultsAdditionalFields>Date_Taken__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Photo__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>File_Name_truncated__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Description__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Location_Photo_Taken__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Photographer__c</searchResultsAdditionalFields>
+        <searchResultsCustomButtons>Delete_Photo_s</searchResultsCustomButtons>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Add_Photos</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Add Photo(s)</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/FormAssembly_Add_Photos_Form?scontrolCaching=1&amp;id={!Annual_Inspection__c.Id}
+&amp;tfa_1={!Annual_Inspection__c.Id}
+&amp;tfa_17={!Annual_Inspection__c.Property_ManagementId__c}
+&amp;tfa_15={!User.Name}
+&amp;tfa_24={!Annual_Inspection__c.Name}
+&amp;tfa_23={!Annual_Inspection__c.Property_Interest__c}
+&amp;tfa_18={!Annual_Inspection__c.Subdivision__c}
+&amp;tfa_26={!Annual_Inspection__c.Property_InterestId__c}
+&amp;tfa_27={!Annual_Inspection__c.SubdivisionId__c}
+&amp;tfa_4={!TODAY()}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Delete_Photo_s</fullName>
+        <availability>online</availability>
+        <description>Code found here: https://success.salesforce.com/answers?id=90630000000hnwKAAQ</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Delete Photo(s)</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&apos;/soap/ajax/29.0/connection.js&apos;)}
+try
+{
+  var selectedRecords = {!GETRECORDIDS( $ObjectType.Photo__c )};
+  if(selectedRecords.length&lt;1)
+    alert(&apos;Please Select at Least One Photo!&apos;);
+  else
+  {
+    userConsent = confirm(
+        selectedRecords.length + 
+        &apos; Photo(s) will be Deleted. Continue?&apos;
+      );
+    if(userConsent == true)
+    {
+      delResult = sforce.connection.deleteIds(selectedRecords);
+      if (delResult[0].getBoolean(&quot;success&quot;))
+      {
+        alert(&apos;The Photo(s) were Deleted Successfully.&apos;); 
+        window.location.reload();
+      }
+      else
+        alert(
+          &apos;The Photo(s) Could Not be Deleted. Error Message: &apos; + 
+          delResult[0].errors.message
+        );
+    }  
+  }
+}
+catch(e)
+{
+  alert(&apos;The Action Could not be Completed. Error Message: &apos; + e);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>View_Full_Size</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>true</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>true</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>View Full-size Photo</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>true</showsLocation>
+        <showsStatus>true</showsStatus>
+        <url>/servlet/servlet.FileDownload?file={!Photo__c.Attachment_ID__c}</url>
+    </webLinks>
+</CustomObject>

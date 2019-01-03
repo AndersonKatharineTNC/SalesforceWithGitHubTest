@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Payment request for Property Management expenses.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Account_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>BLANKVALUE(Contact_Name__r.Account.Name, Contact_Name__r.Account.Parent.Name )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Assessor_Parcel_Numbers__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please delete all the APN&apos;s that are not related to this expense payment.</inlineHelpText>
+        <label>Assessor Parcel Number(s)</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contact_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>The contact (contractor/vendor) must first be entered as a contact in the &quot;Contacts&quot; tab in order to use the look up feature. If the &quot;Contacts&quot; tab is not visible, select the + next to the &quot;Reports&quot; tab and select &quot;Customize My Tabs.&quot;</inlineHelpText>
+        <label>Contact Name</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Expense Payment Requests</relationshipLabel>
+        <relationshipName>Expense_Payment_Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Director_of_Conservation_Programs__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Director of Conservation Programs</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Expense_Payment_Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Director_of_Finance_Operations__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Director of Finance &amp; Operations</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Expense_Payment_Requests1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Director_of_Real_Estate__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>XDepDirector of Conservation Investments</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Expense_Payment_Requests2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Finance_Grants__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Finance/Grants</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Expense_Payment_Requests3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Financial_Account_Number__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the Financial Account Number that the expense should be posted to .</inlineHelpText>
+        <label>Financial Account Number</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Financial_Account_Number</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Installments__c</fullName>
+        <externalId>false</externalId>
+        <label>Installments</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>First</fullName>
+                    <default>false</default>
+                    <label>First</label>
+                </value>
+                <value>
+                    <fullName>Second</fullName>
+                    <default>false</default>
+                    <label>Second</label>
+                </value>
+                <value>
+                    <fullName>Both</fullName>
+                    <default>false</default>
+                    <label>Both</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Invoice_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>For Property Taxes, enter today’s date.</inlineHelpText>
+        <label>Invoice Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Invoice_Number__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the invoice number. If paying more than one invoice, include all invoice numbers that relate to this payment. Not required for Property Taxes.</inlineHelpText>
+        <label>Invoice Number</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Invoice_Payment_Amount__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please include the total invoice amount.  For property taxes, batch the total by installment amount and include all APN&apos;s related to the property.</inlineHelpText>
+        <label>Invoice Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Legal__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Legal</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Expense_Payment_Requests4</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Lock_Record__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>When this checkbox is checked, the “Admin Override” approval process is launched. The approval process locks the record and unchecks the ‘Lock Record’ checkbox (so that it can easily be locked again), but does not change the status. This field is only visible to Administrators.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Admin only field. Locks the record without changing the status. This box will not stay checked after the process runs, so if you need to re-lock the record again at a later date, you can.</inlineHelpText>
+        <label>Lock Record</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Operations__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Operations</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <errorMessage>The selected user is not an Operations Manager. Please consult with your regional Operations Manager on whom to select.</errorMessage>
+            <filterItems>
+                <field>User.ProfileId</field>
+                <operation>equals</operation>
+                <value>00ea0000001p0phAAA</value>
+            </filterItems>
+            <filterItems>
+                <field>User.Profile.Id</field>
+                <operation>equals</operation>
+                <value>00e30000001ookuAAA</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Expense_Payment_Requests5</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Other__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the name of the &quot;Other&quot; if an additional person who does not fit the following titles is required to review the contract.</inlineHelpText>
+        <label>Other</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Expense_Payment_Requests6</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Request_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment Request Description</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Request_Router__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Payment Request Router</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Expense_Payment_Requests7</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Request_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment Request Status</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>false</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>In Approval Process</fullName>
+                    <default>false</default>
+                    <label>In Approval Process</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Project_Director_Program_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project Director/Program Manager</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Expense_Payment_Requests8</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Property_Management_Expense__c</fullName>
+        <externalId>false</externalId>
+        <label>Property Management Expense</label>
+        <referenceTo>Expense_Income__c</referenceTo>
+        <relationshipLabel>Expense Payment Requests</relationshipLabel>
+        <relationshipName>Expense_Payment_Requests</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Property_Management_Unit_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Property_Management_Expense__r.Property_Managment_Name__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Property Management Unit Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Re_Lock_Record__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box to schedule the record for re-locking after a user has requested that the record be unlocked. It will automatically re-lock itself after 5 days.</inlineHelpText>
+        <label>Re-Lock Record</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Regional_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Regional Director</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Expense_Payment_Requests9</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Regional_Managing_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Regional Managing Director</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Expense_Payment_RequestsV2j9</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Science__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Science</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Expense_Payment_RequestsV2ji</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Senior_Project_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Senior Project Director</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Expense_Payment_RequestsV2jx</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Special_Instructions__c</fullName>
+        <externalId>false</externalId>
+        <label>Special Instructions</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>State_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>State Director</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Expense_Payment_RequestsV2kb</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Unique_Identifier__c</fullName>
+        <externalId>false</externalId>
+        <formula>Property_Management_Expense__r.Property_Managment_Name__r.PROPERTY__c &amp; &quot;-&quot; &amp;Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Unique Identifier</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X1_Activity__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter 6 digit activity code</inlineHelpText>
+        <label>1) Activity</label>
+        <length>6</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X1_Activity_associated_with_payment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if there is an activity code associated with this payment project/award id.</inlineHelpText>
+        <label>1) Activity associated with payment?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>X1_Amount_Allocated__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Amount to be charged to this project/award id. Total must equal invoice amount.</inlineHelpText>
+        <label>1) Amount Allocated</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>X1_Budget_Center_Name_Number__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>XDeprecat1.) Budget Center Name &amp; Number</label>
+        <lookupFilter>
+            <active>false</active>
+            <errorMessage>The cost center you have searched for is no longer active or you have submitted an invalid entry. Please consult with your Finance or Operations department for questions.</errorMessage>
+            <filterItems>
+                <field>Budget_Center_Names_Numbers__c.Status__c</field>
+                <operation>notContain</operation>
+                <value>Inactive</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Budget_Center_Names_Numbers__c</referenceTo>
+        <relationshipLabel>Expense Payment Requests</relationshipLabel>
+        <relationshipName>Expense_Payment_Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>X1_Project_Award_ID__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter an active project/award id to be associated with this payment.</inlineHelpText>
+        <label>1) Project/Award ID</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Project_IDs__c.Status__c</field>
+                <operation>equals</operation>
+                <value>Active</value>
+            </filterItems>
+            <infoMessage>Please select and active Project ID.</infoMessage>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Project_IDs__c</referenceTo>
+        <relationshipLabel>Expense Payment Requests</relationshipLabel>
+        <relationshipName>Expense_Payment_Requests</relationshipName>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>X2_Activity__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter 6 digit activity code</inlineHelpText>
+        <label>2) Activity</label>
+        <length>6</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X2_Activity_associated_with_payment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if there is an activity associated with this payment and project/award id.</inlineHelpText>
+        <label>2) Activity associated with payment?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>X2_Amount_Allocated__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter amount to be charged to this project/award ID</inlineHelpText>
+        <label>2) Amount Allocated</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>X2_Budget_Center_Name_Number__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>XDeprecat2.) Budget Center Name &amp; Number</label>
+        <lookupFilter>
+            <active>false</active>
+            <errorMessage>The cost center you have searched for is no longer active or you have submitted an invalid entry. Please consult with your Finance or Operations department for questions.</errorMessage>
+            <filterItems>
+                <field>Budget_Center_Names_Numbers__c.Status__c</field>
+                <operation>notContain</operation>
+                <value>Inactive</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Budget_Center_Names_Numbers__c</referenceTo>
+        <relationshipLabel>Expense Payment Requests (2.) Budget Center Name &amp; Number)</relationshipLabel>
+        <relationshipName>Expense_Payment_Requests1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>X2_Project_Award_ID__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select an active project id.</inlineHelpText>
+        <label>2) Project/Award ID</label>
+        <referenceTo>Project_IDs__c</referenceTo>
+        <relationshipLabel>Expense Payment Requests (2) Project/Award ID)</relationshipLabel>
+        <relationshipName>Expense_Payment_Requests1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>X3_Activity_Associated_with_Payment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if there is an activity code associated with this payment project/award id.</inlineHelpText>
+        <label>3) Activity Associated with Payment?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>X3_Activity__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter 6 digit activity code</inlineHelpText>
+        <label>3) Activity</label>
+        <length>6</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X3_Amount_Allocated__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter amount to be charged to this project/award id. Total of all 3 amount allocated fields must equal invoice amount.</inlineHelpText>
+        <label>3) Amount Allocated</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>X3_Budget_Center_Name_Number__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>XDeprecat3.) Budget Center Name &amp; Number</label>
+        <lookupFilter>
+            <active>false</active>
+            <errorMessage>The cost center you have searched for is no longer active or you have submitted an invalid entry. Please consult with your Finance or Operations department for questions.</errorMessage>
+            <filterItems>
+                <field>Budget_Center_Names_Numbers__c.Status__c</field>
+                <operation>notContain</operation>
+                <value>Inactive</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Budget_Center_Names_Numbers__c</referenceTo>
+        <relationshipLabel>Expense Payment Requests (3.) Budget Center Name &amp; Number)</relationshipLabel>
+        <relationshipName>Expense_Payment_Requests2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>X3_Project_Award_ID__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select an active project id.</inlineHelpText>
+        <label>3) Project/Award ID</label>
+        <referenceTo>Project_IDs__c</referenceTo>
+        <relationshipLabel>Expense Payment Requests (3) Project/Award ID)</relationshipLabel>
+        <relationshipName>Expense_Payment_Requests2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Expense Payment Request</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{000000}</displayFormat>
+        <label>Expense Payment Request Number</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Expense Payment Requests</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Payment_Creator_Not_Equal_to_Approver</fullName>
+        <active>true</active>
+        <description>The &quot;Operations&quot; reviewer/approver must not be the same as the &quot;Payment Request Router&quot;. Please route the payment request to the appropriate Operations staff person.</description>
+        <errorConditionFormula>Payment_Request_Router__c  =  Operations__c</errorConditionFormula>
+        <errorMessage>The &quot;Operations&quot; reviewer/approver must not be the same as the &quot;Payment Request Router&quot;. Please route the payment request to the appropriate Operations staff person.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Payment_greater_than_expense_balance</fullName>
+        <active>true</active>
+        <description>Check if requested payment amount exceeds the balance remaining on the expense so that the balance doesn&apos;t go negative.</description>
+        <errorConditionFormula>AND(
+(Invoice_Payment_Amount__c  &gt; Property_Management_Expense__r.Balance_Remaining__c) ,
+ ISPICKVAL(Payment_Request_Status__c , &quot;Draft&quot;))</errorConditionFormula>
+        <errorDisplayField>Invoice_Payment_Amount__c</errorDisplayField>
+        <errorMessage>Payment amount cannot exceed the balance remaining on the parent expense.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Total_allocated_not_equal_invoice_amount</fullName>
+        <active>true</active>
+        <description>The total of all 3 amount allocated fields should equal the total invoice amount.</description>
+        <errorConditionFormula>( NULLVALUE(X1_Amount_Allocated__c,0) + NULLVALUE(X2_Amount_Allocated__c,0) + NULLVALUE(X3_Amount_Allocated__c,0) ) &lt;&gt;  Invoice_Payment_Amount__c</errorConditionFormula>
+        <errorMessage>The sum of all 3 amount allocated fields must equal the Invoice Payment Amount</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>New_Expense_Payment_Request</fullName>
+        <availability>online</availability>
+        <description>Copies the income/expense-[0000] name and APN&apos;s.</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Expense Payment Request</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/a0G/e?CF00N30000007cTai={!Expense_Income__c.Name}&amp;00N30000008ahTT={!Property_Management__c.Assessor_Parcel_Numbers__c}&amp;CF00N30000007cTg2={!Expense_Income__c.Budget_Center_Name_Number__c}</url>
+    </webLinks>
+</CustomObject>

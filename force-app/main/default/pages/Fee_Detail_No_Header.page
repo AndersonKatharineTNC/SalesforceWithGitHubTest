@@ -1,0 +1,125 @@
+<apex:page standardController="Fee_Land_Inspection__c" showHeader="false" sidebar="false">
+<!--this object and related pages are no longer used as of 2014.-->
+    <apex:sectionHeader title="{!$ObjectType.Fee_Land_Inspection__c.label} Report" subtitle="{!Fee_Land_Inspection__c.name}"/>
+    <apex:pageBlock title="{!$ObjectType.Fee_Land_Inspection__c.label} Report">
+        <apex:pageBlockButtons >
+        <apex:form >
+            <apex:commandButton action="{!save}" id="saveButton" value="Save" style="display:none"/>
+            <apex:commandButton action="{!edit}" id="editButton" value="Edit"/>
+            <apex:commandButton action="{!delete}" id="deleteButton" value="Delete"/>
+            <apex:commandButton action="{!cancel}" id="cancelButton" value="Cancel" style="display:none"/>
+            <apex:commandButton action="{!URLFOR($Action.Fee_Land_Inspection__c.Clone,Fee_Land_Inspection__c.id)}" id="cloneButton" value="Clone"/>
+            <apex:commandButton action="{!URLFOR($Action.Fee_Land_Inspection__c.Print_PDF,Fee_Land_Inspection__c.id)}" id="Print_PDFButton" value="Print PDF"/>
+            <apex:commandButton action="{!URLFOR($Action.Fee_Land_Inspection__c.Help,Fee_Land_Inspection__c.id)}" id="helpButton" value="Help"/>
+        </apex:form>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection showHeader="True" title="I. Information" columns="1">
+        <p><b>Fee Land Inspection and Reporting is the responsibility of the project director.  That person must review and be familiar with conservation goals and plans as well as with the information, references and documents which bear on TNC's rights, obligations and activities related to the property.  Conducting site visits and reporting on conditions on the property are activities which may be performed by others.  It is the project director’s responsibility to interpret site conditions and activities observed personally or reported to them relating to goals and objectives for the property, in the context of TNC's rights and restrictions, and complete and certify the inspection report.</b></p>
+        </apex:pageBlockSection>
+        <apex:form >
+        <apex:pageBlockSection columns="2">
+        <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton,deleteButton,cloneButton" />
+            <apex:outputField value="{!Fee_Land_Inspection__c.Property_Management_Unit__c}"/>
+            
+            <apex:outputField value="{!Fee_Land_Inspection__c.Ecoregion__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.CLS_Tracts__c}"/>
+            
+            <apex:outputField value="{!Fee_Land_Inspection__c.Date_of_Last_Inspection__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Is_this_a_multi_tract_Management_Unit__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Changes_to_Management_Unit__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Description_of_Changes_to_Unit__c}"/>
+        <apex:pageBlockSectionItem />
+        </apex:pageBlockSection>
+        </apex:form>
+        <apex:pageBlockSection showHeader="true" title="II. Preparation for the Inspection: Document and other Review" columns="1">
+            <p>The person reporting on and finalizing a fee land inspection must review the pertinent information, references and documents described in the sections below prior to visiting the site and/or reviewing reports on site conditions provided by others. The supporting documents and materials regarding the property's conservation values and threats, conservation goals and plans, third-party rights, restrictions and TNC obligations/engagements available in Salesforce and other locations must be reasonably complete. If not, indicate what information is needed where directed in the pertinent section.</p>
+        </apex:pageBlockSection>
+        <apex:form >
+        <apex:pageBlockSection showHeader="true" title="A. Conservation Values and Threats" columns="1">
+        <p>Review of the conservation values protected by this management unit and the existing and anticipated potential threats to them.</p>
+        <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton,deleteButton,cloneButton" />
+            <apex:outputField value="{!Fee_Land_Inspection__c.Conservation_Values_and_Threats__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Conservation_Materials_Complete__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Incomplete_Conservation_Materials__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection showHeader="true" title="B. Third Party Rights" columns="1">
+        <p>Review of third party rights (e.g., access easements held by neighbors, leases water or other rights that may be in use or exercised in the future.)</p>
+        <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton,deleteButton,cloneButton" />
+            <apex:outputField value="{!Fee_Land_Inspection__c.Third_Party_Rights__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Are_3rd_Party_Rights_Materials_Complete__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Incomplete_Third_Party_Rights_Materials__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection showHeader="true" title="C. Other Restrictions" columns="1">
+            <p>Review of other restrictions on these fee lands (e.g., easements placed by agencies as a part of the project's funding strategy). Note that the documents relating to easements held by others over TNC land are in <a href="http://www.conservationtrack.org" target="_blank">ConservationTrack.</a></p>
+        <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton,deleteButton,cloneButton" />
+            <apex:outputField value="{!Fee_Land_Inspection__c.Other_restrictions__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Are_Other_Restriction_Materials_Complete__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Incomplete_Other_Restrictions_Materials__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection showHeader="true" title="D. TNC Obligations/Engagements" columns="1">
+            <p>Review of TNC's obligations and engagements on these fee lands (e.g., conservation goals and plans, management or restoration projects planned or underway, contracts for work on site).</p>
+        <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton,deleteButton,cloneButton" />
+            <apex:outputField value="{!Fee_Land_Inspection__c.TNC_obligations__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Are_Obligation_Materials_Complete__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Incomplete_TNC_Obligation_Materials__c}"/>
+        </apex:pageBlockSection>
+        </apex:form>
+        <apex:pageBlockSection showHeader="true" title="III. On Site Visit" columns="1">
+        <p>There must be at least one On-Site Visit, posted in the space below, before a Fee land Inspection Report can be completed. The person reporting on and finalizing a fee land inspection must review on-site conditions from the visit(s), whether documented themselves or posted by others, and then complete this section. Be sure that your description below explains how ALL of the land in this management unit was inspected, (what was visited on-site, what was viewed from the air, evaluated from remote imagery etc.) Conditions in need of attention will be discussed in Section IV which follows.</p>
+        <p>Create a separate record for each On-Site Visit you are reporting on.</p>        
+        </apex:pageBlockSection>
+        <apex:relatedList list="On_Site_Visits__r"/>
+        <apex:pageBlockSection >
+            <apex:outputField value="{!Fee_Land_Inspection__c.Inspection_Description__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Catastrophic_events__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Catastrophic_event_comments__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Restoration_activities__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Are_they_consistent_with_TNC_rights__c}"/>
+        </apex:pageBlockSection>
+        <apex:PageBlockSection columns="1">
+            <p><b>Ownership issues</b></p>
+            <p>If there is one or more significant ownership issue on this property, select from the available options below. Be sure that issues noted here are discussed in the Assessment section which follows.</p>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Legal_Status_Comments__c}"/>
+            </apex:pageBlockSection>
+        <apex:pageBlockSection showHeader="true" title="IV. Inspection Assessment" columns="1">
+            <p>In this assessment of TNC's management of the property, conditions on site must be considered and evaluated relative to TNC's goals, actions, rights and obligations. Areas or conditions which need attention, including any significant ownership issues noted above, are identified and reported for our California Program to centrally track progress in addressing them.</p>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Areas_or_Conditions_that_Need_Attention__c}"/>
+            <p><b>Certification Statement:</b>
+            <br><b>The person reporting on a fee land inspection CERTIFIES that conditions and activities observed or known to him/her on this property are consistent with the needs, plans and goals TNC has for this land, subject to any outstanding needs or issues identified above.</b></br></p>
+            <apex:form >
+            <apex:pageBlockSection columns="2">
+            
+            <apex:outputField value="{!Fee_Land_Inspection__c.Certification__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Date_of_Visit__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Certified_By__c}"/>
+            </apex:pageBlockSection>
+            </apex:form>
+            </apex:pageBlockSection>
+        <apex:form >
+
+        </apex:form>
+        <apex:pageBlockSection showHeader="true" title="Resources" columns="2">
+            <apex:outputLink value="{!URLFOR($Action.Fee_Land_Inspection__c.Management_Plans_Fee,Fee_Land_Inspection__c.id)}">Management Plans and TNCCA Fee Properties</apex:outputLink>
+            <apex:outputLink value="{!URLFOR($Action.Fee_Land_Inspection__c.Responsibilities_ProjectDirector,Fee_Land_Inspection__c.id)}">Responsibilities of the Project Director</apex:outputLink>
+            <apex:outputLink value="{!URLFOR($Action.Fee_Land_Inspection__c.PropertyMgmt_Info,Fee_Land_Inspection__c.id)}">Property Management Info in Salesforce</apex:outputLink>
+            <apex:outputLink value="{!URLFOR($Action.Fee_Land_Inspection__c.Guidance_OnSite_Visits,Fee_Land_Inspection__c.id)}">Guidance for On-Site Visits</apex:outputLink>
+            <apex:pageBlockSectionItem />
+        </apex:pageBlockSection>
+        <apex:pageBlockSection showHeader="true" title="System Information" columns="2">
+            <apex:outputField value="{!Fee_Land_Inspection__c.Name}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.LastModifiedById}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Record_Lock_Date__c}"/>
+            
+            <apex:outputField value="{!Fee_Land_Inspection__c.CreatedById}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.CLS_MABR_ID__c}"/>
+            <apex:outputField value="{!Fee_Land_Inspection__c.Fee_Record_Lock__c}"/>
+            <apex:pageBlockSectionItem />
+        </apex:pageBlockSection>
+      </apex:pageBlock>
+      <apex:pageBlock >
+            <p><b>Photos associated with On-site Visits are required and should be posted with the On-site Visit Form. Use “Attach File” to post notes or documentation related to the Fee Inspection Report. </b></p>
+    <apex:relatedList list="CombinedAttachments"/>
+      </apex:pageBlock>
+    <apex:relatedList list="OpenActivities"/>
+    <apex:relatedList list="ActivityHistories"/>
+</apex:page>

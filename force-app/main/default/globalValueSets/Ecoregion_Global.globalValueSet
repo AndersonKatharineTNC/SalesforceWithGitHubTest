@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Asia Pacific</fullName>
+        <default>false</default>
+        <label>Asia Pacific</label>
+    </customValue>
+    <customValue>
+        <fullName>Great Basin</fullName>
+        <default>false</default>
+        <label>Great Basin</label>
+    </customValue>
+    <customValue>
+        <fullName>Great Central Valley</fullName>
+        <default>false</default>
+        <label>Great Central Valley</label>
+    </customValue>
+    <customValue>
+        <fullName>Klamath</fullName>
+        <default>false</default>
+        <label>Klamath</label>
+    </customValue>
+    <customValue>
+        <fullName>Modoc Columbia Plateau</fullName>
+        <default>false</default>
+        <label>Modoc Columbia Plateau</label>
+    </customValue>
+    <customValue>
+        <fullName>Mojave Desert</fullName>
+        <default>false</default>
+        <label>Mojave Desert</label>
+    </customValue>
+    <customValue>
+        <fullName>North Coast</fullName>
+        <default>false</default>
+        <label>North Coast</label>
+    </customValue>
+    <customValue>
+        <fullName>Northern Current</fullName>
+        <default>false</default>
+        <label>Northern Current</label>
+    </customValue>
+    <customValue>
+        <fullName>Sierra Nevada</fullName>
+        <default>false</default>
+        <label>Sierra Nevada</label>
+    </customValue>
+    <customValue>
+        <fullName>Sonoran Desert</fullName>
+        <default>false</default>
+        <label>Sonoran Desert</label>
+    </customValue>
+    <customValue>
+        <fullName>South Coast</fullName>
+        <default>false</default>
+        <label>South Coast</label>
+    </customValue>
+    <customValue>
+        <fullName>Southern Current</fullName>
+        <default>false</default>
+        <label>Southern Current</label>
+    </customValue>
+    <customValue>
+        <fullName>TEST</fullName>
+        <default>false</default>
+        <label>TEST</label>
+    </customValue>
+    <customValue>
+        <fullName>CA Central Coast</fullName>
+        <default>false</default>
+        <label>CA Central Coast</label>
+    </customValue>
+    <customValue>
+        <fullName>Mojave Desesrt</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Mojave Desesrt</label>
+    </customValue>
+    <customValue>
+        <fullName>Central Coast</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Central Coast</label>
+    </customValue>
+    <customValue>
+        <fullName>CA South Coast</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>CA South Coast</label>
+    </customValue>
+    <customValue>
+        <fullName>CA Mojave</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>CA Mojave</label>
+    </customValue>
+    <description>Promoted from Property Management Object</description>
+    <masterLabel>Ecoregion</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

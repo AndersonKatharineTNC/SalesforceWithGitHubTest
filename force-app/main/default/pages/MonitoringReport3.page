@@ -1,0 +1,273 @@
+<apex:page standardController="Annual_Inspection__c" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
+    <html>
+        <head>
+            <style>
+                @page:first{
+                @bottom-center{
+                content: counter();
+                }
+                }
+                
+                .no-page-break {
+                page-break-inside: avoid;
+                }
+                               
+                @media print {
+                .page-break  {
+                page-break-after:auto;
+                }
+                }
+                @page {
+                size: letter;
+                float: none !important;
+                margin: 25mm;
+                @top-center {
+                }
+                @bottom-center {
+                content: "Page " counter(page) " of " counter(pages);
+                }
+                }
+                
+                body {
+                font-family: serif;
+                float: none !important;
+                }
+                table {
+                border-collapse: collapse;
+                float: none !important;
+                }
+                
+                th, td {
+                float: none !important;
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+                }
+                
+                .heading {
+                text-align: center;
+                font-size: 20px;
+                }
+                
+                .heading2 {
+                text-align: center;
+                font-size: 18px;
+                page-break-before:always;
+                }
+                .responses {
+                text-align: left;
+                font-size: 16px;
+                margin: 10mm;
+                }
+                .photos {
+                float: none !important;
+                text-align: left;
+                font-size: 16px;
+                margin: 10mm;
+                }
+                [Class*='linkSpan'] { 
+                display:none;
+                visibility:hidden; 
+                }
+            </style>
+            <table width="100%" align="center" style="font-size:16px">
+                <tbody>
+                    <tr>
+                        <td width="34%">
+                            <p><apex:image id="TNC_Logo" url="{!$Resource.TNC_Logo}" width="150px"></apex:image></p>
+                        </td>
+                        <td width="33%">
+                            <p><span style="font-size:18px;color:#339933">California Field Office</span><br />201 Mission St., 4th Floor<br />San Francisco, CA 94105</p>
+                        </td>
+                        <td width="33%">
+                            <p align="right">Tel: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[415] 777-0487<br />
+                                Fax: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[415] 777-0244<br />
+                                <a href="http://www.nature.org/"><b>nature.org</b></a></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </head>
+        <body>
+            <div class="heading">
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p><b>{!Annual_Inspection__c.Property_Interest__r.Name}</b></p>
+                <p><b>Compliance Monitoring Report</b></p>
+                <p><b>Monitoring Date</b>
+                    <apex:outputText value=": {0,date,long}">
+                        <apex:param value="{!Annual_Inspection__c.Inspection_Date__c}" />
+                    </apex:outputText>
+                </p>
+                <p><b>Status</b>:&nbsp;{!Annual_Inspection__c.Status__c}</p>
+            </div>
+            <div class="responses">
+                <table width="100%" style="font-size: 16px">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p><b>Monitor</b>:<br /><apex:outputText style="white-space: pre-wrap, font-size: 16px" value="{!Annual_Inspection__c.Monitor_Info__c}" escape="false"></apex:outputText></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="heading2">
+                <p>&nbsp;</p>
+                <p><b>PROPERTY INFORMATION and CONTACTS</b></p>
+            </div>
+            <div class="responses">
+                <apex:OutputText rendered="{!Annual_Inspection__c.Interest_Type__c != null}"><p><b>Interest Type</b>: {!Annual_Inspection__c.Interest_Type__c}</p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Subdivision__c != null}"><p><b>Subdivision</b>: {!Annual_Inspection__c.Subdivision__r.Name}</p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Last_Monitoring_Date__c != null}">
+                    <p><b>Last Monitoring Date (from previous year's report)</b>:&nbsp;<apex:outputText value="{0,date,long}">
+                        <apex:param value="{!Annual_Inspection__c.Last_Monitoring_Date__c}" />
+                        </apex:outputText></p>
+                </apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Acres__c != null}"><p><b>Acres</b>:&nbsp;<apex:outputField value="{!Annual_Inspection__c.Acres__c}"></apex:outputField></p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.County__c != null}"><p><b>County</b>: {!Annual_Inspection__c.County__c}</p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Subdivision__c != null}"><p><b>Number of Subdivisions</b>:&nbsp;<apex:outputField value="{!Annual_Inspection__c.Number_Subdivisions__c}"></apex:outputField></p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Property_transferred_since_last_report__c != null}"><p><b>Property transferred or subdivided since last report</b>? {!IF(Annual_Inspection__c.Property_transferred_since_last_report__c=TRUE, "Yes","No")}</p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.IRS_Reportable__c != null}"><p><b>IRS Reportable</b>? {!IF(Annual_Inspection__c.IRS_Reportable__c=TRUE,"Yes","No")}</p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Costs_reported_to_100000_activity_code__c != null}"><p><b>Time and Costs reported to 100000 activity code</b>? {!Annual_Inspection__c.Costs_reported_to_100000_activity_code__c}</p></apex:OutputText>
+                <p>&nbsp;</p>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Reviewed_Contact_Information__c != null}"><p><b>I reviewed the following contact information and it is correct to my knowledge</b>: {!Annual_Inspection__c.Reviewed_Contact_Information__c}</p></apex:OutputText>
+                <apex:OutputText style="white-space: pre-wrap" rendered="{!Annual_Inspection__c.Property_Contacts__c != null}"><p><b>Property Contacts</b>:<br /><apex:outputField value="{!Annual_Inspection__c.Property_Contacts__c}"></apex:outputField></p></apex:OutputText>
+            </div>
+            <div class="heading2">
+                <p>&nbsp;</p>
+                <p><b>THE VISIT</b></p>
+            </div>
+            <div class="responses">
+                <apex:OutputText rendered="{!Annual_Inspection__c.Was_Baseline_reviewed__c != null}"><p><b>Were the legal text, baseline, and related documents reviewed immediately before the site visit?</b>&nbsp;{!Annual_Inspection__c.Was_Baseline_reviewed__c}</p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Inspection_Date__c != null}"><p><b>Last Date of This Inspection</b><apex:outputText value=": {0,date,long}">
+                    <apex:param value="{!Annual_Inspection__c.Inspection_Date__c}" />
+                    </apex:outputText></p>
+                </apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Additional_Inspection_Dates__c != null}"><p><b>Additional Inspection Dates</b>: {!Annual_Inspection__c.Additional_Inspection_Dates__c}</p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Area_s_inspected__c != null}"><p><b>Area(s) inspected</b>:<br />{!Annual_Inspection__c.Area_s_inspected__c}</p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.How_was_this_property_inspected__c != null}"><p><b>Method(s) of Inspection</b>:<br />{!Annual_Inspection__c.How_was_this_property_inspected__c}</p></apex:OutputText>
+                <apex:OutputText rendered="{!AND(Annual_Inspection__c.Other_Method_of_Inspection__c != null,Annual_Inspection__c.How_was_this_property_inspected__c != null)}"><p><b>Other Method of Inspection Notes</b>:<br />{!Annual_Inspection__c.Other_Method_of_Inspection__c}</p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Owner_Contacted_Before_Visit__c != null}"><p><b>Was Owner / representative contacted before visit</b>? {!Annual_Inspection__c.Owner_Contacted_Before_Visit__c}<apex:OutputText rendered="{!Annual_Inspection__c.Who_was_contacted__c != null}"><br /><em>Who? </em>{!Annual_Inspection__c.Who_was_contacted__c}</apex:OutputText></p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Did_owner_rep_go_on_visit__c != null}"><p><b>Did the Owner / representative go on visit</b>: {!Annual_Inspection__c.Did_owner_rep_go_on_visit__c}</p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Who_accompanied__c != null}"><p><b>List everyone present for the visit</b>:<br />{!Annual_Inspection__c.Who_accompanied__c}</p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Natural_Communities_Observed__c != null}"><p><b>Natural Communities Observed</b>:<br />{!Annual_Inspection__c.Natural_Communities_Observed__c}</p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Rare_Species_Observed__c != null}"><p><b>Rare Species Observed</b>:<br />{!Annual_Inspection__c.Rare_Species_Observed__c}</p></apex:OutputText>
+            </div>
+            <div class="heading2">
+                <p>&nbsp;</p>
+                <p><b>INTEREST SITE INFORMATION</b></p>
+            </div>
+            <div class="responses">
+                <apex:OutputText style="white-space: pre-wrap" rendered="{!Annual_Inspection__c.Land_Owner_Representative_Report__c != null}"><p><b>Land Owner / Representative Report</b>:<br />{!Annual_Inspection__c.Land_Owner_Representative_Report__c}</p>
+                </apex:OutputText>
+                <div class="no-page-break">
+                    <apex:OutputText style="white-space: pre-wrap" rendered="{!Annual_Inspection__c.Monitor_s_Observations__c != null}"><p><b>Monitor&rsquo;s Observations</b>:<br />{!Annual_Inspection__c.Monitor_s_Observations__c}</p></apex:OutputText>
+                    <apex:OutputText rendered="{!Annual_Inspection__c.Significant_Changes__c != null}"><p><i>Significant changes this year?</i> {!Annual_Inspection__c.Significant_Changes__c}</p></apex:OutputText>
+                    <apex:OutputText rendered="{!AND(Annual_Inspection__c.Change_Notes__c != null,Annual_Inspection__c.Significant_Changes__c = 'Yes')}"><p><i>What Changed? </i><br />{!Annual_Inspection__c.Change_Notes__c}</p></apex:OutputText>
+                    <apex:OutputText rendered="{!Annual_Inspection__c.Activities_on_Adjacent_Lands__c != null}"><p><i>Relevant activities on adjacent lands? </i><br />{!Annual_Inspection__c.Activities_on_Adjacent_Lands__c}</p></apex:OutputText>
+                    <apex:OutputText rendered="{!Annual_Inspection__c.Weather_Notes__c != null}"><p><i>Notes on weather in this area during this monitoring year:</i><br />{!Annual_Inspection__c.Weather_Notes__c}</p></apex:OutputText>
+                </div>
+                <div class="no-page-break">
+                    <apex:OutputText rendered="{!Annual_Inspection__c.Any_catastrophic_events__c != null}"><p><b>Natural catastrophic events</b>:<br /><i>Have there been any natural catastrophic events since last inspection (fire, flood, etc.)? </i>{!Annual_Inspection__c.Any_catastrophic_events__c}</p></apex:OutputText>
+                    <apex:OutputText rendered="{!AND(Annual_Inspection__c.Describe_catastrophic_event__c != null, Annual_Inspection__c.Any_catastrophic_events__c = 'Yes')}"><p><i> If YES, describe the catastrophic event: </i>{!Annual_Inspection__c.Describe_catastrophic_event__c}</p></apex:OutputText>
+                    <apex:OutputText rendered="{!AND(Annual_Inspection__c.Plans_to_address_impacts__c != null, Annual_Inspection__c.Any_catastrophic_events__c = 'Yes')}"><p><i>If YES, are there any plans to address the impacts and restore the habitat?</i> {!Annual_Inspection__c.Plans_to_address_impacts__c}</p></apex:OutputText>
+                    <apex:OutputText rendered="{!AND(Annual_Inspection__c.Plans_consistent_with_interest_terms__c != null,Annual_Inspection__c.Any_catastrophic_events__c = 'Yes')}"><p><i>Are the plans consistent with the interest terms?</i> {!Annual_Inspection__c.Plans_consistent_with_interest_terms__c}</p></apex:OutputText>
+                    <apex:OutputText rendered="{!AND(Annual_Inspection__c.If_no_steps_to_ensure_compliance__c != null, Annual_Inspection__c.Any_catastrophic_events__c = 'Yes')}"><p><i>IF NO, describe steps to ensure compliance:</i><br />{!Annual_Inspection__c.If_no_steps_to_ensure_compliance__c}</p></apex:OutputText>
+                </div>
+                <div class="no-page-break">
+                    <apex:OutputText rendered="{!Annual_Inspection__c.Infrastructure_Changes__c != null}"><p><b>Infrastructure Changes Since Last Monitoring:</b><br />{!Annual_Inspection__c.Infrastructure_Changes__c}</p></apex:OutputText>
+                    <apex:OutputText rendered="{!AND(Annual_Inspection__c.Infrastucture_Change_Description__c != null, Annual_Inspection__c.Infrastructure_Changes__c != 'None')}"><p><i>Describe: </i>{!Annual_Inspection__c.Infrastucture_Change_Description__c}</p></apex:OutputText>
+                </div>
+                <p>&nbsp;</p>
+                <div class="no-page-break">
+                    <apex:OutputText rendered="{!Annual_Inspection__c.Management_Problems__c != null}"><p><b>Management Problems:</b><br />{!Annual_Inspection__c.Management_Problems__c}</p></apex:OutputText>
+                    <apex:OutputText rendered="{!AND(Annual_Inspection__c.Describe_management_problems__c != null,Annual_Inspection__c.Management_Problems__c != 'No Issues')}"><p><i>Describe: </i>{!Annual_Inspection__c.Describe_management_problems__c}</p></apex:OutputText>
+                </div>
+                <p>&nbsp;</p>
+                <div class="no-page-break">
+                    <apex:OutputText rendered="{!Annual_Inspection__c.Management_Activities__c != null}"><p><b>Management Activities:</b><br />{!Annual_Inspection__c.Management_Activities__c}</p></apex:OutputText>
+                    <apex:OutputText rendered="{!AND(Annual_Inspection__c.Describe_Management_Activities__c != null,Annual_Inspection__c.Management_Activities__c != 'None')}"><p><i>Describe: </i> {!Annual_Inspection__c.Describe_Management_Activities__c}</p></apex:OutputText>
+                </div>
+            </div>
+            <div class="heading2">
+                <p>&nbsp;</p>
+                <p><b>NARRATIVE AND STATUS</b></p>
+            </div>
+            <div class="responses">
+                <apex:OutputText style="white-space: pre-wrap" rendered="{!Annual_Inspection__c.Summary_and_Recommendations__c != null}"><p><b>Summary and Recommendations:</b><br />{!Annual_Inspection__c.Summary_and_Recommendations__c}</p></apex:OutputText>
+                <apex:OutputText rendered="{!Annual_Inspection__c.Status__c != null}"><p><i>Status: </i>{!Annual_Inspection__c.Status__c}</p></apex:OutputText>
+                <apex:OutputText style="white-space: pre-wrap" rendered="{!AND(Annual_Inspection__c.Explanation_of_Non_Compliance__c != null, Annual_Inspection__c.Status__c != 'In Compliance')}"><p><i>Explanation of non-compliance (if applicable): </i><br />{!Annual_Inspection__c.Explanation_of_Non_Compliance__c}</p></apex:OutputText>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>                
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p><b>Approval History:</b></p>
+                <div class="no-page-break">
+                    <apex:pageBlock >
+                        <apex:pageBlockTable value="{!Annual_Inspection__c.ProcessSteps}" var="p">
+                            <apex:column headerValue="Date">
+                                <apex:outputField value="{!p.CreatedDate}"/>
+                            </apex:column>
+                            <apex:column headerValue="Action">
+                                <apex:outputField value="{!p.ProcessNode.Name}"/>
+                            </apex:column>
+                            <apex:column headerValue="Assigned To">
+                                <apex:outputField value="{!p.OriginalActor.Name}"/>
+                            </apex:column>
+                            <apex:column headerValue="Actual Approver">
+                                <apex:outputField value="{!p.Actor.Name}"/>
+                            </apex:column>
+                            <apex:column headerValue="Status">
+                                <apex:outputField value="{!p.StepStatus}"/>
+                            </apex:column>
+                            <apex:column headerValue="Overall Status">
+                                <apex:outputField value="{!p.ProcessInstance.Status}"/>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                    </apex:pageBlock>
+                </div>
+            </div>
+            <apex:OutputText style="white-space: pre-wrap" rendered="{!Annual_Inspection__c.Monitoring_Documentation__c != null}">
+                <div class="heading2">
+                    <p>&nbsp;</p>
+                    <p><b>MONITORING DOCUMENTATION</b></p>
+                    <p style="font-size: 16px">Documents noted below support this monitoring report and/or may be referenced in it.<br />They are stored and archived as a part of the monitoring record.</p>
+                </div>
+                <div class="responses">
+                    <p><apex:outputText style="white-space: pre-wrap" value="{!Annual_Inspection__c.Monitoring_Documentation__c}" escape="false"></apex:outputText></p>
+                </div>
+            </apex:OutputText>
+            <div class="heading2">
+                <p>&nbsp;</p>
+                <p><b>PHOTO DOCUMENTATION</b></p>
+                <div class="photos">
+                    <table border="0">
+                        <apex:repeat var="p" value="{!Annual_Inspection__c.Photos__r}">
+                            <tr>
+                                <td>
+                                        <apex:OutputText rendered="{!p.Photo_for_PDF__c != null}"><apex:outputText value="{!p.Photo_for_PDF__c}" escape="false"/><br /></apex:OutputText>
+                                    	<br />
+                                        <apex:OutputText rendered="{!p.File_Name__c != null}"><i>File Name:</i>&nbsp;<apex:outputText value="{!p.File_Name__c}" escape="false"/><br /></apex:OutputText>
+                                        <apex:OutputText rendered="{!p.Photographer__c != null}"><i>Photographer:</i>&nbsp;<apex:outputText value="{!p.Photographer__c}" escape="false"/><br /></apex:OutputText>
+                                        <apex:OutputText rendered="{!p.Date_Taken__c != null}"><i>Date Taken:</i>&nbsp;<apex:outputText value="{0, date, MMMM d','  yyyy}" escape="false">
+                                            <apex:param value="{!p.Date_Taken__c}" /> 
+                                            </apex:outputText><br /></apex:OutputText>
+                                        <apex:OutputText style="white-space: pre-wrap" rendered="{!p.Description__c != null}"><i>Description:</i>&nbsp;<apex:outputText value="{!p.Description__c}" escape="false"/><br /></apex:OutputText>
+                                        <apex:OutputText style="white-space: pre-wrap" rendered="{!p.Location_Photo_Taken__c != null}"><i>Location:</i>&nbsp;<apex:outputText value="{!p.Location_Photo_Taken__c}" escape="false"/><br /></apex:OutputText>
+                           			<p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                </td>
+                            </tr>
+                        </apex:repeat> 
+                    </table>
+                </div>    
+            </div>
+        </body>
+    </html>
+</apex:page>

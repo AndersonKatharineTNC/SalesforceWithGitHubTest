@@ -1,0 +1,1128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <content>Fee_Clone</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>Fee_Edit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>Fee_New</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>Fee_Help</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>DO NOT DELETE! Fee land inspection record for related TNC-owned management unit. These records MUST be preserved in perpetuity based on SOP: https://connect.tnc.org/about/operations/officeservices/_layouts/15/WopiFrame.aspx?sourcedoc=/about/operations/officeservices/Documents/records_retention_schedule%20April%202014.doc&amp;action=default&amp;DefaultItemOpen=1</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Additional_Observations__c</fullName>
+        <description>Additional observation text field to supplement inspector observations</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please add any comments or observations from knowledgeable others (e.g., neighbors or partners.)</inlineHelpText>
+        <label>Additional Observations</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Are_3rd_Party_Rights_Materials_Complete__c</fullName>
+        <description>Yes/No picklist indicates if third party materials are missing.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Pick &quot;Yes&quot; if documentation is available for third-party rights. Pick &quot;No&quot; if materials appear to be incomplete (e.g. you are aware of an access easement held by neighbor which is not reflected in the documents.)</inlineHelpText>
+        <label>Are 3rd Party Rights materials Complete?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Are_Obligation_Materials_Complete__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Pick &quot;Yes&quot; if documentation for TNC Obligations/engagements is available. Pick &quot;No&quot; if materials appear to be incomplete (e.g., no grant agreement with WCB which includes perpetual reporting obligations.)</inlineHelpText>
+        <label>Are TNC Obligations Materials Complete?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Are_Other_Restriction_Materials_Complete__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Pick &quot;Yes&quot; if documentation is available for other restrictions. Pick &quot;No&quot; if materials appear to be incomplete (e.g., no copy of conservation easement held by US Fish and Wildlife Service).</inlineHelpText>
+        <label>Are Other Restrictions Complete?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Are_they_consistent_with_TNC_rights__c</fullName>
+        <description>Yes/No picklist indicating whether restoration activities are consistent with TNC rights.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please indicate whether the planned restoration activities consistent with TNC rights.</inlineHelpText>
+        <label>Are they consistent with TNC rights?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Restoration_activities__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Yes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>No</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Areas_or_Conditions_that_Need_Attention__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Identify any areas/conditions which need attention and describe the timeline for addressing each of them.</inlineHelpText>
+        <label>Areas or Conditions that Need Attention</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>9</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Assessment_instructions__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;This assessment identifies conditions which need attention and provides the input for our California Program to centrally track progress in addressing them. Note that &apos;legal issues&apos; must be broken out and reported to World Office as noted in the last section.&quot;</formula>
+        <label>Assessment instructions</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CLS_Legal_Status__c</fullName>
+        <description>CLS legal status field referenced from Legal Status picklist.</description>
+        <externalId>false</externalId>
+        <formula>TEXT( Legal_Status__c )</formula>
+        <inlineHelpText>This is a read-only field. Please see &quot;Legal Status&quot; field in this record for more information on the legal issues associated with this property.</inlineHelpText>
+        <label>CLS Legal Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CLS_MABR_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Property_Management_Unit__r.CLS_MABR_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CLS MABR ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CLS_Tracts__c</fullName>
+        <externalId>false</externalId>
+        <formula>Property_Management_Unit__r.CLS_Tract_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CLS Tracts</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Catastrophic_event_comments__c</fullName>
+        <description>Comment field for catastrophic yes/no picklist field.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If a catastrophic event occurred since the last inspection, please describe the impact on the property.</inlineHelpText>
+        <label>Catastrophic event comments:</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Catastrophic_events__c</fullName>
+        <description>Yes or No picklist field indicating whether there were any catastrophic events since last inspection.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Have there been any catastrophic events since last inspection (fire, flood, etc.)?</inlineHelpText>
+        <label>Catastrophic events</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Certification__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this to certify that conditions and activities observed or known to you are consistent with the needs, plans and goals TNC has for this land, subject to any outstanding needs/issues identified below. Only project directors can check this box.</inlineHelpText>
+        <label>I have read the certification statement</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Certification_statement__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;The person reporting on a fee land inspection must CERTIFY that conditions and activities observed or known on this property are consistent with the needs, plans and goals TNC has for this land, subject to any outstanding needs or issues identified below.&quot;</formula>
+        <label>Certification statement</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Certified_By__c</fullName>
+        <description>Automatically updates name of project director when certification box is checked.</description>
+        <externalId>false</externalId>
+        <label>Certified By</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Changes_to_Management_Unit__c</fullName>
+        <description>Yes/No picklist field indicating whether additions or sales-out of tracts occurred in this Management Unit.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Have there been any changes (additions or sales out) of tracts within this Management Unit since its last inspection report?</inlineHelpText>
+        <label>Changes to Management Unit</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Conservation_Materials_Complete__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Pick &quot;Yes&quot; if the REPAR, plans and other materials adequately capture conservation values and threats for management purposes. Pick &quot;No&quot; if there is no REPAR or if other documentation of conservation values and their threats is incomplete or inadequate.</inlineHelpText>
+        <label>Are the Conservation Materials Complete?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Conservation_Value_Statement__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;The person conducting and reporting on a fee land inspection must review the conservation values protected by this management unit and the existing and anticipated potential threats to them.&quot;</formula>
+        <label>Conservation Value Statement</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Conservation_Values_and_Threats__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Please check if you have reviewed the conservation values protected by this management unit and the existing and anticipated potential threats to them.</inlineHelpText>
+        <label>Reviewed Conservation Values &amp; Threats?</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Last_Inspection__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date of the last completed and certified Inspection REPORT.</inlineHelpText>
+        <label>Date of Last Inspection REPORT</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Last_Visit__c</fullName>
+        <description>Date of last visit to inspect site.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Most recent date for which there is a site visit included in this report.</inlineHelpText>
+        <label>Date of Last Site Visit</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Visit__c</fullName>
+        <description>Field label changed 4/23/2012 per L Lozier.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date the report was certified by the Project Director. This date will automatically update once the &quot;I have read the certification statement&quot; box is checked.</inlineHelpText>
+        <label>Date of Report</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Description_of_Changes_to_Unit__c</fullName>
+        <description>Text field that described management unit changes based on response from picklist.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe the changes (additions or sales out) of tracts within this Management Unit since its last inspection report.</inlineHelpText>
+        <label>Description of Changes to Unit</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Ecoregion__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Property_Management_Unit__r.Ecoregion__c)</formula>
+        <label>Ecoregion</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fee_Record_Lock__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Locks fee inspection record so that it cannot be edited.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A check indicates that this record has been locked and can no longer be edited. It can only be checked by the CLS manager after the information is reported to World Office.</inlineHelpText>
+        <label>Record Lock</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Incomplete_Conservation_Materials__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicate what information should be located, developed or updated.</inlineHelpText>
+        <label>Missing Conservation Values materials</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Incomplete_Other_Restrictions_Materials__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What additional restriction-related materials are needed?</inlineHelpText>
+        <label>Missing Other Restrictions materials</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Incomplete_TNC_Obligation_Materials__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What additional documentation of TNC-obligations/engagements are needed?</inlineHelpText>
+        <label>Missing TNC Obligation materials</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Incomplete_Third_Party_Rights_Materials__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What additional third party rights materials are needed?</inlineHelpText>
+        <label>Missing Third Party Rights materials</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Inspection_Description__c</fullName>
+        <description>Description of inspection.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Note the portions of the property that were included in the site visits related to this Inspection Report.  (Also indicate the mode(s) of travel used, (e.g., walking, driving, over-flight).</inlineHelpText>
+        <label>How was this property inspected?</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Inspector_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Field label changed as of 4/23/2012.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of person responsible for this Management Unit who certifies this Inspection Report</inlineHelpText>
+        <label>Project Director or Responsible Party</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>User.IsActive</field>
+                <operation>equals</operation>
+                <value>true</value>
+            </filterItems>
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>Conservation Project User, Legal User, Real Estate Department, Science User, System Administrator, Conservation Project User, Contract Manager, Finance/Grants, Finance and Ops Admin, Legal User, Marketing User, Operations/Contract Manager I, Operations/Co</value>
+            </filterItems>
+            <filterItems>
+                <field>$Profile.UserType</field>
+                <operation>notEqual</operation>
+                <value>Partner</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Fee_Land_Inspections</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Inspector_Observation_Instructions__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;If this Management Unit is composed of multiple tracts, the Inspector must provide specific, clear and concise information on the location within the Management Unit where each of the observations reported here were made.&quot;</formula>
+        <label>Inspector Observation Instructions</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inspector_Observations__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe your observations of current land use practices, site, resource and infrastructure conditions.</inlineHelpText>
+        <label>Inspector&apos;s Observations</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Is_this_a_multi_tract_Management_Unit__c</fullName>
+        <description>New field per L. Lozier as of 4/23/2012.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Mark &quot;Yes&quot; if more than one tract is included in this management unit.</inlineHelpText>
+        <label>Is this a multi-tract Management Unit?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Legal_Status_Comments__c</fullName>
+        <description>Ownership issue multi-select option. Changed Legal Status Comments text box to Ownership Issue per new SOP on 4/2013.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select ownership issues that apply. Consult your attorney for questions.</inlineHelpText>
+        <label>Ownership Issues</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Trespass/Unauthorized Use</fullName>
+                    <default>false</default>
+                    <label>Trespass/Unauthorized Use</label>
+                </value>
+                <value>
+                    <fullName>Overuse (e.g., visitation, grazing)</fullName>
+                    <default>false</default>
+                    <label>Overuse (e.g., visitation, grazing)</label>
+                </value>
+                <value>
+                    <fullName>Dumping/Vandalism</fullName>
+                    <default>false</default>
+                    <label>Dumping/Vandalism</label>
+                </value>
+                <value>
+                    <fullName>Boundary Dispute/Encroachment</fullName>
+                    <default>false</default>
+                    <label>Boundary Dispute/Encroachment</label>
+                </value>
+                <value>
+                    <fullName>Title issues</fullName>
+                    <default>false</default>
+                    <label>Title issues</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Legal_Status_Instructions__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;TNC&apos;s policy requires that legal issues associated with a TNC property be reported through World Office. Below indicate whether the areas noted above include legal issues to report. If Yes, explain in the Legal Status Comments section.&quot;</formula>
+        <label>Legal Status Instructions</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Legal_Status__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select &quot;Yes&quot; if there are outstanding legal issues with/on this property, (e.g. encroachment, lawsuit, condemnation action).  Select &quot;No&quot; if there are not.</inlineHelpText>
+        <label>Legal Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Fee Legal Issues</fullName>
+                    <default>false</default>
+                    <label>No Fee Legal Issues</label>
+                </value>
+                <value>
+                    <fullName>Yes Fee Legal issues</fullName>
+                    <default>false</default>
+                    <label>Yes Fee Legal issues</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>On_Site_Information_Instructions__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;It is the Inspector&apos;s responsibility to view and evaluate the properties relative to TNC&apos;s goals, actions, rights and obligations.&quot;</formula>
+        <label>On-Site Information Instructions</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_restrictions__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Please check if you have reviewed other restrictions on these fee lands, (e.g. easements placed by agencies as a part of the project’s funding strategy, restrictions placed as the result of mitigation agreements, etc.)</inlineHelpText>
+        <label>Reviewed Other Restrictions?</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Other_restrictions_statement__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;The person conducting and reporting on a fee land inspection must review other restrictions on these fee lands, (e.g. easements placed by agencies as a part of the project’s funding strategy, restrictions placed as the result of mitigation agreements, etc.)&quot;</formula>
+        <inlineHelpText>Note that documents relating to easements held by others over TNC land are in ConservationTrack.</inlineHelpText>
+        <label>Other restrictions Statement</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Preparation_Instructions__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;The person reporting on and finalizing a fee land inspection must review the pertinent information, references and documents described in the sections below prior to conducting/and or reviewing the site visit.  The supporting documents and materials regarding the property&apos;s conservation values and threats, third-party rights, restrictions and TNC obligations/engagements must be reasonably complete. If not, indicate what information is needed where directed in the pertinent section.&quot;</formula>
+        <label>Preparation Instructions</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Director1__c</fullName>
+        <description>Lists name of Project Director associated with Property Management unit.</description>
+        <externalId>false</externalId>
+        <formula>Property_Management_Unit__r.Project_Director__r.FirstName &amp; &quot; &quot; &amp; Property_Management_Unit__r.Project_Director__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The Project Director (or Responsible Party) is the same as the Project Director assigned to the Property Management unit. Please refer to the Property Management record.</inlineHelpText>
+        <label>Project Director</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project Director</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>The person you selected is not a project director. Please contact your System Administrator for assistance.</errorMessage>
+            <filterItems>
+                <field>User.Profile.Name</field>
+                <operation>contains</operation>
+                <value>Project Director</value>
+            </filterItems>
+            <infoMessage>Search for the project director by entering his/her first and/or last name.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Fee_Land_Inspections1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Property_Management_Unit__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of unit (may be single or multiple tract - as reflected in CLS)</inlineHelpText>
+        <label>Property Management Unit</label>
+        <referenceTo>Property_Management__c</referenceTo>
+        <relationshipName>Fee_Land_Inspections</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Record_Lock_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Displays the date the CLS entry was made and when the record was locked.</inlineHelpText>
+        <label>Record Lock Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Restoration_activities__c</fullName>
+        <description>Yes/No picklist field indicating whether restoration activities are planned to address damages from catastrophic events.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If a catastrophic event damaged the property, are there any activities planned to restore the habitat?</inlineHelpText>
+        <label>Planned Recovery/Restoration activities</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Catastrophic_events__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Yes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>No</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SiteVisit_Check__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is updated when the On-Site (detail object) Site Observations field is populated. This field is NOT on the page layout. It is created to ensure that a minimum of one onsite visit is posted to each fee inspection (master) record. See related validation rule.</description>
+        <externalId>false</externalId>
+        <label>SiteVisit Check</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TNC_Obligations_Statement__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;The person conducting and reporting on a fee land inspection must review TNC obligations/engagements on these fee lands, (management or restoration projects planned/underway, contracts for work on site, etc.)&quot;</formula>
+        <label>TNC Obligations Statement</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TNC_obligations__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check value confirms TNC obligations have been reviewed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Review of TNC&apos;s obligations and engagements on these fee lands (e.g., conservation goals and plans, management or restoration projects planned or underway, contracts for work on site)</inlineHelpText>
+        <label>Reviewed TNC Obligations/Engagements?</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Third_Party_Rights_Statement__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;I have reviewed third party rights, (e.g. access easements held by neighbors, leases, water or other rights that may be in use or exercised in future).&quot;</formula>
+        <label>Third Party Rights Statement</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Third_Party_Rights__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Please check if you have have reviewed third party rights, (e.g. access easements held by neighbors, leases, water or other rights that may be in use or exercised in future).</inlineHelpText>
+        <label>Reviewed Third Party Rights?</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>OLD: Fee Land Inspection</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Property_Management_Unit__c</columns>
+        <columns>CLS_Tracts__c</columns>
+        <columns>CLS_MABR_ID__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>FEE-{0000}</displayFormat>
+        <label>Fee Land Inspection Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>OLD: Fee Land Inspections</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Property_Management_Unit__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Date_of_Visit__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Project_Director__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Certification__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Legal_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>UPDATEDBY_USER</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Property_Management_Unit__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Project_Director__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Property_Management_Unit__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Inspector_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Date_of_Visit__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Certification__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Legal_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>UPDATEDBY_USER</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Castrophic_events_Check</fullName>
+        <active>true</active>
+        <description>Checks if user has completed the catastrophic events field.</description>
+        <errorConditionFormula>AND ( Certification__c  = True, TEXT( Catastrophic_events__c ) = &quot;&quot;)</errorConditionFormula>
+        <errorDisplayField>Certification__c</errorDisplayField>
+        <errorMessage>You must indicate if any catastrophic event (fire, flood, etc.) occurred on the property since the last inspection. Please select Yes or No in the Catastrophic event field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Catastrophic_event_description</fullName>
+        <active>true</active>
+        <description>Requires description if Catastrophic Event picklist value is yes.</description>
+        <errorConditionFormula>ISPICKVAL( Catastrophic_events__c , &quot;Yes&quot;)  &amp;&amp;  (Catastrophic_event_comments__c  = &quot;&quot;)</errorConditionFormula>
+        <errorDisplayField>Catastrophic_event_comments__c</errorDisplayField>
+        <errorMessage>Please describe the impact on the property.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Conservation_Values_check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (Certification__c  = True, Conservation_Values_and_Threats__c = False)  || 
+AND ( Certification__c  = True, TEXT(Conservation_Materials_Complete__c) = &quot;&quot;)</errorConditionFormula>
+        <errorDisplayField>Certification__c</errorDisplayField>
+        <errorMessage>You must review the Conservation Values and Threats and indicate if the materials are complete. Please go back and complete the section, Conservation Values and Threats.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lock_Fee</fullName>
+        <active>true</active>
+        <description>Prohibits the fee inspection record from being edited once it is locked unless you are an administrator.</description>
+        <errorConditionFormula>AND( Fee_Record_Lock__c  = TRUE,  $User.ProfileId &lt;&gt;  &quot;00e30000000eEx9&quot;,  Certification__c  = TRUE)</errorConditionFormula>
+        <errorMessage>This Fee Inspection Record has been certified and reported to World Office. This record cannot be edited.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Missing_3rd_Party_Rights</fullName>
+        <active>true</active>
+        <description>If the project director selects &quot;No&quot; from the &quot;Are the 3rd party right materials complete?&quot; picklist, s/he must indicate what information is missing.</description>
+        <errorConditionFormula>AND(  ISPICKVAL( Are_3rd_Party_Rights_Materials_Complete__c , &quot;No&quot; ), Incomplete_Third_Party_Rights_Materials__c = &quot;&quot;)</errorConditionFormula>
+        <errorDisplayField>Incomplete_Third_Party_Rights_Materials__c</errorDisplayField>
+        <errorMessage>Indicate what Third Party Rights materials are missing.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Missing_Conservation_Values_Check</fullName>
+        <active>true</active>
+        <description>If the project director selects &quot;No&quot; from the &quot;Are the Conservation materials complete?&quot; picklist, s/he must indicate what information is missing.</description>
+        <errorConditionFormula>AND(  ISPICKVAL(Conservation_Materials_Complete__c, &quot;No&quot; ), Incomplete_Conservation_Materials__c=&quot;&quot;)</errorConditionFormula>
+        <errorDisplayField>Incomplete_Conservation_Materials__c</errorDisplayField>
+        <errorMessage>Indicate what Conservation Values and Threats materials are missing.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Missing_Other_Restrictions</fullName>
+        <active>true</active>
+        <description>If the project director selects &quot;No&quot; from the &quot;Are the Other Restrictions materials complete?&quot; picklist, s/he must indicate what information is missing.</description>
+        <errorConditionFormula>AND(  ISPICKVAL( Are_Other_Restriction_Materials_Complete__c, &quot;No&quot; ), Incomplete_Other_Restrictions_Materials__c=&quot;&quot;)</errorConditionFormula>
+        <errorDisplayField>Incomplete_Other_Restrictions_Materials__c</errorDisplayField>
+        <errorMessage>Indicate what Other Restrictions materials are missing.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Missing_TNC_Obligations</fullName>
+        <active>true</active>
+        <description>If the project director selects &quot;No&quot; from the &quot;Are the TNC Obligations/Engagements materials complete?&quot; picklist, s/he must indicate what information is missing.</description>
+        <errorConditionFormula>AND(  ISPICKVAL( Are_Obligation_Materials_Complete__c, &quot;No&quot; ), Incomplete_TNC_Obligation_Materials__c=&quot;&quot;)</errorConditionFormula>
+        <errorDisplayField>Incomplete_TNC_Obligation_Materials__c</errorDisplayField>
+        <errorMessage>Indicate what TNC Obligations and Engagements materials are missing.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Other_Restrictions_check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (  Certification__c  = True, Other_restrictions__c = False)  || 
+AND ( Certification__c  = True, TEXT(  Are_Other_Restriction_Materials_Complete__c ) = &quot;&quot;)</errorConditionFormula>
+        <errorDisplayField>Certification__c</errorDisplayField>
+        <errorMessage>You must review Other Restrictions and indicate if the materials are complete. Please go back and complete the section, Other Restrictions.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TNC_Obligations_check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND ( Certification__c  = True, TNC_obligations__c = False)  || 
+AND ( Certification__c  = True, TEXT( Are_Obligation_Materials_Complete__c ) = &quot;&quot;)</errorConditionFormula>
+        <errorDisplayField>Certification__c</errorDisplayField>
+        <errorMessage>You must review TNC Obligations/Engagements and indicate if the materials are complete. Please go back and complete the section, TNC Obligations/Engagements.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Third_Party_Rights_check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (  Certification__c  = True, Third_Party_Rights__c  = False)  || 
+AND ( Certification__c  = True, TEXT( Are_3rd_Party_Rights_Materials_Complete__c ) = &quot;&quot;)</errorConditionFormula>
+        <errorDisplayField>Certification__c</errorDisplayField>
+        <errorMessage>You must review Third Party Rights and indicate if the materials are complete. Please go back and complete the section, Third Party Rights.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>ConservationTrack</fullName>
+        <availability>online</availability>
+        <description>Link to ConservationTrack (for easements)</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>ConservationTrack</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://www.conservationtrack.org</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Fee_Detail_PDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Fee Inspection Detail for PDF</masterLabel>
+        <openType>replace</openType>
+        <page>Fee_Detail_No_Header</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Guidance_OnSite_Visits</fullName>
+        <availability>online</availability>
+        <description>Link to Guidance for On-site Visits document.</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Guidance_OnSite_Visits</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/01530000002bHAw</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Help</fullName>
+        <availability>online</availability>
+        <description>Links to Fee land Help page</description>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Help</masterLabel>
+        <openType>newWindow</openType>
+        <page>Fee_Button_Help</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>Management_Plans_Fee</fullName>
+        <availability>online</availability>
+        <description>Link to Management Plans and TNCCA Fee Properties document.</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Management_Plans_Fee</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/01530000002bHAh</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Print_PDF</fullName>
+        <availability>online</availability>
+        <description>Print a PDF of the fee inspection report.</description>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Print PDF</masterLabel>
+        <openType>newWindow</openType>
+        <page>Fee_PrintPDF</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>PropertyMgmt_Info</fullName>
+        <availability>online</availability>
+        <description>Links to Property Management Info on Salesforce document.</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>PropertyMgmt_Info</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/01530000002bHAm</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Responsibilities_ProjectDirector</fullName>
+        <availability>online</availability>
+        <description>Link to Responsibilities of Project Director document.</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Responsibilities_ProjectDirector</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/01530000002bHAr</url>
+    </webLinks>
+</CustomObject>

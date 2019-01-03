@@ -1,0 +1,1456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Custom object to track real estate and non-real estate contract amendments.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Amended_Acres__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, enter in the amended acreage related to the BirdReturns Bid Contract.</inlineHelpText>
+        <label>Amended Acres</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Amended_Contract_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (Amended_Acres__c  = 0 &amp;&amp; Amended_Price_Per_Acre__c  &gt; 0, Contract_Number__r.Original_Acreage__c * Amended_Price_Per_Acre__c, 
+
+IF(Amended_Acres__c &gt; 0 &amp;&amp; Amended_Price_Per_Acre__c = 0, Amended_Acres__c * Contract_Number__r.Price_Per_Acre__c,
+
+IF(Amended_Acres__c &gt; 0 &amp;&amp; Amended_Price_Per_Acre__c  &gt;  0, Amended_Acres__c * Amended_Price_Per_Acre__c, 0 
+)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Read-only field that multiples the amended acres by the amended price per acre.</inlineHelpText>
+        <label>Amended Contract Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Amended_Price_Per_Acre__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, enter in the amended price per acre related to the BirdReturns Bid Contract.</inlineHelpText>
+        <label>Amended Price Per Acre</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Amendment_Router__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the name of the person who is routing the contract amendment.</inlineHelpText>
+        <label>Amendment Router</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N30000002OzLZEA0</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Amendment_Submitted_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Amendment Submitted Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Approval_CC1__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter any email address that you would like cc&apos;d when the amendment is approved.  Do not repeat</inlineHelpText>
+        <label>Approval cc:</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Approval_CC2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter any email address that you want cc&apos;d upon approval of the amendment.</inlineHelpText>
+        <label>Approval cc:</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Board_Member_1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>For RD38</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this amendment requires approval from 1 or more board memebers, please select the first one here.</inlineHelpText>
+        <label>Board Member 1</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contract_AmendmentsIiXC</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Board_Member_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>For RD38</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this amendment requires approval from 2 board members, eneter the second one here.</inlineHelpText>
+        <label>Board Member 2</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contract_AmendmentsIiXM</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Change_Contract_Amount_By__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter in the additional contract amount or decrease the amount of the contract by putting a minus sign (-) in front of the amount.</inlineHelpText>
+        <label>Change Contract Amount By</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Change_the_Contract_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Change the Contract Amount?</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contract_Amendment_Reminder_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>When a contract amendment is submitted for approval the current date will automatically be entered into this field and it will serve as the &quot;trigger&quot; date for amendment contract reminder time-based workflow.</inlineHelpText>
+        <label>Contract Amendment Reminder Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the name of the Contract Manager who is required to review and approve the contract.</inlineHelpText>
+        <label>Contract Manager</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N30000002OzkUEAS</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Modification_Description__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Briefly describe the contract modifications being made with this amendment. Attach the draft amendment for approval and the executed amendment (when finalized) to the &quot;Notes &amp; Attachments&quot; section of the &quot;Contract Amendment&quot; related list.</inlineHelpText>
+        <label>Contract Modification Description</label>
+        <length>32000</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contract_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Number</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Contract Amendments</relationshipLabel>
+        <relationshipName>R00N300000024l3OEAQ</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>DirectorFinanceOperations__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Director of Finance &amp; Operations who is required to review and approve the contract.</inlineHelpText>
+        <label>Director of Finance &amp; Operations</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contract_Amendments1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Director_of_Conservation_Programs__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Director of Conservation Programs who is required to review and approve the contract.</inlineHelpText>
+        <label>Director of Conservation Programs</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contract_Amendments7</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Director_of_Real_Estate__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>XDepDirector of Conservation Investments</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contract_Amendments6</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DocuSign_Status__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>DocuSign Status</label>
+        <referenceTo>dsfs__DocuSign_Status__c</referenceTo>
+        <relationshipLabel>Contract Amendments</relationshipLabel>
+        <relationshipName>Contract_Amendments</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Executive_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the Executive Director to review and approve the contract.</inlineHelpText>
+        <label>Executive Director</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contract_Amendments2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Extend_Contract_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Extend Contract End Date?</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Finance_Grants__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Finance/Grants Specialist who is required to review and approve the contract.</inlineHelpText>
+        <label>Finance/Grants</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N30000002OzkbEAC</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Finance_cc__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Added per request from Dianna McDonnell 5/31/17</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If you want a finance/grant partner cc&apos;d on the approval of this amendment.  Select that user id here.  Do not put the same person on the cc if they are on the approval process or they will get two copies of the notice.</inlineHelpText>
+        <label>Finance cc:</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contract_Amendments8</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GeoDesign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the name of the Conservation Tech team member if &quot;Yes&quot; is selected in the &quot;Conservation Tech Review?&quot; field.</inlineHelpText>
+        <label>Conservation Tech</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>ContractAmendment4D5B</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Grant_Amendment_Description__c</fullName>
+        <description>Information about grant amendment application to be maintained as part of the record after the amendment application is approved and the contract modification description field is changed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter description of the grant amendment application.  This field will be maintained with the amendment record after the second approval process when the contract modification description is changed.</inlineHelpText>
+        <label>Grant Amendment Description</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Historic_Contract_Amendment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>For CF&amp;R so they can put in old contracts from before they were on Salesforce and skip the automated approval process and notifications.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this is a contract that was approved before Salesforce and you are adding it to Salesforce, please check this box to skip the approval process and the email notifications.</inlineHelpText>
+        <label>Historic Contract Amendment</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Land_Program_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If necessary: name of Land Program Director to approve.</inlineHelpText>
+        <label>Land Program Director</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contract_AmendmentsCjYT</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Legal__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Attorney who is required to review and approve the contract.</inlineHelpText>
+        <label>Legal</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contract_Amendments</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Lock_Record__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>When this checkbox is checked, the “Admin Override” approval process is launched. The approval process locks the record and unchecks the ‘Lock Record’ checkbox (so that it can easily be locked again), but does not change the status. This field is only visible to Administrators.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Admin only field. Locks the record without changing the status. This box will not stay checked after the process runs, so if you need to re-lock the record again at a later date, you can.</inlineHelpText>
+        <label>Lock Record</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>New_Contract_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If your contract amendment includes a calendar expiration or end date, enter that here. Some examples: leases, purchases or time-frame specific consulting.</inlineHelpText>
+        <label>New Contract End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>New_Services_to_be_Completed_By_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The date by which all services are to be completed, for contracts that expire when all Services are completed and final payment is made, as stated in the contract amendment. Not for purchases, leases or contracts with set end date.</inlineHelpText>
+        <label>New Services to be Completed By Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Approvers__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Contract_Manager__c =&quot;&quot;, 0, 
+IF(Science__c =&quot;&quot;,1,
+IF(Operations__c =&quot;&quot;,2, 
+IF(Project_Director_Program_Manager__c =&quot;&quot;,3,
+IF(Senior_Project_Director__c =&quot;&quot;,4,
+IF(Program_Director__c =&quot;&quot;,5,
+IF(Finance_Grants__c =&quot;&quot;,6,7)))))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Number of Approvers</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Operations__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Operations Partner who is required to review and approve the contract. Operations approval not required for Grant-in amendments.</inlineHelpText>
+        <label>Operations</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>The selected user is not an Operations Manager. Please consult with your regional Operations Manager on whom to select.</errorMessage>
+            <filterItems>
+                <field>User.Department</field>
+                <operation>contains</operation>
+                <value>Operations</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N30000002OzLYEA0</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Other__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the name of the &quot;Other&quot; if an additional person who does not fit the following titles is required to review the contract.</inlineHelpText>
+        <label>Other</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contract_Amendments4</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>President__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>for RD38</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the President of RD38 needs to approve this contract, please enter the name here.</inlineHelpText>
+        <label>President</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contract_Amendments9</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Program_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Program Director who is required to review and approve the contract.</inlineHelpText>
+        <label>Program Director</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N30000002OzkaEAC</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project_Director_Program_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Project Director who is required to review and approve the contract.</inlineHelpText>
+        <label>Project Director/Program Manager</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N30000002OzkeEAC</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project Director</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contract_Amendments5</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Re_Lock_Record__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box to schedule the record for re-locking after a user has requested that the record be unlocked. It will automatically re-lock itself after 5 days.</inlineHelpText>
+        <label>Re-Lock Record</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Regional_Managing_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the Regional Managing Director to review and approve the contract.</inlineHelpText>
+        <label>Regional Managing Director</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contract_Amendments3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Science__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Science Advisor who is required to review and approve the contract.</inlineHelpText>
+        <label>Science</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N30000002OzkZEAS</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Senior_Project_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Senior Project Director who is required to review and approve the contract.</inlineHelpText>
+        <label>Senior Project Director</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N30000002OzkVEAS</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Stage_of_Grant_Amendment__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the approval stage of this grant amendment.  If this is a no cost extension, please select no cost extension to skip the application approval step.</inlineHelpText>
+        <label>Stage of Grant Amendment</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Amendment - No Application Required</fullName>
+                    <default>false</default>
+                    <label>Amendment - No Application Required</label>
+                </value>
+                <value>
+                    <fullName>No Cost Extension - No Application Required</fullName>
+                    <default>false</default>
+                    <label>No Cost Extension - No Application Required</label>
+                </value>
+                <value>
+                    <fullName>Application</fullName>
+                    <default>true</default>
+                    <label>Application</label>
+                </value>
+                <value>
+                    <fullName>Application Approved</fullName>
+                    <default>false</default>
+                    <label>Application Approved</label>
+                </value>
+                <value>
+                    <fullName>Executed</fullName>
+                    <default>false</default>
+                    <label>Executed</label>
+                </value>
+                <value>
+                    <fullName>Application Rejected</fullName>
+                    <default>false</default>
+                    <label>Application Rejected</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>In Approval Process</fullName>
+                    <default>false</default>
+                    <label>In Approval Process</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Executed Amendment</fullName>
+                    <default>false</default>
+                    <label>Executed Amendment</label>
+                </value>
+                <value>
+                    <fullName>Application Approved</fullName>
+                    <default>false</default>
+                    <label>Application Approved</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Tract_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Tract Name</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Tract Amendments</relationshipLabel>
+        <relationshipName>Contract_Amendments</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Youth_Safety_Coordinator__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please enter the name of the CA Youth Safety Coordinator who is required to review and approve this contract amendment.</inlineHelpText>
+        <label>Youth Safety Coordinator</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contract_Amendmentsl81I</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>extend_services_to_be_completed_by__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If this amendment will extend the date by which the services are to be completed on the contract, please respond &quot;yes&quot;.</inlineHelpText>
+        <label>OR extend services to be completed by?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Contract Amendment</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Recent</fullName>
+        <columns>NAME</columns>
+        <columns>Amended_Contract_Amount__c</columns>
+        <columns>Contract_Modification_Description__c</columns>
+        <columns>Contract_Number__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LAST_UPDATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>6/6/2016 12:00 AM</value>
+        </filters>
+        <label>Recent</label>
+    </listViews>
+    <nameField>
+        <displayFormat>Amendment-{MM}{DD}{YYYY}-{00}</displayFormat>
+        <label>Contract Amendment Number</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Contract Amendments</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>BR_Contract_Amendment</fullName>
+        <active>true</active>
+        <description>BirdReturns Contract Amendment</description>
+        <label>BR Contract Amendment</label>
+        <picklistValues>
+            <picklist>Change_the_Contract_Amount__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Extend_Contract_End_Date__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Stage_of_Grant_Amendment__c</picklist>
+            <values>
+                <fullName>Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Application Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Executed Amendment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Approval Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>extend_services_to_be_completed_by__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>CFR_RD_Contract_Amendment</fullName>
+        <active>true</active>
+        <description>Select &quot;CF&amp;R /RD Amendment&quot; record type to amend a Conservation Farms &amp; Ranches or RD contract.</description>
+        <label>CFR_RD Contract Amendment</label>
+        <picklistValues>
+            <picklist>Change_the_Contract_Amount__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Extend_Contract_End_Date__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Stage_of_Grant_Amendment__c</picklist>
+            <values>
+                <fullName>Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Application Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Executed Amendment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Approval Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>extend_services_to_be_completed_by__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Contract_Amendment</fullName>
+        <active>true</active>
+        <description>Select &quot;Contract Amendment&quot; record type to amend a CA Program contract.</description>
+        <label>Contract Amendment</label>
+        <picklistValues>
+            <picklist>Change_the_Contract_Amount__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Extend_Contract_End_Date__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Stage_of_Grant_Amendment__c</picklist>
+            <values>
+                <fullName>Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Application Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Executed Amendment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Approval Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>extend_services_to_be_completed_by__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Grant_Amendment</fullName>
+        <active>true</active>
+        <description>Created to allow for multiple stages of grant approval process</description>
+        <label>Grant Amendment</label>
+        <picklistValues>
+            <picklist>Change_the_Contract_Amount__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Extend_Contract_End_Date__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Stage_of_Grant_Amendment__c</picklist>
+            <values>
+                <fullName>Amendment - No Application Required</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Application Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Application Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Cost Extension - No Application Required</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Application Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Executed Amendment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Approval Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>extend_services_to_be_completed_by__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>RD38_Amendment</fullName>
+        <active>true</active>
+        <description>Select for RD38 Contract Amendments</description>
+        <label>RD38 Amendment</label>
+        <picklistValues>
+            <picklist>Change_the_Contract_Amount__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Extend_Contract_End_Date__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Stage_of_Grant_Amendment__c</picklist>
+            <values>
+                <fullName>Application</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Application Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Application Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Cost Extension - No Application Required</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Application Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Executed Amendment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Approval Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>extend_services_to_be_completed_by__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Contract_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Amendment_Submitted_Date__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Contract_Number__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Amendment_Submitted_Date__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Contract_Number__c</searchFilterFields>
+        <searchFilterFields>Amendment_Submitted_Date__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Change_Contract_Date</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL( Extend_Contract_End_Date__c ,&quot;Yes&quot;) ,  ISNULL( New_Contract_End_Date__c ))</errorConditionFormula>
+        <errorDisplayField>New_Contract_End_Date__c</errorDisplayField>
+        <errorMessage>Please enter in a new contract end date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Change_Services_Completed_by_Date</fullName>
+        <active>true</active>
+        <description>If user elects to change services to be completed by date, they must enter a new date.</description>
+        <errorConditionFormula>AND(ISPICKVAL( extend_services_to_be_completed_by__c ,&quot;Yes&quot;) ,  ISNULL(  New_Services_to_be_Completed_By_Date__c ))</errorConditionFormula>
+        <errorDisplayField>New_Services_to_be_Completed_By_Date__c</errorDisplayField>
+        <errorMessage>Please enter a new services to be completed by date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Check_for_Contract_End_Date</fullName>
+        <active>true</active>
+        <description>Changing the contract end date with the amendment, requires that an end date already exist in the contract.  Otherwise, it will error on the expiration notification date when the end date is set upon approval.</description>
+        <errorConditionFormula>AND(ISPICKVAL( Extend_Contract_End_Date__c ,&quot;Yes&quot;) ,  ISNULL(  Contract_Number__r.EndDate  ))</errorConditionFormula>
+        <errorDisplayField>New_Contract_End_Date__c</errorDisplayField>
+        <errorMessage>Original contract does not have an end date defined. Check original contract and see if you need to extend the Services to be Completed by Date instead.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>NoCannotBeSelectedIfNewDateOrAmount</fullName>
+        <active>true</active>
+        <description>&apos;No&apos; cannot be selected if there is a new services to be completed by date, new contract end date, or new contract amount.</description>
+        <errorConditionFormula>OR(AND(TEXT(extend_services_to_be_completed_by__c) = &apos;No&apos;, NOT(ISBLANK(New_Services_to_be_Completed_By_Date__c))),
+AND(TEXT(Change_the_Contract_Amount__c) = &apos;No&apos;, Change_Contract_Amount_By__c&gt;0),
+AND(TEXT(Extend_Contract_End_Date__c) = &apos;No&apos;, NOT(ISBLANK(New_Contract_End_Date__c))))</errorConditionFormula>
+        <errorMessage>&apos;No&apos; cannot be selected in the corresponding field on the left side of the page if there is a new services to be completed by date, new contract end date, or new contract amount on the right side of the page.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Clone_custom</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Clone</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/{!Contract_Amendment__c.Id}/e?clone=1&amp;00N30000002Ozkt=&quot;Draft&quot;&amp;retURL=%2F{!Contract_Amendment__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Contract_Amendment_BR</fullName>
+        <availability>online</availability>
+        <description>Button for BirdReturns contract amendment</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New BR Contract Amendment</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/a0I/e?CF00N300000024l3O={!Contract.ContractNumber}&amp;RecordType=012a00000018Hdo
+&amp;CF00N30000002OzkU_lkid={!Contract.OwnerId}
+&amp;CF00N30000002OzkU={!Contract.OwnerFullName}&amp;%2F{!Contract.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Contract_Amendment_CA</fullName>
+        <availability>online</availability>
+        <description>Button for California contract amendment</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Contract Amendment</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/a0I/e?CF00N300000024l3O={!Contract.ContractNumber}&amp;RecordType=01230000000QCeX
+&amp;CF00N30000002OzkU_lkid={!Contract.OwnerId}
+&amp;CF00N0c00000BTVO2={!Contract.GeoDesign__c}
+&amp;CF00N30000002OzkU={!Contract.OwnerFullName}&amp;retURL=%2F{!Contract.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Contract_Amendment_CFR</fullName>
+        <availability>online</availability>
+        <description>New contract amendment created for CF&amp;R application</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New CFR Contract Amendment</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/a0I/e?CF00N300000024l3O={!Contract.ContractNumber}&amp;RecordType=012a00000018GEX
+&amp;CF00N30000002OzkU_lkid={!Contract.OwnerId}
+&amp;CF00N30000002OzkU={!Contract.OwnerFullName}&amp;retURL=%2F{!Contract.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Grant_Amendment</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Grant Amendment</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/a0I/e?CF00N300000024l3O={!Contract.ContractNumber}&amp;RecordType=012a0000001CGzM
+&amp;CF00N30000002OzkU_lkid={!Contract.OwnerId}
+&amp;CF00N30000002OzkU={!Contract.OwnerFullName}&amp;%2F{!Contract.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_RD38_Amendment</fullName>
+        <availability>online</availability>
+        <description>For RD38 Amendments to allow for optional approval routing</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New RD38 Amendment</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/a0I/e?CF00N300000024l3O={!Contract.ContractNumber}&amp;RecordType=0120c000001CHPA
+&amp;CF00N30000002OzkU_lkid={!Contract.OwnerId}
+&amp;CF00N30000002OzkU={!Contract.OwnerFullName}&amp;retURL={!Contract.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Send_E_Docs</fullName>
+        <availability>online</availability>
+        <description>Custom button to send DocuSign docs.</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send E Docs</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/apex/dsfs__DocuSign_JavaScript&quot;)} 
+
+//********* Option Declarations (Do not modify )*********// 
+var RC = &apos;&apos;;var RSL=&apos;&apos;;var RSRO=&apos;&apos;;var RROS=&apos;&apos;;var CCRM=&apos;&apos;;var CCTM=&apos;&apos;;var CCNM=&apos;&apos;;var CRCL=&apos;&apos;; var CRL=&apos;&apos;;var OCO=&apos;&apos;;var DST=&apos;&apos;; 
+var LA=&apos;&apos;;var CEM=&apos;&apos;;var CES=&apos;&apos;;var STB=&apos;&apos;;var SSB=&apos;&apos;;var SES=&apos;&apos;;var SEM=&apos;&apos;;var SRS=&apos;&apos;;var SCS =&apos;&apos;;var RES=&apos;&apos;; 
+//*************************************************// 
+
+// Modify individual options here: 
+// Related Content (default no related content) 
+RC = &apos;&apos;; //Ex: GetRelContentIDs(&quot;{!Opportunity.Id}&quot;); 
+
+// Recipient Signer Limit (default no limit) 
+RSL = &apos;&apos;; //Ex: &apos;3&apos; 
+
+// Recipient Starting Routing Order (default 1) 
+RSRO = &apos;&apos;; // Ex: &apos;1&apos; 
+
+// Recipient Routing Order Sequential (default not sequential) 
+RROS = &apos;&apos;; //Ex: &apos;1&apos; 
+
+// Custom Contact Role Map (default config role) 
+CCRM = &apos;A~Vendor&apos;; //Ex: &apos;Decision Maker~Signer1;Economic Buyer~Carbon Copy&apos; 
+
+// Custom Contact Type Map (default Signer) 
+CCTM = &apos;&apos;; //Ex: &apos;Decision Maker~Signer;Economic Buyer~CC&apos; 
+
+// Custom Contact Note Map (default no note) 
+CCNM = &apos;&apos;; //Ex: &apos;Decision Maker~Note for DM;Economic Buyer~Note For EB;DEFAULT_NOTE~Default Note&apos; 
+
+// Custom Related Contact List (default object contact) 
+CRCL = &apos;&apos;; //Ex: &apos;MyContacts__r,Email~Email__c;FirstName~First_Name__c;LastName~Last_Name__c;Role~Role__c,LoadDefaultContacts~0&apos; 
+
+// Custom Recipient List 
+CRL = &apos;Email~{!Contract.Contact_Email__c};LastName~{!URLENCODE(Contract.Contact_Name__c)};Role~A&apos;; //Ex: &apos;Email~;FirstName~;LastName~;Role~SignInPersonName~;RoutingOrder~;AccessCode~;RecipientNote~;SignNow~, LoadDefaultContacts~1&apos; 
+
+// One Click Option (default edit envelope screen) 
+OCO = &apos;&apos;; //Ex: Tag 
+
+// DocuSign Template ID (default no template) 
+DST = &apos;F539C6AA-0CC4-48E8-8A65-4807DD16B28E&apos;; //Ex: &apos;67870A79-A0B5-4596-8AC1-CC7CC1EA01EB&apos; 
+
+// Load Attachments (default on) 
+LA = &apos;&apos;; //Ex: &apos;0&apos; 
+
+// Custom Email Message (default in config) 
+CEM = &apos;&apos;; //Ex: &apos;Envelope sent by [FirstName] [LastName] ([Email])!&apos; 
+
+// Custom Email Subject (default in config) 
+CES = &apos;&apos;; //Ex: &apos;Re: Opportunity Name: {!Opportunity.Name}&apos; 
+
+// Show Tag Button (default in config) 
+STB = &apos;&apos;; //Ex: &apos;1&apos; 
+
+// Show Send Button (default in config) 
+SSB = &apos;&apos;; //Ex: &apos;1&apos; 
+
+// Show Email Subject (default in config) 
+SES = &apos;&apos;; //Ex: &apos;1&apos; 
+
+// Show Email Message (default in config) 
+SEM = &apos;&apos;; //Ex: &apos;1&apos; 
+
+// Show Reminder/Expire (default in config) 
+SRS = &apos;&apos;; //Ex: &apos;1&apos; 
+
+// Show Chatter (default in config) 
+SCS = &apos;&apos;; //Ex: &apos;1&apos; 
+
+// Reminder and Expiration Settings 
+RES = &apos;&apos;; //Ex: &apos;0,1,2,0,120,3&apos; 
+
+
+//********* Page Callout (Do not modify) *********// 
+window.location.href = &quot;/apex/dsfs__DocuSign_CreateEnvelope?DSEID=0&amp;SourceID={!Contract.Id}&amp;RC=&quot;+RC+&quot;&amp;RSL=&quot;+RSL+&quot;&amp;RSRO=&quot;+RSRO+&quot;&amp;RROS=&quot;+RROS+&quot;&amp;CCRM=&quot;+CCRM+&quot;&amp;CCTM=&quot;+CCTM+&quot;&amp;CRCL=&quot;+CRCL+&quot;&amp;CRL=&quot;+CRL+&quot;&amp;OCO=&quot;+OCO+&quot;&amp;DST=&quot;+DST+&quot;&amp;CCNM=&quot;+CCNM+&quot;&amp;LA=&quot;+LA+&quot;&amp;CEM=&quot;+CEM+&quot;&amp;CES=&quot;+CES+&quot;&amp;SRS=&quot;+SRS+&quot;&amp;STB=&quot;+STB+&quot;&amp;SSB=&quot;+SSB+&quot;&amp;SES=&quot;+SES+&quot;&amp;SEM=&quot;+SEM+&quot;&amp;SRS=&quot;+SRS+&quot;&amp;SCS=&quot;+SCS+&quot;&amp;RES=&quot;+RES;
+//*******************************************//</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Send_E_Docs_Amendment</fullName>
+        <availability>online</availability>
+        <description>DocuSign button created to send contract amendment documents.</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send with DocuSign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/apex/dsfs__DocuSign_JavaScript&quot;)}
+DocuSign_CreateEnvelope();</url>
+    </webLinks>
+</CustomObject>

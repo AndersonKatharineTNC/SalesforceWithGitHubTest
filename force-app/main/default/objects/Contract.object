@@ -1,0 +1,1230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Acre_Adjusted_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(Adjusted_Acres__c&gt;0,Price_Per_Acre__c * Adjusted_Acres__c,
+     if(Amended_Acres__c&gt;0,Amended_Contract_Amount__c,
+         Bid_Contract_Amount__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Read only formula field that calculates the adjusted acres multiplied by the amount per acre.</inlineHelpText>
+        <label>Acre Adjusted Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Adjusted_Acres__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Reduced acreage based on changes agreed upon before the field season or due to changes occurring during the field season (e.g., reduced water availability, problems with field prep, etc.).</inlineHelpText>
+        <label>Adjusted Acres</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Amended_Acres__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Contract_Amendment_Lookup__r.Status__c, &quot;Approved&quot;), Contract_Amendment_Lookup__r.Amended_Acres__c, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Read-only field which auto-populates when the related contract amendment is selected and approved.</inlineHelpText>
+        <label>Amended Acres</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Amended_Contract_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Amendment_Amount__c  +  Original_Contract_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The total amount of the contract plus the additional contract amount from approved amendments.</inlineHelpText>
+        <label>XDepracated:Amended Contract Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Bid_Contact_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>BirdReturns_Bid_Name__r.Bid_Contact__r.FirstName&amp;&quot; &quot;&amp;BirdReturns_Bid_Name__r.Bid_Contact__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Read-only field pulls in the name of the primary contact for the bid.</inlineHelpText>
+        <label>Bid Contact Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bid_Contact_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>BirdReturns_Bid_Name__r.Bid_Contact__r.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Read-only field pulls in the phone number for the primary contact for the bid.</inlineHelpText>
+        <label>Bid Contact Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bid_Contract_Amount__c</fullName>
+        <description>The BR team wanted to use the number of acres as reported by the bidder rather than the GIS acres. If the GIS acres &amp; the bid acres are significantly different, they will contact the bidder.</description>
+        <externalId>false</externalId>
+        <formula>BirdReturns_Bid_Name__r.Acres__c  *  BirdReturns_Bid_Name__r.Round_1_Bid_Amount_Per_Acre__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Read only formula field that calculates the original number of acres multiplied by the amount per acre from the related Bid record.</inlineHelpText>
+        <label>Bid Contract Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Bid_Contract_Representative__c</fullName>
+        <externalId>false</externalId>
+        <formula>BirdReturns_Bid_Name__r.Contract_Representative__r.FirstName &amp; &quot; &quot; &amp;
+ BirdReturns_Bid_Name__r.Contract_Representative__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Read-only field pulls in the name of the person authorized to sign contracts on behalf of the contracting party.</inlineHelpText>
+        <label>Bid Contract Representative</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BirdReturns_Bid_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the &quot;Look Up&quot; icon to search for the correct Bid Name. Enter the full bid name, including program period. Format: &quot;16-FR-055&quot;.</inlineHelpText>
+        <label>BirdReturns Bid Name</label>
+        <referenceTo>Bid__c</referenceTo>
+        <relationshipLabel>Contracts</relationshipLabel>
+        <relationshipName>Contracts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Bird_Returns_Calc_Percent_In_Compliance__c</fullName>
+        <description>Calculated value. Average of the Est % in Compliance from all Site Compliance Visits (TNC data only).</description>
+        <externalId>false</externalId>
+        <formula>IF( Num_Stakes_Reported__c &gt;0,Bird_Returns_Total_In_Compliance__c / Num_Stakes_Reported__c,NULL)</formula>
+        <inlineHelpText>Calculated value. Average of the Est % in Compliance from all Site Compliance Visits (TNC data only).</inlineHelpText>
+        <label>Calculated % In Compliance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Bird_Returns_Manual_Percent_Compliance__c</fullName>
+        <description>Manual Override of the calculated % in compliance. To be used at program manager&apos;s discretion. Requires a note with an explanation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Manual Override of the calculated % in compliance. To be used at program manager&apos;s discretion. Requires a note with an explanation.</inlineHelpText>
+        <label>Manual Override % In Compliance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Bird_Returns_Total_In_Compliance__c</fullName>
+        <description>Sum of Total % in Complance for Calc in Site Visits. Only includes field tech reports. Used in Bird_Returns_Calc_Percent_In_Compliance__c formula. Don&apos;t deprecate.</description>
+        <externalId>false</externalId>
+        <label>Total % In Compliance</label>
+        <summarizedField>Bird_Returns_Site_Compliance_Visit__c.Total_In_Compliance_for_Calc__c</summarizedField>
+        <summaryFilterItems>
+            <field>Bird_Returns_Site_Compliance_Visit__c.Reporter_Type__c</field>
+            <operation>equals</operation>
+            <value>Field Tech reporter</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Bird_Returns_Site_Compliance_Visit__c.Bid_ID__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Cancellation_Fee__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Fee or bonus to be paid to contracting party. This will be the Final Payment Amount if the contract is canceled. Or, if the contract has any other status, this amount will be added to the Final Payment Amount as a bonus.</inlineHelpText>
+        <label>Cancellation Fee or Bonus</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact_Name__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>The Contact name is associated with the related Account (company or business entity). If the Contact name does not exist, go to Accounts tab, locate or create the Account and create a new Contact related to that Account.</inlineHelpText>
+        <label>Contact Name</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.AccountId</field>
+                <operation>equals</operation>
+                <valueField>$Source.AccountId</valueField>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Contracts</relationshipLabel>
+        <relationshipName>Contract</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Amendment_Lookup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field was created to establish a lookup relationship between contracts and amendments so cross-object formulas and validation rules can be created.  JA  4/24/13</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the related contract amendment to display the related contract amended acres, price per acres, and amending contract amount.  A filter is in place to only display amendments related to this contract.</inlineHelpText>
+        <label>Contract Amendment Lookup</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contract_Amendment__c.Contract_Number__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Id</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contract_Amendment__c</referenceTo>
+        <relationshipLabel>Contracts Related List</relationshipLabel>
+        <relationshipName>Contracts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Balance__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( CONTAINS(RecordType.DeveloperName,&quot;Grant&quot;), Grant_Balance__c , Total_Contract_Amount__c  -  Invoices_Paid_Date__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>A read only field that calculates the remaining balance on the contract.  The calculation totals the approved invoice payment requests subtracted from the total contract.</inlineHelpText>
+        <label>Contract Balance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Entity__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Entity</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Conservation Farms &amp; Ranches</fullName>
+                    <default>false</default>
+                    <label>Conservation Farms &amp; Ranches</label>
+                </value>
+                <value>
+                    <fullName>Reclamation District 38</fullName>
+                    <default>false</default>
+                    <label>Reclamation District 38</label>
+                </value>
+                <value>
+                    <fullName>Reclamation District 2110</fullName>
+                    <default>false</default>
+                    <label>Reclamation District 2110</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DealName__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The name of the deal the contract is related to.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the contract is related to an existing deal record in the &quot;Deals&quot; tab, please use the look up feature and locate the deal record.</inlineHelpText>
+        <label>Deal Name</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Contract</relationshipLabel>
+        <relationshipName>Contract</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Final_Payment_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+AND(Cancellation_Fee__c &gt; 0,  ISPICKVAL(Status,&quot;Contract Canceled&quot;)), 
+Cancellation_Fee__c, 
+((if(Adjusted_Acres__c=0,Bid_Contract_Amount__c,Acre_Adjusted_Amount__c) *(if(Bird_Returns_Manual_Percent_Compliance__c=0, Bird_Returns_Calc_Percent_In_Compliance__c, Bird_Returns_Manual_Percent_Compliance__c)))+Cancellation_Fee__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The Final Payment Amount is the Acres Adjusted Amount multiplied by the Calculated % In Compliance *OR* the Manual Override % in Compliance if it is filled in. If the contract has been canceled, then the Cancellation Fee amount will display instead.</inlineHelpText>
+        <label>Final Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Financial_Account_Number__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the financial account number associated with this contract.</inlineHelpText>
+        <label>Financial Account Number</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>125000 Deposits - Utilities &amp; Other</fullName>
+                    <default>false</default>
+                    <label>125000 Deposits - Utilities &amp; Other</label>
+                </value>
+                <value>
+                    <fullName>150500 Construction In Progress</fullName>
+                    <default>false</default>
+                    <label>150500 Construction In Progress</label>
+                </value>
+                <value>
+                    <fullName>152000 Furniture, fixtures, plant &amp; equip</fullName>
+                    <default>false</default>
+                    <label>152000 Furniture, fixtures, plant &amp; equip</label>
+                </value>
+                <value>
+                    <fullName>154000 TNC Vehicles</fullName>
+                    <default>false</default>
+                    <label>154000 TNC Vehicles</label>
+                </value>
+                <value>
+                    <fullName>502700 Business Entertainment</fullName>
+                    <default>false</default>
+                    <label>502700 Business Entertainment</label>
+                </value>
+                <value>
+                    <fullName>505000 Recruitment</fullName>
+                    <default>false</default>
+                    <label>505000 Recruitment</label>
+                </value>
+                <value>
+                    <fullName>505600 Trainings and Meetings</fullName>
+                    <default>false</default>
+                    <label>505600 Trainings and Meetings</label>
+                </value>
+                <value>
+                    <fullName>507300 Legal Services Fees</fullName>
+                    <default>false</default>
+                    <label>507300 Legal Services Fees</label>
+                </value>
+                <value>
+                    <fullName>507600 Subawards, Grants-Non US Fed Govt Only</fullName>
+                    <default>false</default>
+                    <label>507600 Subawards, Grants-Non US Fed Govt Only</label>
+                </value>
+                <value>
+                    <fullName>507700 Contracts/Professional Fees</fullName>
+                    <default>true</default>
+                    <label>507700 Contracts/Professional Fees</label>
+                </value>
+                <value>
+                    <fullName>507800 Sub Recipient Expenses-US Fed Govt Only</fullName>
+                    <default>false</default>
+                    <label>507800 Sub Recipient Expenses-US Fed Govt Only</label>
+                </value>
+                <value>
+                    <fullName>507900 Professional Fund Raising Fees</fullName>
+                    <default>false</default>
+                    <label>507900 Professional Fund Raising Fees</label>
+                </value>
+                <value>
+                    <fullName>509300 Lobbying Contracts</fullName>
+                    <default>false</default>
+                    <label>509300 Lobbying Contracts</label>
+                </value>
+                <value>
+                    <fullName>520100 - Telecommunications</fullName>
+                    <default>false</default>
+                    <label>520100 - Telecommunications</label>
+                </value>
+                <value>
+                    <fullName>521500 Printing &amp; Photo</fullName>
+                    <default>false</default>
+                    <label>521500 Printing &amp; Photo</label>
+                </value>
+                <value>
+                    <fullName>522500 Office and Other Equipment</fullName>
+                    <default>false</default>
+                    <label>522500 Office and Other Equipment</label>
+                </value>
+                <value>
+                    <fullName>524100 Media Advertising</fullName>
+                    <default>false</default>
+                    <label>524100 Media Advertising</label>
+                </value>
+                <value>
+                    <fullName>540500 Rent/Lease - Office Space</fullName>
+                    <default>false</default>
+                    <label>540500 Rent/Lease - Office Space</label>
+                </value>
+                <value>
+                    <fullName>541100 Office Remodeling, Repairs, Utilities</fullName>
+                    <default>false</default>
+                    <label>541100 Office Remodeling, Repairs, Utilities</label>
+                </value>
+                <value>
+                    <fullName>550100 Equipment Lease &amp; Maintenance</fullName>
+                    <default>false</default>
+                    <label>550100 Equipment Lease &amp; Maintenance</label>
+                </value>
+                <value>
+                    <fullName>560100 Dues, Fees, Licenses</fullName>
+                    <default>false</default>
+                    <label>560100 Dues, Fees, Licenses</label>
+                </value>
+                <value>
+                    <fullName>575000 Donations to Non-501(c)(3) Type Entities</fullName>
+                    <default>false</default>
+                    <label>575000 Donations to Non-501(c)(3) Type Entities</label>
+                </value>
+                <value>
+                    <fullName>581000 Office &amp; Other Equipment $5,000 - $50,000</fullName>
+                    <default>false</default>
+                    <label>581000 Office &amp; Other Equipment $5,000 - $50,000</label>
+                </value>
+                <value>
+                    <fullName>583000 Construction  &amp; Restoration</fullName>
+                    <default>false</default>
+                    <label>583000 Construction  &amp; Restoration</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>GeoDesign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the name of the Conservation Tech team member if &quot;Yes&quot; is selected in the &quot;Conservation Tech Review?&quot; field.</inlineHelpText>
+        <label>Conservation Tech</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contracts4D5B</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Grant_Balance__c</fullName>
+        <description>A read only field that calculates the remaining balance on the grant.  The calculation totals the approved invoice payment requests subtracted from the grant amount. 10/28/16 Added the subtraction of amount transferred to escrow BH.</description>
+        <externalId>false</externalId>
+        <formula>IF( Original_Grant_Amount__c = 0, 0,
+     Original_Grant_Amount__c  + Total_Grant_Amendment_Amount__c - Invoices_Paid_Date__c -                                                                                         Grant_Out_Amount_Transferred_to_Escrow__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>A read only field that calculates the remaining balance on the grant.  The calculation totals the approved invoice payment requests subtracted from the grant amount. Also subtracts any amount transferred to escrow for acquisition.</inlineHelpText>
+        <label>Grant Balance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Grant_Out_Amount_Transferred_to_Escrow__c</fullName>
+        <description>Set up for grants out for a combination of acquisition, restoration and stewardship.  Subtracts out from the balance of the grant the amount dedicated to the purchase so that project managers can track the amount remaining for stewardship and restoration.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If grant is funding both an acquisition and stewardship and restoration, enter the amount transferred to escrow toward the purchase price of the acquisition.</inlineHelpText>
+        <label>Grant Out Amount Transferred to Escrow</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Invoices_Paid_Date__c</fullName>
+        <description>A read only field that summarizes the payment amount on the approved invoices.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A read only field that summarizes the total payment amount on all approved invoices.  If the payment has not been approved through the &quot;Payment Request&quot; approval process, the amount will not apply.</inlineHelpText>
+        <label>Invoices Paid to Date</label>
+        <summarizedField>Contract_Payment_request__c.Invoice_Payment_Amount__c</summarizedField>
+        <summaryFilterItems>
+            <field>Contract_Payment_request__c.Payment_Request_Status__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Contract_Payment_request__c.Contract_Number__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Master_Contract_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Master_Contract_Number__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Master Contract Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Master_Contract_Number__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the name of the master contract from the look-up list that the sub-agreement relates to.</inlineHelpText>
+        <label>Master Contract Number</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Sub-Agreements</relationshipLabel>
+        <relationshipName>Contracts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>No_Contract_End_Date__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Please check the box if the contract does not have an end date.</inlineHelpText>
+        <label>No Contract End Date</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Num_Stakes_Reported__c</fullName>
+        <description>Used in calculation for Calculated % in Compliance on the Contract. The calculation was created this way to accommodate both full and partial site compliance visits.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rollup field counts the number of stake depth reports that have been reported by field techs.</inlineHelpText>
+        <label># Stakes Reported</label>
+        <summarizedField>Bird_Returns_Site_Compliance_Visit__c.Total_Stakes__c</summarizedField>
+        <summaryFilterItems>
+            <field>Bird_Returns_Site_Compliance_Visit__c.Reporter_Type__c</field>
+            <operation>equals</operation>
+            <value>Field Tech reporter</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Bird_Returns_Site_Compliance_Visit__c.Bid_ID__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Original_Acreage__c</fullName>
+        <externalId>false</externalId>
+        <formula>BirdReturns_Bid_Name__r.Acres__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Read-only field. Pulls in the number of acres reported by the bidder on the bid record. To change the number of acres for the final payment amount calculation, use the &apos;Adjusted Acres&apos; field.</inlineHelpText>
+        <label>Original Acreage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Original_Contract_Amount__c</fullName>
+        <description>Text field. On all Non-RE and RE layouts (including for RD2110, RD38, CF&amp;R, and TNC), except BirdReturns.</description>
+        <externalId>false</externalId>
+        <label>Original Contract Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Original_Grant_Amount__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter in the amount of the grant.  Amount should not include match or cost share.  If the grant is less than $25,000, a waiver form from the executive director is required. (See government grants SOP)</inlineHelpText>
+        <label>Original Grant Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Price_Per_Acre__c</fullName>
+        <externalId>false</externalId>
+        <formula>BirdReturns_Bid_Name__r.Round_1_Bid_Amount_Per_Acre__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Read-only field. Pulls in price per acre as requested by the bidder on the bid record.</inlineHelpText>
+        <label>Price Per Acre</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Program_Period__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the Program Period for this Bid/Contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Required field.  From the look-up icon, please select the name of the related Bird Returns Program Period.  If the Program Period does not exist, it must be created prior to saving a contract record.</inlineHelpText>
+        <label>Program Period</label>
+        <referenceTo>Bird_Returns_Program_Period__c</referenceTo>
+        <relationshipLabel>Contracts</relationshipLabel>
+        <relationshipName>Contracts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project_ID_1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the &quot;Look Up&quot; icon to search for the related Project and Award ID. Use the &quot;Search&quot; or &quot;Filters&quot; to locate the project and select the project name. For grants in you will not be able to fill this in until executed.</inlineHelpText>
+        <label>1) Project/Award ID</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <errorMessage>Please select an &quot;active&quot; Project ID.</errorMessage>
+            <filterItems>
+                <field>Project_IDs__c.Status__c</field>
+                <operation>equals</operation>
+                <value>Active</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.Status</field>
+                <operation>notEqual</operation>
+                <value>Draft</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Project_IDs__c</referenceTo>
+        <relationshipLabel>Contracts</relationshipLabel>
+        <relationshipName>Contracts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project_ID_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the &quot;Look Up&quot; icon to search for the related Project and Award ID. Use the &quot;Search&quot; or &quot;Filters&quot; to locate the project and select the project name. For grants in, you will not be able to fill this in until executed.</inlineHelpText>
+        <label>2) Project/Award ID</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <filterItems>
+                <field>Project_IDs__c.Status__c</field>
+                <operation>equals</operation>
+                <value>Active</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.Status</field>
+                <operation>notEqual</operation>
+                <value></value>
+            </filterItems>
+            <infoMessage>Please select an &quot;active&quot; Project ID.</infoMessage>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Project_IDs__c</referenceTo>
+        <relationshipLabel>Contracts (Project ID)</relationshipLabel>
+        <relationshipName>Contracts1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project_ID_3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the &quot;Look Up&quot; icon to search for the related Project and Award ID. Use the &quot;Search&quot; or &quot;Filters&quot; to locate the project and select the project name. For grants in, you will not be able to fill this in until executed.</inlineHelpText>
+        <label>3) Project/Award ID</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <filterItems>
+                <field>Project_IDs__c.Status__c</field>
+                <operation>equals</operation>
+                <value>Active</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.Status</field>
+                <operation>equals</operation>
+                <value>Draft</value>
+            </filterItems>
+            <infoMessage>Please select an &quot;active&quot; Project ID.</infoMessage>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Project_IDs__c</referenceTo>
+        <relationshipLabel>Contracts (Project ID)</relationshipLabel>
+        <relationshipName>Contracts2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Property_Management_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup field to link to a property record in the &quot;Property Management&quot; tab to a related contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the contract is related to an existing property management record in the &quot;Property Management&quot; tab, please use the look up feature and locate the property management record.</inlineHelpText>
+        <label>Property Management Unit Name</label>
+        <referenceTo>Property_Management__c</referenceTo>
+        <relationshipLabel>Non-Real Estate Contracts</relationshipLabel>
+        <relationshipName>Contracts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>QuickBooks_Class__c</fullName>
+        <externalId>false</externalId>
+        <label>QuickBooks Class</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Contract_Entity__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Alfalfa</fullName>
+                    <default>false</default>
+                    <label>Alfalfa</label>
+                </value>
+                <value>
+                    <fullName>Clean, Restore Ditches</fullName>
+                    <default>false</default>
+                    <label>Clean, Restore Ditches</label>
+                </value>
+                <value>
+                    <fullName>Control Seepage + Boils</fullName>
+                    <default>false</default>
+                    <label>Control Seepage + Boils</label>
+                </value>
+                <value>
+                    <fullName>Control Vegetation</fullName>
+                    <default>false</default>
+                    <label>Control Vegetation</label>
+                </value>
+                <value>
+                    <fullName>Corn</fullName>
+                    <default>false</default>
+                    <label>Corn</label>
+                </value>
+                <value>
+                    <fullName>DWR Phase 1 – Environmental Doc + Permit App</fullName>
+                    <default>false</default>
+                    <label>DWR Phase 1 – Environmental Doc + Permit App</label>
+                </value>
+                <value>
+                    <fullName>DWR Phase 1 – Planning and Design</fullName>
+                    <default>false</default>
+                    <label>DWR Phase 1 – Planning and Design</label>
+                </value>
+                <value>
+                    <fullName>DWR Phase 1 – Project Mgmt Admin + Reporting</fullName>
+                    <default>false</default>
+                    <label>DWR Phase 1 – Project Mgmt Admin + Reporting</label>
+                </value>
+                <value>
+                    <fullName>DWR Phase 1 – Stakeholder Outreach</fullName>
+                    <default>false</default>
+                    <label>DWR Phase 1 – Stakeholder Outreach</label>
+                </value>
+                <value>
+                    <fullName>Elevator</fullName>
+                    <default>false</default>
+                    <label>Elevator</label>
+                </value>
+                <value>
+                    <fullName>Environmental</fullName>
+                    <default>false</default>
+                    <label>Environmental</label>
+                </value>
+                <value>
+                    <fullName>Exterm. Rodents + Repair Damage</fullName>
+                    <default>false</default>
+                    <label>Exterm. Rodents + Repair Damage</label>
+                </value>
+                <value>
+                    <fullName>Housing/Building</fullName>
+                    <default>false</default>
+                    <label>Housing/Building</label>
+                </value>
+                <value>
+                    <fullName>Lease</fullName>
+                    <default>false</default>
+                    <label>Lease</label>
+                </value>
+                <value>
+                    <fullName>Levee Profiles + Cross Section</fullName>
+                    <default>false</default>
+                    <label>Levee Profiles + Cross Section</label>
+                </value>
+                <value>
+                    <fullName>Mill Repair</fullName>
+                    <default>false</default>
+                    <label>Mill Repair</label>
+                </value>
+                <value>
+                    <fullName>Non Crop</fullName>
+                    <default>false</default>
+                    <label>Non Crop</label>
+                </value>
+                <value>
+                    <fullName>Office</fullName>
+                    <default>false</default>
+                    <label>Office</label>
+                </value>
+                <value>
+                    <fullName>Overhead</fullName>
+                    <default>false</default>
+                    <label>Overhead</label>
+                </value>
+                <value>
+                    <fullName>Pasture</fullName>
+                    <default>false</default>
+                    <label>Pasture</label>
+                </value>
+                <value>
+                    <fullName>Plan for Flood Emergencies</fullName>
+                    <default>false</default>
+                    <label>Plan for Flood Emergencies</label>
+                </value>
+                <value>
+                    <fullName>Professional Services</fullName>
+                    <default>false</default>
+                    <label>Professional Services</label>
+                </value>
+                <value>
+                    <fullName>Ranch Overhead</fullName>
+                    <default>false</default>
+                    <label>Ranch Overhead</label>
+                </value>
+                <value>
+                    <fullName>RD 38 P.Install + Maintenance of Levee Gates</fullName>
+                    <default>false</default>
+                    <label>RD 38 P.Install + Maintenance of Levee Gates</label>
+                </value>
+                <value>
+                    <fullName>RD 38 Special Projects 5 year plan</fullName>
+                    <default>false</default>
+                    <label>RD 38 Special Projects 5 year plan</label>
+                </value>
+                <value>
+                    <fullName>Remove, Modify encroachments</fullName>
+                    <default>false</default>
+                    <label>Remove, Modify encroachments</label>
+                </value>
+                <value>
+                    <fullName>Remove Drift dep, litter, debris</fullName>
+                    <default>false</default>
+                    <label>Remove Drift dep, litter, debris</label>
+                </value>
+                <value>
+                    <fullName>Rep + Shape Patrol + Acc. Roads</fullName>
+                    <default>false</default>
+                    <label>Rep + Shape Patrol + Acc. Roads</label>
+                </value>
+                <value>
+                    <fullName>Repair, Restore Waterside Slop</fullName>
+                    <default>false</default>
+                    <label>Repair, Restore Waterside Slop</label>
+                </value>
+                <value>
+                    <fullName>Repair Minor Seepage, Erosion</fullName>
+                    <default>false</default>
+                    <label>Repair Minor Seepage, Erosion</label>
+                </value>
+                <value>
+                    <fullName>Routine Inspection of Levees</fullName>
+                    <default>false</default>
+                    <label>Routine Inspection of Levees</label>
+                </value>
+                <value>
+                    <fullName>Shape Levee Crown to Drain</fullName>
+                    <default>false</default>
+                    <label>Shape Levee Crown to Drain</label>
+                </value>
+                <value>
+                    <fullName>Shasta Big Springs</fullName>
+                    <default>false</default>
+                    <label>Shasta Big Springs</label>
+                </value>
+                <value>
+                    <fullName>Shop/Equipment</fullName>
+                    <default>false</default>
+                    <label>Shop/Equipment</label>
+                </value>
+                <value>
+                    <fullName>Supervision</fullName>
+                    <default>false</default>
+                    <label>Supervision</label>
+                </value>
+                <value>
+                    <fullName>TNC Cost</fullName>
+                    <default>false</default>
+                    <label>TNC Cost</label>
+                </value>
+                <value>
+                    <fullName>Underwater Surveys</fullName>
+                    <default>false</default>
+                    <label>Underwater Surveys</label>
+                </value>
+                <value>
+                    <fullName>Wheat/ Triticale</fullName>
+                    <default>false</default>
+                    <label>Wheat/ Triticale</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <valueName>Alfalfa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <valueName>Corn</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <valueName>Elevator</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <valueName>Environmental</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <valueName>Housing/Building</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <valueName>Mill Repair</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <valueName>Non Crop</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <valueName>Office</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <valueName>Pasture</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <valueName>Ranch Overhead</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <valueName>Shasta Big Springs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <valueName>Shop/Equipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <valueName>Supervision</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <valueName>TNC Cost</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <valueName>Wheat/ Triticale</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conservation Farms &amp; Ranches</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Clean, Restore Ditches</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Control Seepage + Boils</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Control Vegetation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Exterm. Rodents + Repair Damage</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Levee Profiles + Cross Section</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Overhead</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Plan for Flood Emergencies</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Professional Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <valueName>RD 38 P.Install + Maintenance of Levee Gates</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <valueName>RD 38 Special Projects 5 year plan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Remove, Modify encroachments</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Remove Drift dep, litter, debris</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Rep + Shape Patrol + Acc. Roads</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Repair, Restore Waterside Slop</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Repair Minor Seepage, Erosion</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Routine Inspection of Levees</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Shape Levee Crown to Drain</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 38</controllingFieldValue>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>Underwater Surveys</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>DWR Phase 1 – Environmental Doc + Permit App</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>DWR Phase 1 – Planning and Design</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>DWR Phase 1 – Project Mgmt Admin + Reporting</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Reclamation District 2110</controllingFieldValue>
+                <valueName>DWR Phase 1 – Stakeholder Outreach</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Source_of_Grant_Out__c</fullName>
+        <description>1/5/16 - Will use the grant type field instead when the new grant-out contract layout is released.  Values will be set in the grant type field and this field can be deleted.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please specify the source of grant out awards.</inlineHelpText>
+        <label>XDeprecated_Source of Grant Out</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Federal</fullName>
+                    <default>false</default>
+                    <label>Federal</label>
+                </value>
+                <value>
+                    <fullName>State</fullName>
+                    <default>false</default>
+                    <label>State</label>
+                </value>
+                <value>
+                    <fullName>Local</fullName>
+                    <default>false</default>
+                    <label>Local</label>
+                </value>
+                <value>
+                    <fullName>Private</fullName>
+                    <default>false</default>
+                    <label>Private</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sub_Agreement_Number__c</fullName>
+        <displayFormat>Sub-Agt-{MM}{DD}{YY}-{0000}</displayFormat>
+        <externalId>false</externalId>
+        <label>Sub-Agreement Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>Total_Active_Stakes__c</fullName>
+        <description>Not differentiating between active and inactive stakes; old idea that was never really implemented. Deprecating.</description>
+        <externalId>false</externalId>
+        <label>XDeprecated: Total Active Stakes</label>
+        <summaryFilterItems>
+            <field>Bird_Returns_Stake__c.Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Bird_Returns_Stake__c.Contract_ID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Amendment_Amount__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is a total of ALL approved amendments to the contract.</inlineHelpText>
+        <label>Total Amendment Amount</label>
+        <summarizedField>Contract_Amendment__c.Change_Contract_Amount_By__c</summarizedField>
+        <summaryFilterItems>
+            <field>Contract_Amendment__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Approved, Executed Amendment</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Contract_Amendment__c.Change_the_Contract_Amount__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Contract_Amendment__c.Contract_Number__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Contract_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>Original_Contract_Amount__c  +  Total_Amendment_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The original amount + the Total Amendment Amount (Total of all approved amendments)</inlineHelpText>
+        <label>Total Contract Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Grant_Amendment_Amount__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of related amendments where the status is &apos;Approved&apos; or &apos;Executed Amendment&apos;. (Read-Only)</inlineHelpText>
+        <label>Total Grant Amendment Amount</label>
+        <summarizedField>Contract_Amendment__c.Change_Contract_Amount_By__c</summarizedField>
+        <summaryFilterItems>
+            <field>Contract_Amendment__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Approved, Executed Amendment</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Contract_Amendment__c.Contract_Number__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <webLinks>
+        <fullName>New_Non_RE_BirdReturnsContract</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Non-RE BirdReturns Contract</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/800/e?ctrc7_lkid={!Bid__c.AccountId__c}&amp;CF00Na000000Arz7m={!Bid__c.Name}&amp;CF00Na000000AsOMP={!Bid__c.Program_Period__c}&amp;retURL=%2F{!Bid__c.Id}&amp;RecordType=012a00000018GZl&amp;ent=Contract</url>
+    </webLinks>
+</CustomObject>

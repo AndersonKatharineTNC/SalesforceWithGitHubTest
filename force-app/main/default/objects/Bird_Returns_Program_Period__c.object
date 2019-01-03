@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Represents the calendar periods that Bird Returns bids are associated with.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Competitive_Bid__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates if the bids entered in this program period are competitive or non-competitive.</inlineHelpText>
+        <label>Competitive Bid?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Definition_of_Compliance__c</fullName>
+        <description>Pulls down to Site Compliance Visits for this Program Period so Field Tech can view current definition. Now that we&apos;re not using Salesforce1 for compliance monitoring, this field is no longer necessary. Deprecating.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Pulls down to Site Compliance Visits for this Program Period so Field Tech can view current definition.</inlineHelpText>
+        <label>XDeprecated: Definition of Compliance</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <description>The last day of this program period</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The last day of this program period</inlineHelpText>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Minimum_Flooded_for_Compliance__c</fullName>
+        <description>The minimum % of field area that needs to be flooded to qualify as &quot;in compliance&quot; for rice fields in this program period.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The minimum % of field area that needs to be flooded to qualify as &quot;in compliance&quot; for rice fields in this program period.</inlineHelpText>
+        <label>XDeprecated: Minimum % Flooded</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Minimum_Stakes_in_Compliance__c</fullName>
+        <description>The minimum % of stakes that needs to be in compliance at a visit for rice fields in this program period. (Compliance criteria are in other fields.)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The minimum % of stakes that needs to be in compliance at a visit for rice fields in this program period. (Compliance criteria are in other fields.)</inlineHelpText>
+        <label>XDeprecated: Minimum % of Stakes</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Stake_Compliance_Level_Max__c</fullName>
+        <defaultValue>99</defaultValue>
+        <description>The maximum water level (in inches) that constitutes compliance for the program period</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The maximum water level (in inches) that constitutes compliance for the program period</inlineHelpText>
+        <label>Stake Compliance Level Max</label>
+        <precision>2</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Stake_Compliance_Level_Min__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Defines the minimum water level that constitutes &quot;in compliance&quot; condition for stakes in this program period.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Defines the minimum water level (in inches) that constitutes the &quot;in compliance&quot; condition for stakes in this program period.</inlineHelpText>
+        <label>Stake Compliance Level Min</label>
+        <precision>2</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Stake_Compliance_Min_or_Max__c</fullName>
+        <description>Defines the compliance condition for individual stakes in this program period; they need to be either below a maximum or above a minimum water level. Water level is defined in another field.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Defines the compliance condition for individual stakes in this program period; they need to be either below a maximum or above a minimum water level. Water level is defined in another field.</inlineHelpText>
+        <label>XDeprecated: Stake Compliance Min or Max</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Min</fullName>
+                    <default>false</default>
+                    <label>Min</label>
+                </value>
+                <value>
+                    <fullName>Max</fullName>
+                    <default>false</default>
+                    <label>Max</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <description>The first day of this program period</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The first day of this program period</inlineHelpText>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Program Period</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Bird Returns Program Period Name</label>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Program Periods</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>End_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Start_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>End_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATEDBY_USER</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATED_DATE</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Start_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>End_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CREATEDBY_USER</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CREATED_DATE</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Start_Date__c</searchFilterFields>
+        <searchFilterFields>End_Date__c</searchFilterFields>
+        <searchFilterFields>CREATEDBY_USER</searchFilterFields>
+        <searchFilterFields>CREATED_DATE</searchFilterFields>
+        <searchResultsAdditionalFields>Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>End_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

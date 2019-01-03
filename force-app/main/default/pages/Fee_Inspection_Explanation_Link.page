@@ -1,0 +1,17 @@
+<apex:page standardController="Annual_Inspection__c"  sidebar="false" showheader="false"    >
+
+  <apex:pageBlock mode="maindetail" >
+      <apex:pageBlockSection columns="1" >
+          <apex:outputText style="font-weight: bold" value="This record imported from an earlier format. Full content is the attached files below."></apex:outputText>
+    </apex:pageBlockSection>
+<br></br>
+	<apex:pageBlockSection columns="1" >
+        <apex:outputLink target="_blank" title="Link to original Fee Inspection record" value="/{!Annual_Inspection__c.Fee_Land_Inspection__r.Id}">Link to original Fee Inspection record.</apex:outputLink>  
+    </apex:pageBlockSection>
+<br></br>
+	<apex:pageBlockSection columns="1" >
+        <apex:outputLink target="_blank" title="2013 Guidance on Fee Land Inspections and Management" value="/servlet/servlet.FileDownload?file=015a0000002cCdc">2013 Guidance on Fee Land Inspections and Management.</apex:outputLink>  
+    </apex:pageBlockSection>     
+             
+    </apex:pageBlock>
+</apex:page>

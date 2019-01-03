@@ -1,0 +1,3 @@
+<apex:page standardController="Fee_Land_Inspection__c">
+<apex:iframe frameborder="0" width="100%" src="https://www.springcm.com/atlas/SForce/GetSFAccountDocs.aspx?sfoid={!Fee_Land_Inspection__c.Id}&sfsid={!$Api.Session_ID}&sfapiurl={!$Api.Partner_Server_URL_180}&sfreturl={!URLFOR($Action.Fee_Land_Inspection__c.View, Fee_Land_Inspection__c.id)}&sfon={!Fee_Land_Inspection__c.Name}" ></apex:iframe>
+</apex:page>

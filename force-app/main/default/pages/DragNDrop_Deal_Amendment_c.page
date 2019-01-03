@@ -1,0 +1,1 @@
+<apex:page standardController="Deal_Amendment__c"><CADragNDrop:FinalComponent parenId="{!$CurrentPage.parameters.Id}" /></apex:page>

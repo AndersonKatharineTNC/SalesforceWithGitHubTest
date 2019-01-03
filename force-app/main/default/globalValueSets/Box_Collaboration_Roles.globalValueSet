@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Editor</fullName>
+        <default>false</default>
+        <label>Editor</label>
+    </customValue>
+    <customValue>
+        <fullName>Viewer Uploader</fullName>
+        <default>false</default>
+        <label>Viewer Uploader</label>
+    </customValue>
+    <customValue>
+        <fullName>Previewer Uploader</fullName>
+        <default>false</default>
+        <label>Previewer Uploader</label>
+    </customValue>
+    <customValue>
+        <fullName>Viewer</fullName>
+        <default>false</default>
+        <label>Viewer</label>
+    </customValue>
+    <customValue>
+        <fullName>Previewer</fullName>
+        <default>false</default>
+        <label>Previewer</label>
+    </customValue>
+    <customValue>
+        <fullName>Uploader</fullName>
+        <default>false</default>
+        <label>Uploader</label>
+    </customValue>
+    <customValue>
+        <fullName>Co-Owner</fullName>
+        <default>false</default>
+        <label>Co-Owner</label>
+    </customValue>
+    <masterLabel>Box Collaboration Roles</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

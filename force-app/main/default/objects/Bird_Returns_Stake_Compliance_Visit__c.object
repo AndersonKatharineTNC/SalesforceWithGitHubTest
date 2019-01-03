@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Stake_Depth_Report_Default</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Stake_Depth_Report_Default</fullName>
+        <fields>Stake_Number__c</fields>
+        <fields>Bid_ID__c</fields>
+        <fields>Visit_Date__c</fields>
+        <label>Stake Depth Report Default</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Contains compliance data (water depth) for a visit to a particular stake on a site.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Bid_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Site_Compliance_Visit__r.Bid_Number__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Pulls in the bid id for the associated contract.</inlineHelpText>
+        <label>Bid ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Color__c</fullName>
+        <externalId>false</externalId>
+        <label>XDeprecated: Color</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Tan</fullName>
+                    <default>false</default>
+                    <label>Tan</label>
+                </value>
+                <value>
+                    <fullName>Green</fullName>
+                    <default>false</default>
+                    <label>Green</label>
+                </value>
+                <value>
+                    <fullName>Black</fullName>
+                    <default>false</default>
+                    <label>Black</label>
+                </value>
+                <value>
+                    <fullName>Yellow</fullName>
+                    <default>false</default>
+                    <label>Yellow</label>
+                </value>
+                <value>
+                    <fullName>Red</fullName>
+                    <default>false</default>
+                    <label>Red</label>
+                </value>
+                <value>
+                    <fullName>Blue</fullName>
+                    <default>false</default>
+                    <label>Blue</label>
+                </value>
+                <value>
+                    <fullName>White</fullName>
+                    <default>false</default>
+                    <label>White</label>
+                </value>
+                <value>
+                    <fullName>Dry</fullName>
+                    <default>false</default>
+                    <label>Dry</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contract_ID_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract ID Text</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_ID__c</fullName>
+        <description>I can&apos;t tell why this field was created. Removing from layout. Deprecate if determined to be unnecessary.</description>
+        <externalId>false</externalId>
+        <formula>Site_Compliance_Visit__r.Bid_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>In_Compliance__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determined via process (so that it can be used as a filter in aggregating the number of stakes in compliance at the site compliance visit and contract levels).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Automatically checked when the stake depth in inches is between the min and the max depth outlined on the program period.</inlineHelpText>
+        <label>In Compliance?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Level_Range__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(ispickval(Color__c,&quot;Tan&quot;),&quot;&gt;12&quot;,
+text(Min_Level__c) &amp; &quot; - &quot; &amp; text(Max_Level__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>XDeprecated: Level Range (Inches)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Max_Level__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case(Color__c, 
+&quot;Tan&quot;,null, 
+&quot;Green&quot;,12, 
+&quot;Black&quot;,10, 
+&quot;Yellow&quot;,8, 
+&quot;Red&quot;,6, 
+&quot;Blue&quot;,4, 
+&quot;White&quot;,2, 
+null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>XDeprecated: Max Level (Inches)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Min_Level__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case(Color__c,
+&quot;Tan&quot;,12,
+&quot;Green&quot;,10,
+&quot;Black&quot;,8,
+&quot;Yellow&quot;,6,
+&quot;Red&quot;,4,
+&quot;Blue&quot;,2,
+&quot;White&quot;,0,
+null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>XDeprecated: Min Level (Inches)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Site_Compliance_Visit__c</fullName>
+        <description>The Site Compliance Visit this Stake Compliance Visit is a part of.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Site Compliance Visit this Stake Compliance Visit is a part of.</inlineHelpText>
+        <label>Site Compliance Visit</label>
+        <referenceTo>Bird_Returns_Site_Compliance_Visit__c</referenceTo>
+        <relationshipLabel>Stake Depth Report</relationshipLabel>
+        <relationshipName>Stake_Compliance_Visits</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Stake_Depth_Inches__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Stake Depth in Inches</inlineHelpText>
+        <label>Stake Depth (Inches)</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Stake_Number__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Stake number (must be an integer).</inlineHelpText>
+        <label>Stake Number</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Stake_Report_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>SCVs can be conducted over multiple days. This is the date that this specific stake was recorded.</inlineHelpText>
+        <label>Stake Report Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Stake__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The Stake that this Stake Depth Report is for. Automatically populated via process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A lookup to the stake record associated with this Stake Depth Report. Automatically populated.</inlineHelpText>
+        <label>Stake</label>
+        <referenceTo>Bird_Returns_Stake__c</referenceTo>
+        <relationshipLabel>Stake Depth Report</relationshipLabel>
+        <relationshipName>Stake_Compliance_Visits</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Visit_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Site_Compliance_Visit__r.Visit_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Pulls in the date that the site compliance visit was completed. May be different from the Stake Report Date if the SCV was conducted over consecutive days.</inlineHelpText>
+        <label>Visit Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Stake Depth Report</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>SDR-{000000}</displayFormat>
+        <label>Stake Depth Report Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Stake Depth Report</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Stake__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Color__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Level_Range__c</lookupDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

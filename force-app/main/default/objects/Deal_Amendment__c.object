@@ -1,0 +1,1041 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A related list section on the Deal Acquisition and Assists (that include TNC entering into an option) page layout to track and manage amendments.  The amendment section is set up to route for approval separately from the Tract approval process.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the name of the person or organization with whom we are doing the transaction. This can be the seller for an acquisition or the transferee for a disposition. If you cannot find them, set up a new account or contact your Salesforce admin.</inlineHelpText>
+        <label>Account</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.Type</field>
+                <operation>notEqual</operation>
+                <value>Conservation Area</value>
+            </filterItems>
+            <infoMessage>Select the name of the person or organization with whom we are doing business. To create a new account, open the sidebar, click &apos;Create New...&apos; and then right click on Account and open in a new tab. Once you have saved the new Account, search for it here.</infoMessage>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Deal Amendments</relationshipLabel>
+        <relationshipName>Deal_Amendments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Acres__c</fullName>
+        <externalId>false</externalId>
+        <formula>Property_Management__r.Tract_Acres__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Acres</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Additional_Information__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe any other critical information to the funding of this deal and its associated costs. Irregularities in timing, special conditions to funding and other such information should be fully explained.</inlineHelpText>
+        <label>Additional Information</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Associate_Director_of_Science__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Associate Director of Science who is required to review and approve the amendment.</inlineHelpText>
+        <label>Associate Director of Science</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Tract_Amendments5</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Attorney__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Attorney who is required to review and approve the amendment.</inlineHelpText>
+        <label>Attorney</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Tract_Amendments3</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Basis_for_Conservation_Priority__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How does this property contribute to regional conservation goals? Beyond target species, what other conservation values does this deal protect or give us the ability to restore?</inlineHelpText>
+        <label>Basis for Conservation Priority</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CLS_Tract_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Property_Management__r.CLS_Tract_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CLS Tract Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Changes_to_Deal__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Described what has changed since the last approval.</inlineHelpText>
+        <label>Changes to Deal</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Climate_Change_Impact__c</fullName>
+        <description>Using available tools (Cal-Adapt, Data Basin, Velocity of Change data), summarize the projected climate change impacts in the region near the deal. What is projected end of century (2100) average temperature change under a low and high emissions scenario? What other potential impacts from climate change are projected? Cite sources of evidence for any described impacts.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Summarize the projected climate change impacts in this region using Cal-Adapt, etc. What are potential impacts from climate change? Include the projected end of century avg. temp. change under low and high emissions scenario. Cite sources/evidence.</inlineHelpText>
+        <label>Climate Change Impact</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Conditions_Precedent__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe all conditions precedent and required timing of same, such as TNC corporate approvals, third party approvals, appraisal, funding, survey, lot line adjustment, etc</inlineHelpText>
+        <label>Conditions Precedent</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Conservation_Data_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Conservation Data Manager who is required to review and approve the amendment.</inlineHelpText>
+        <label>Conservation Data Manager</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N30000003vVsPEAU</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Conservation_Targets__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>List and describe the conservation targets likely present on the property, their current status and if they are unique to the area. Describe how completion of this deal will contribute to the maintenance of the conservation targets.</inlineHelpText>
+        <label>Conservation Targets</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contribution_to_Conservation_Strategies__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What conservation problem does this deal address? And what solution will this deal demonstrate? How does this deal help achieve the outcomes identified in the Theory of Change for the relevant strategy?</inlineHelpText>
+        <label>Contribution to Conservation Strategies</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Critical_Assumptions__c</fullName>
+        <description>List the assumptions made by TNC in pursuing this deal.</description>
+        <externalId>false</externalId>
+        <label>Critical Assumptions</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Date_Acquired__c</fullName>
+        <externalId>false</externalId>
+        <formula>Property_Management__r.Date_Acquired__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Date Acquired</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Deal_Amendments__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe the new terms and actions that need approval.</inlineHelpText>
+        <label>Deal Amendments</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Deal_Overview__c</fullName>
+        <description>Project Overview</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe the structure of the transaction and goals of the deal briefly.</inlineHelpText>
+        <label>Deal Overview</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Describe_Compatible_Human_Use__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe compatible human use related to this project. This information is required in the REPAR form.</inlineHelpText>
+        <label>Describe Compatible Human Use</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Description_Other_Transaction_Terms__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a summary of the legal and financial terms of this Project. This should contain a description of the real estate or other transaction(s) that must be implemented to achieve the conservation objective. This info is required in the REPAR form.</inlineHelpText>
+        <label>Description/Other Transaction Terms</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Description_of_Prior_Approval__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Include a brief summary of the prior resolution.</inlineHelpText>
+        <label>Description of Prior Approval</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Deviation_from_Policies_and_Procedure__c</fullName>
+        <externalId>false</externalId>
+        <label>Deviation from Policies and Procedure</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>DirectorFinanceOperations__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Director of Finance &amp; Operations who is required to review and approve the amendment.</inlineHelpText>
+        <label>Director of Finance &amp; Operations</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N30000003vVpLEAU</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Director_of_Conservation_Programs__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Director of Conservation Programs who is required to review and approve the amendment.</inlineHelpText>
+        <label>Director of Conservation Programs</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Tract_AmendmentsnDg1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Director_of_Real_Estate__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Director of Real Estate who is required to review and approve the amendment.</inlineHelpText>
+        <label>XDepDirector of Conservation Investments</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Tract_Amendments9</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Ecological_Monitoring_Cost__c</fullName>
+        <externalId>false</externalId>
+        <label>Ecological Monitoring Costs</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Ecological_Monitoring__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe if and how TNC will monitor the conservation targets. This is a separate discussion from monitoring for legal compliance.</inlineHelpText>
+        <label>Ecological Monitoring</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Ecoregion__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(Property_Management__r.Ecoregion__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ecoregion</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Finance_Grants_Specialist__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Finance/Grants Specialist who is required to review and approve the amendment.</inlineHelpText>
+        <label>Finance/Grants Specialist</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Tract_Amendments7</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Grant_Funding_Donor_Restrictions__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Provide a summary of grant funding and/or donor restrictions that relate to the deal. Attach a copy of the grant agreement or restrictions to the &quot;Notes &amp; Attachments&quot; section.</inlineHelpText>
+        <label>Grant Funding/Donor Restrictions</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Internal_Reviews_and_Approval__c</fullName>
+        <externalId>false</externalId>
+        <label>Internal Reviews and Approval</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Key_Partner_s_Role_at_Conservation_Area__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Briefly describe the capacity each Partner brings and explain the role each Partner is expected to play.</inlineHelpText>
+        <label>Key Partner&apos;s Role at Conservation Area</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Key_Partners__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>List all government, funding, non-profit, take-out, research and other partners on this project.</inlineHelpText>
+        <label>Key Partners</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Managing_Attorney__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Managing Attorney who is required to review and approve the amendment.</inlineHelpText>
+        <label>Managing Attorney</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Tract_Amendments8</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Measurement_of_Conservation_Outcomes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Addresses the measurement of  the &quot;Critical Assumptions&quot; description field.</inlineHelpText>
+        <label>Measurement of Conservation Outcomes</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Monitoring_Plan_Implemented__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the level of the monitoring plan.</inlineHelpText>
+        <label>Monitoring Plan Implemented?</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Plan</fullName>
+                    <default>false</default>
+                    <label>No Plan</label>
+                </value>
+                <value>
+                    <fullName>Partial Plan</fullName>
+                    <default>false</default>
+                    <label>Partial Plan</label>
+                </value>
+                <value>
+                    <fullName>Plan Produced</fullName>
+                    <default>false</default>
+                    <label>Plan Produced</label>
+                </value>
+                <value>
+                    <fullName>Not Applicable</fullName>
+                    <default>false</default>
+                    <label>Not Applicable</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Monitoring_Transfers__c</fullName>
+        <externalId>false</externalId>
+        <label>Monitoring Transfers</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Opp_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Tract name for option amendments.</description>
+        <externalId>false</externalId>
+        <label>Original Deal Name</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Deal Amendments</relationshipLabel>
+        <relationshipName>Tract_Amendments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Other_Direct_Costs_Description__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Include details of appraisals, environmental assessments, closing costs, etc.</inlineHelpText>
+        <label>Other Direct Costs Description</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>PRC_Review_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>If the revised purchase price or grant-out amount is over $1M it will need to be reviewed by the PRC. There are other cases that may warrant PRC review, please work with your CIM staff and project attorney.</inlineHelpText>
+        <label>PRC Review Required</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Paralegal__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Paralegal who is required to review and approve the amendment.</inlineHelpText>
+        <label>Paralegal</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Tract_Amendments4</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Places_and_Partners__c</fullName>
+        <externalId>false</externalId>
+        <formula>Property_Management__r.Partners_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Places and Partners</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Private_Fundraising__c</fullName>
+        <externalId>false</externalId>
+        <label>Private Fundraising</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Program_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Program Director who is required to review and approve the amendment.</inlineHelpText>
+        <label>Program Director</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Tract_Amendments2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project_Manager_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Project Manager/Director who is required to review and approve the amendment.</inlineHelpText>
+        <label>Project Manager/Director</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Tract_Amendments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Property_Interest__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Property Interest associated with the Deal or Deal Amendment (if different from the property management unit).</inlineHelpText>
+        <label>Property Interest</label>
+        <referenceTo>Property_Interest__c</referenceTo>
+        <relationshipLabel>Deal Amendments</relationshipLabel>
+        <relationshipName>Deal_Amendments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Property_Management__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Property Management</label>
+        <referenceTo>Property_Management__c</referenceTo>
+        <relationshipName>Tract_Amendments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Proposed_Loan_Repayment_Schedule__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Discuss CA Reserves loan or LPF loan repayment time line.</inlineHelpText>
+        <label>Proposed Loan Repayment Schedule</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Real_Estate_Specialist__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of person advising on this deal as the Real Estate Specialist.</inlineHelpText>
+        <label>Real Estate Specialist</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Deal_Amendments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Regional_Managing_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Regional Managing Director who is required to review and approve the amendment.</inlineHelpText>
+        <label>Regional Managing Director</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N30000003vVt7EAE</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Resolution_of_Approval__c</fullName>
+        <defaultValue>&quot;Approvals: Any officer of The Nature Conservancy; the Division Director, Western Division of the North America Conservation Region; the California State Director; California Conservation Director; the California Director of Real Estate; or any person designated in writing by any such person may take any and all actions (including the execution, delivery, or acceptance of deeds and other legal documents), provided such actions are consistent with internal policies and procedures, necessary to implement the project as described above, including:&quot; &amp;
+&quot;* Acquire property, or a legal interest in the property, as described above.&quot; &amp;
+&quot;* Exchange [a portion of ] the Conservancy-owned __________ tract (without conservation restrictions, based on an ecological evaluation) for the ________ tract as described above.&quot; &amp;
+&quot;* Acquire exchange land and exchange it for the ________ tract as described above.&quot; &amp;        
+&quot;* Purchase the ______ tract as described above or acquire exchange land and exchange it for the _____ tract as described above.&quot; &amp;
+&quot;* Grant $______ to {enter organization name} for the [(acquisition of) or (acquisition of conservation easement on)] the property described above.&quot; &amp;
+&quot;* Make a ______ year loan of $_____ to ______ {enter organization name} for the [(acquisition of) or (acquisition of conservation easement on)] the property as described above. [; if at the end of _____ years, the loan has not been repaid, foreclose the mortgage on the property and sell the property to an appropriate government entity, conservation organization or conservation buyer for an amount that will maximize recovery of the Conservancy&apos;s costs.]&quot; &amp;
+&quot;* Assign option to _____ or another appropriate conservation organization or government agency as described above.&quot; &amp;
+&quot;* Transfer the property, or a legal interest in the property, such as a conservation easement, to ________ or another appropriate conservation organization or government agency.&quot; &amp; 
+&quot;* Transfer all or a portion of the property to a conservation buyer subject to appropriate use restrictions in the form of a conservation easement (with the right for TNC to hold the easement or transfer the easement to another appropriate entity) or deed restriction.&quot; &amp;
+&quot;* Sell portions of the property to a private individual or entity, without conservation restrictions, based on an ecological evaluation.&quot; &amp;
+&quot;* Manage the property as part of a TNC preserve.&quot; &amp;
+&quot;* Accept a grant award as described above, including the execution of any associated grant award agreements or other legal documents.&quot; &amp;
+&quot;* Encumber all or portions of the property with notices of grant agreement, deed restrictions or other appropriate documents to facilitate obtaining public or private funding in favor of the Conservancy or another cooperating entity or government agency.&quot; &amp; 
+&quot;* Lease, sell, or remove the buildings located on the property. &quot; &amp;
+&quot;* Dedicate the property as a _________{state nature preserve, etc.}.&quot; &amp;
+&quot;* Loan: Approximately &lt;$&gt;. &lt;#&gt; years. Land Preservation Fund or other sources acceptable to the Chief Financial and Administrative Officer or his/her designee. {If another source is planned, insert the source.}&quot; &amp;
+&quot;* Fundraise: up to &lt;$&gt;.  {In the event not all sources of income are obtained, the Operating Unit has the authority to fundraise up to this amount.}&quot;</defaultValue>
+        <description>Boilerplate Resolution of Approval list for amendments.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use &quot;Amend&quot; at beginning bullet if making change to previous bullet items in original REPAR. Add any new bullets that were not approved in the previous abstract.</inlineHelpText>
+        <label>Resolution of Approval</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Risk_Mitigation__c</fullName>
+        <externalId>false</externalId>
+        <label>Risk Mitigation</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Second_Science_Advisor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Second Science Advisor who is required to review and approve the amendment.</inlineHelpText>
+        <label>Second Science Advisor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Tract_Amendments6</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Senior_Project_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the Senior Project Director who is required to review and approve the amendment.</inlineHelpText>
+        <label>Senior Project Director</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Tract_Amendments1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Significance_of_the_Conservation_Area__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe the Ecoregional significance of the conservation area. This information is required in the REPAR form.</inlineHelpText>
+        <label>Significance of the Conservation Area</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Sources_of_Funds__c</fullName>
+        <externalId>false</externalId>
+        <label>Sources of Funds</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Staffing_in_Place__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the status of staffing for this project?</inlineHelpText>
+        <label>Staffing in Place?</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Staff</fullName>
+                    <default>false</default>
+                    <label>No Staff</label>
+                </value>
+                <value>
+                    <fullName>Partial Staff</fullName>
+                    <default>false</default>
+                    <label>Partial Staff</label>
+                </value>
+                <value>
+                    <fullName>Complete Staff</fullName>
+                    <default>false</default>
+                    <label>Complete Staff</label>
+                </value>
+                <value>
+                    <fullName>Not Applicable</fullName>
+                    <default>false</default>
+                    <label>Not Applicable</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>State_Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, please select the name of the State Director who is required to review and approve the amendment.</inlineHelpText>
+        <label>State Director</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N30000003vVsFEAU</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>In Approval Process</fullName>
+                    <default>false</default>
+                    <label>In Approval Process</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Executed Amendment</fullName>
+                    <default>false</default>
+                    <label>Executed Amendment</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status_of_Funding__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe the status of all funding sources.</inlineHelpText>
+        <label>Status of Funding</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Stewardship__c</fullName>
+        <externalId>false</externalId>
+        <label>Stewardship Costs</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>TNC_Interest_Book_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>Property_Management__r.TNC_Interest_Book_Value__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TNC Interest Book Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>TNC_s_Presence__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe the Conservancy&apos;s specific role at the conservation area, and why we are best suited to play that role.</inlineHelpText>
+        <label>TNC&apos;s Presence</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Threats_to_be_Abated__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe the primary threats to the conservation targets and how this project helps to mitigate them. (If there is a risk that the project will not mitigate the threats, describe as a “conservation risk” in the Risk Assessment field).</inlineHelpText>
+        <label>Threats to be Abated</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Tract_Name__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Property Interest Name (if different from Property Management Unit)</inlineHelpText>
+        <label>Property Interest Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Deal Amendment</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>Amendment-{MMDDYYYY}-{000}</displayFormat>
+        <label>Deal Amendment Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Deal Amendments</pluralLabel>
+    <recordTypes>
+        <fullName>Deal_Amendment</fullName>
+        <active>true</active>
+        <description>Amendment documenting recorded changes on a TNC property. Used to create the Real Estate Project Amendment document.</description>
+        <label>RE Project Amendment</label>
+        <picklistValues>
+            <picklist>Monitoring_Plan_Implemented__c</picklist>
+            <values>
+                <fullName>No Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plan Produced</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Staffing_in_Place__c</picklist>
+            <values>
+                <fullName>Complete Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial Staff</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Executed Amendment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Approval Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Option_Amendment</fullName>
+        <active>true</active>
+        <description>Any change made to the option agreement. Use this option if the terms of the option have changed before the deal closes.</description>
+        <label>Option or PSA Amendment</label>
+        <picklistValues>
+            <picklist>Monitoring_Plan_Implemented__c</picklist>
+            <values>
+                <fullName>No Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plan Produced</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Staffing_in_Place__c</picklist>
+            <values>
+                <fullName>Complete Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial Staff</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Executed Amendment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Approval Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>New_Option_Amendment</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Option Amendment</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/a0l/e?CF00Na000000AqAUE=J%26R+Properties&amp;CF00Na000000AqAUE_lkid={!Opportunity.Id}&amp;retURL=%2F{!Opportunity.Id}&amp;RecordType=012a00000018Bg1&amp;ent=01I30000000fMzM</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_RE_Deal_Amendment</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New RE Deal Amendment</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/a0l/e?CF00Na000000AqAUE={!Opportunity.Name}&amp;CF00Na000000AqAUE_lkid={!Opportunity.Id}&amp;retURL=%2F{!Opportunity.Id}&amp;
+00N30000009gD5w={!Opportunity.Project_Significance__c}&amp;
+CF00Na000000B8r5r={!Opportunity.Account}&amp;
+CF00Na000000B8r5r_lkid={!Opportunity.AccountId}&amp;
+00N30000003wEYT={!Opportunity.Significance_of_Cons__c}&amp;
+00N30000003wEYd={!Opportunity.TNC_Role_at_Cons__c}&amp;
+00N30000003wEYc={!Opportunity.Conservation_Strategies__c}&amp;
+00N30000003wEYV={!Opportunity.Features_to_be_Protected__c}&amp;
+00N30000003wEYr={!Opportunity.Threats_to_be_Abated__c}&amp;
+00Na000000B8r5c={!Opportunity.Climate_Change_Impact__c}&amp;
+00N30000003wEZ6={!Opportunity.Measurement_of_Conservation_Outcomes__c}&amp;
+00N30000009gD6u={!Opportunity.Ecological_Monitoring_Costs__c}&amp;
+00N30000003wEYX={!Opportunity.Proposed_Loan_Repayment_Schedule__c}&amp;
+00N30000003wEYJ={!Opportunity.Status_of_Funding__c}&amp;
+00N30000009gD79={!Opportunity.Private_Fundraising__c}&amp;
+00N30000003wEYI={!Opportunity.Other_Direct_Costs_Description__c}&amp;
+00Na000000B8r5m={!Opportunity.Grant_Funding_Donor_Restrictions__c}&amp;
+00N30000003wEYS={!Opportunity.Conditions_Precedent__c}&amp;
+00N30000003wEYY={!Opportunity.Compatible_Human_Use__c}&amp;
+00N30000009gD7n={!Opportunity.Internal_Reviews_and_Approval__c}&amp;
+00N30000009gD7Y={!Opportunity.Deviation_from_Policies_and_Procedures__c}&amp;
+00N30000009gD7d={!Opportunity.Risks_Related_Cons__c}&amp;
+00N30000003wEdJ={!Opportunity.Conservation_Monitoring_Plan__c}&amp;
+00N30000009gD7i={!Opportunity.Transfer_Restrictions__c}&amp;
+00N30000003wEYQ={!Opportunity.Cons_Steward_Staffing__c}&amp;
+00N30000009gD6f={!Opportunity.Stewardship_Funds__c}&amp;
+CF00N30000003vVpA={!Opportunity.OwnerFullName}&amp;
+CF00N30000003vVpK={!Opportunity.Program_Director__c}&amp;
+CF00N30000003vVsO={!Opportunity.Finance_Analyst_Grants_Specialist__c}&amp;
+CF00N30000003vVs4={!Opportunity.Attorney__c}&amp;
+CF00N30000003vVsE={!Opportunity.Associate_Director_of_Science__c}&amp;
+RecordType=012a00000018D2c&amp;ent=01I30000000fMzM</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_RE_Project_Amendment</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Real Estate Project Amendment</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/a0l/e?CF00N30000009gD5c={!Property_Management__c.Name}&amp;CF00N30000009gD5c_lkid={!Property_Management__c.Id}&amp;retURL=%2F{!Property_Management__c.Id}&amp;RecordType=012a00000018D2c&amp;ent=01I30000000fMzM</url>
+    </webLinks>
+</CustomObject>
